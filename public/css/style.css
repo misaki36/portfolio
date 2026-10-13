@@ -129,3 +129,106 @@ body {
   color: var(--color-text-sub);
   /* ↑ Figmaの「日/英見出しの下」と同じ：14px・行間150%・文字の間10%・text/サブ */
 }
+
+
+
+/* ==================================================
+   5. ヘッダー
+   ================================================== */
+
+.header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+  /* ↑ ヘッダーの下に細い線を引く（Figmaと同じ line/線 の色） */
+}
+
+.header__inner {
+  display: flex;
+  /* ↑ 中のもの（ロゴとメニュー）を横に並べる */
+  align-items: center;
+  /* ↑ 上下の真ん中にそろえる */
+  justify-content: space-between;
+  /* ↑ ロゴを左はし、メニューを右はしに置く */
+  height: 96px;
+}
+
+.header__logo {
+  display: block;
+  width: 56px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  /* ↑ メニューとお問い合わせボタンの間かく */
+}
+
+.header__list {
+  display: flex;
+  gap: 24px;
+  /* ↑ メニュー同士の間かく（Figmaで決めた24） */
+}
+
+.header__link {
+  display: flex;
+  flex-direction: column;
+  /* ↑ 英語と日本語を縦に並べる */
+  align-items: center;
+  /* ↑ 英語と日本語の真ん中をそろえる */
+  width: 100px;
+  /* ↑ 3つの幅を同じにして、間かくがそろって見えるようにする（Figmaで決めたW100） */
+  transition: opacity 0.3s;
+  /* ↑ マウスを乗せたときの変化を、0.3秒かけてふわっとさせる */
+}
+
+.header__link-en {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  /* ↑ Figmaの「英/メニュー」：Medium・16px・行間100%・文字の間6% */
+}
+
+.header__link-ja {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-sub);
+  /* ↑ Figmaの「本文/注意書き」：12px・行間160%・text/サブ */
+}
+
+.header__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* ↑ 中の文字を、上下・左右とも真ん中に置く */
+  width: 180px;
+  height: 52px;
+  background-color: var(--color-text);
+  color: var(--color-white);
+  transition: opacity 0.3s;
+}
+
+.header__contact-en {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.header__contact-ja {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ----- マウスを乗せたとき ----- */
+.header__link:hover,
+.header__contact:hover {
+  opacity: 0.7;
+  /* ↑ 少しうすくして「押せるよ」と伝える */
+}

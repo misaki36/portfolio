@@ -33,6 +33,56 @@
   <body>
   <!-- ↑ 画面に表示されるものを書く場所 -->
 
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+    <!-- ↑ header は「ページの頭の部分」という意味のタグ -->
+
+      <div class="header__inner inner">
+      <!-- ↑ class を2つつけている。header__inner（ヘッダー用の設定）と inner（幅をそろえる共通パーツ） -->
+
+        <a class="header__logo" href="index.html">
+        <!-- ↑ ロゴを押すとトップページに戻るリンク -->
+          <img src="images/logo-seal.svg" alt="Kuwamoto Misaki トップページへ" width="56" height="56">
+          <!-- ↑ alt は画像が見えない人（読み上げソフト）向けの説明。
+                 width と height を書いておくと、画像を読み込む前から場所が確保されて、ページがガタッとずれない -->
+        </a>
+
+        <nav class="header__nav" aria-label="メインメニュー">
+        <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
+
+          <ul class="header__list">
+          <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
+            <li>
+              <a class="header__link" href="works.html">
+                <span class="header__link-en">works</span>
+                <span class="header__link-ja">制作実績</span>
+              </a>
+            </li>
+            <li>
+              <a class="header__link" href="about.html">
+                <span class="header__link-en">about me</span>
+                <span class="header__link-ja">私について</span>
+              </a>
+            </li>
+            <li>
+              <a class="header__link" href="contact.html#flow">
+              <!-- ↑ #flow は「contact.html の中の flow という場所まで飛ぶ」という意味 -->
+                <span class="header__link-en">flow</span>
+                <span class="header__link-ja">ご依頼の流れ</span>
+              </a>
+            </li>
+          </ul>
+
+          <a class="header__contact" href="contact.html">
+          <!-- ↑ お問い合わせボタン -->
+            <span class="header__contact-en">contact</span>
+            <span class="header__contact-ja">お問い合わせ</span>
+          </a>
+
+        </nav>
+      </div>
+    </header>
+
     <div class="inner">
     <!-- ↑ 中身の幅をそろえる箱 -->
 
