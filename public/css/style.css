@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/* ↑ 「このCSSファイルは日本語も使うよ」という合図。必ず1行目に書く */
+
+
+/* ==================================================
+   1. 色とフォントのルール（Figmaのスタイルをここに写す）
+   ================================================== */
+
+:root {
+  /* :root は「ページ全体」という意味。ここに書いた値は、どこからでも使える */
+
+  /* ----- 色（Figmaのカラースタイルと同じ） ----- */
+  --color-bg: #FAF8F5;        /* base/背景 */
+  --color-bg-sub: #EFE7DD;    /* base/背景サブ */
+  --color-white: #FFFFFF;     /* base/白 */
+  --color-text: #3B2A22;      /* text/メイン */
+  --color-text-sub: #8A7A6E;  /* text/サブ */
+  --color-accent: #9C6B4E;    /* accent/スタンプ */
+  --color-line: #E4DAD0;      /* line/線 */
+
+  /* ----- フォント ----- */
+  --font-en: "Cormorant Garamond", serif;       /* 英語の見出し・メニュー */
+  --font-mincho: "Shippori Mincho", serif;      /* 日本語の見出し */
+  --font-gothic: "Zen Kaku Gothic New", sans-serif; /* 本文・ボタン */
+}
+
+
+/* ==================================================
+   2. リセット（ブラウザが勝手につける余白などを消す）
+   ================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* ↑ 幅や高さに、内側の余白（padding）と線（border）を含めて計算する設定。Figmaと同じ考え方になる */
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+  /* ↑ ブラウザが最初からつけている外側の余白を0にする */
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  /* ↑ リストの「・」と左の余白を消す（メニューなどで使うため） */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* ↑ 画像が箱からはみ出さないようにする。height: auto で縦横の比率を保つ */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* ↑ リンクの青色と下線を消して、まわりの文字と同じ色にする */
+}
+
+
+/* ==================================================
+   3. ページ全体の基本（本文/ふつう のスタイル）
+   ================================================== */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-gothic);
+  font-size: 16px;
+  line-height: 1.8;
+  /* ↑ Figmaの「本文/ふつう」と同じ：Zen Kaku Gothic New・16px・行間180% */
+}

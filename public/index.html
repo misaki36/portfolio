@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- ↑ 「このファイルはHTMLで書いてあるよ」とブラウザに伝える合図。必ず1行目に書く -->
+
+<html lang="ja">
+<!-- ↑ ページ全体を包む箱。lang="ja" は「日本語のページです」という意味（読み上げソフトや検索エンジンが使う） -->
+
+  <head>
+  <!-- ↑ 画面には出ない「ページの設定」を書く場所 -->
+
+    <meta charset="UTF-8">
+    <!-- ↑ 文字の種類の指定。これがないと日本語が文字化けすることがある -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ↑ スマホで見たときに、画面の幅に合わせて表示する設定 -->
+
+    <title>Kuwamoto Misaki | Webデザイナー</title>
+    <!-- ↑ ブラウザのタブに出る名前。検索結果のタイトルにもなる -->
+
+    <meta name="description" content="教室・イベントのチラシやホームページを、デザインから公開までひとりで手がけるWebデザイナー、桑本美咲のポートフォリオサイトです。">
+    <!-- ↑ 検索結果のタイトルの下に出る説明文 -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+    <!-- ↑ Figmaで使った3つのフォントを読み込む。wght@400;500 は「Regular と Medium の太さだけ使う」という意味（使う太さだけにすると軽くなる） -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ↑ 自分で書くCSSファイルを読み込む。フォントのあとに書くのがポイント -->
+  </head>
+
+  <body>
+  <!-- ↑ 画面に表示されるものを書く場所 -->
+
+    <p class="test">ポートフォリオ制作スタート</p>
+    <!-- ↑ 動作確認用の仮の文字。あとで消す -->
+
+    <script src="js/main.js" defer></script>
+    <!-- ↑ JavaScriptファイルを読み込む。defer は「HTMLを全部読み終わってから動かしてね」という意味 -->
+  </body>
+
+</html>
