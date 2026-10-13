@@ -520,9 +520,9 @@ translate: 20px -60px;
   gap: 24px;
   width: max-content;
   /* ↑ 箱の幅を「中身（カード12枚）がちょうど入る幅」にする */
-  animation: works-loop 40s linear infinite;
-  /* ↑ 下で作る「works-loop」という動きを、40秒かけて、同じ速さで、ずっとくり返す
-       数字を大きくするとゆっくり、小さくすると速くなる */
+  animation: works-loop 150s linear infinite;
+  /* ↑ 下で作る「works-loop」という動きを、150秒かけて、同じ速さで、ずっとくり返す
+    数字を大きくするとゆっくり、小さくすると速くなる */
 }
 
 .works__list > li {
@@ -600,4 +600,44 @@ translate: 20px -60px;
   margin-top: 56px;
   text-align: center;
   /* ↑ ボタンを真ん中に置く */
+}
+
+
+
+/* ==================================================
+   9. トップページ：CONCEPT
+   ================================================== */
+
+.concept__body {
+  display: flex;
+  align-items: center;
+  /* ↑ シーリングと文章を、上下の真ん中でそろえる */
+  justify-content: center;
+  /* ↑ シーリングと文章のまとまりを、左右の真ん中に置く
+       （Figmaで「右側があいて左に寄って見える」と話したところを、ここで解決） */
+  gap: 120px;
+  /* ↑ シーリングと文章の間かく */
+  margin-top: 48px;
+}
+
+.concept__seal {
+  flex-shrink: 0;
+  /* ↑ 画面がせまくなっても、シーリングを縮ませない */
+  width: 300px;
+  translate: -60px 0;
+  /* ↑ 見た目だけ左に60px動かす（文章の位置は変わらない） */
+}
+
+.concept__heading {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  /* ↑ Figmaの「日/見出し」：Medium・24px・行間150%・文字の間4% */
+}
+
+.concept__desc {
+  margin-top: 24px;
+  /* ↑ 文字の大きさや行間は、body に書いた「本文/ふつう」がそのまま効くので書かなくてOK */
 }
