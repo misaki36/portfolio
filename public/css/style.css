@@ -729,3 +729,83 @@ body {
     background-color: var(--color-bg-sub);
     /* ↑ 写真を読み込む前は、うすいベージュの丸を出しておく */
 }
+
+
+
+/* ==================================================
+   11. トップページ：FLOW
+   ================================================== */
+
+.flow__list {
+  position: relative;
+  /* ↑ 丸をつなぐ横線（下の ::before）の位置の基準にする */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* ↑ repeat(5, 1fr) は「同じ幅の列を5つ作る」という意味 */
+  margin-top: 64px;
+}
+
+.flow__list::before {
+  content: "";
+  position: absolute;
+  top: 60px;
+  /* ↑ 丸の高さ120pxの半分 → 丸の真ん中の高さに線を引く */
+  left: 10%;
+  right: 10%;
+  /* ↑ 1列は全体の20%。その真ん中は10%の位置
+       → 1つ目の丸の真ん中から、5つ目の丸の真ん中まで線を引く */
+  height: 1px;
+  background-color: var(--color-line);
+}
+
+.flow__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ↑ 丸・見出し・説明文を、縦に並べて真ん中にそろえる */
+  text-align: center;
+}
+
+.flow__num {
+  position: relative;
+  /* ↑ 横線より上に表示するため（position をつけたものは、つけていないものより前に出る） */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ↑ 数字を丸の真ん中に置く */
+  width: 120px;
+  height: 120px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  /* ↑ 白で塗りつぶして、後ろの横線を隠す（丸の中に線が見えないように） */
+  font-family: var(--font-mincho);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.flow__title {
+  margin-top: 24px;
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  /* ↑ 「日/小見出し」 */
+}
+
+.flow__text {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-sub);
+  /* ↑ 「本文/小さい」：14px・行間170%・text/サブ */
+}
+
+.flow__btns {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 64px;
+}
