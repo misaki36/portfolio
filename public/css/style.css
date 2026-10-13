@@ -232,3 +232,74 @@ body {
   opacity: 0.7;
   /* ↑ 少しうすくして「押せるよ」と伝える */
 }
+
+
+
+/* ==================================================
+   6. フッター
+   ================================================== */
+
+.footer {
+  background-color: var(--color-bg-sub);
+  padding-block: 64px 32px;
+  /* ↑ padding-block は「上と下の内側の余白」。上64px・下32px */
+}
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* ↑ ロゴと名前を左、メニューを右に置く */
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  /* ↑ ロゴと名前を横に並べて、間を16pxあける */
+}
+
+.footer__brand img {
+  width: 56px;
+}
+
+.footer__name {
+  font-family: var(--font-en);
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  /* ↑ Figmaの「英/名前」：32px・行間120%・文字の間4% */
+}
+
+.footer__sns {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.footer__sns-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  /* ↑ マークと文字を縦に並べる */
+  font-size: 12px;
+  color: var(--color-text-sub);
+  transition: opacity 0.3s;
+}
+
+.footer__sns-link:hover {
+  opacity: 0.7;
+}
+
+.footer__copy {
+  display: block;
+  /* ↑ small は最初は横に並ぶタイプなので、1行まるごと使う箱にする */
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+  /* ↑ コピーライトの上に区切りの線を引く */
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
