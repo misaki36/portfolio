@@ -79,3 +79,53 @@ body {
   line-height: 1.8;
   /* ↑ Figmaの「本文/ふつう」と同じ：Zen Kaku Gothic New・16px・行間180% */
 }
+
+
+
+/* ==================================================
+   4. 共通パーツ（いろんな場所で使い回すもの）
+   ================================================== */
+
+/* ----- 中身の幅をそろえる箱 ----- */
+.inner {
+  max-width: 1240px;
+  /* ↑ 中身が広がりすぎないように、最大の幅を決める
+       （Figmaの中身の幅1200px ＋ 左右の余白20px×2 = 1240px） */
+  margin-inline: auto;
+  /* ↑ 左右の外側の余白を自動にする → 画面の真ん中に置かれる */
+  padding-inline: 20px;
+  /* ↑ 左右の内側の余白。スマホで文字が画面のはしにくっつかないようにする */
+}
+
+/* ----- セクションの見出し（WORKS / 制作実績 の形） ----- */
+.section-title {
+  font-weight: 400;
+  /* ↑ h2 は最初から太字になっているので、ふつうの太さに戻す */
+}
+
+.section-title__en {
+  display: block;
+  /* ↑ 1行まるごと使う箱にする（日本語を下の行に出すため） */
+  font-family: var(--font-en);
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  /* ↑ Figmaの「英/大見出し」と同じ：40px・行間120%・文字の間8% */
+}
+
+.section-title__en::first-letter {
+  color: var(--color-accent);
+  /* ↑ ::first-letter は「最初の1文字だけ」という意味。W・C・A・F が茶色になる */
+}
+
+.section-title__ja {
+  display: block;
+  margin-top: 8px;
+  /* ↑ 英語との間を少しあける */
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: var(--color-text-sub);
+  /* ↑ Figmaの「日/英見出しの下」と同じ：14px・行間150%・文字の間10%・text/サブ */
+}
