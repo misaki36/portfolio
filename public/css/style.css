@@ -131,6 +131,47 @@ body {
 }
 
 
+/* ----- セクションの上下の余白 ----- */
+.section {
+  padding-block: 100px;
+  /* ↑ どのセクションも上下100pxの余白にそろえる（Figmaでそろえた余白） */
+}
+
+/* ----- ボタン ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* ↑ 文字をボタンの真ん中に置く */
+  min-width: 200px;
+  height: 52px;
+  padding-inline: 32px;
+  border: 1px solid var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  /* ↑ Figmaの「本文/ボタン」：Medium・14px・行間100%・文字の間6% */
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn--sub {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  /* ↑ btn_サブ：白い箱にこげ茶の文字 */
+}
+
+.btn--main {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  /* ↑ btn_メイン：こげ茶の箱に白い文字 */
+}
+
+
 
 /* ==================================================
    5. ヘッダー
@@ -460,4 +501,103 @@ translate: 20px -60px;
   letter-spacing: 0.06em;
   color: var(--color-text-sub);
   text-align: center;
+}
+
+
+
+/* ==================================================
+   8. トップページ：WORKS
+   ================================================== */
+
+.works__slider {
+  margin-top: 48px;
+  overflow: hidden;
+  /* ↑ 窓からはみ出したカードを隠す */
+}
+
+.works__list {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  /* ↑ 箱の幅を「中身（カード12枚）がちょうど入る幅」にする */
+  animation: works-loop 40s linear infinite;
+  /* ↑ 下で作る「works-loop」という動きを、40秒かけて、同じ速さで、ずっとくり返す
+       数字を大きくするとゆっくり、小さくすると速くなる */
+}
+
+.works__list > li {
+  flex-shrink: 0;
+  width: 384px;
+}
+
+/* ----- マウスを乗せたら止める ----- */
+.works__slider:hover .works__list,
+.works__slider:focus-within .works__list {
+  animation-play-state: paused;
+  /* ↑ マウスを乗せたとき・Tabキーでカードを選んだときは止める（ゆっくり見られるように） */
+}
+
+/* ----- 流れる動きの中身 ----- */
+@keyframes works-loop {
+  /* ↑ @keyframes は「動きのレシピ」。from（はじめ）から to（おわり）まで変化する */
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 12px));
+    /* ↑ 列の幅の半分（＝カード6枚分）だけ左に動かす
+         −12px は、カードとカードのすき間24pxの半分。これがないと、つなぎ目で少しガクッとずれる */
+  }
+}
+
+/* ----- 動きが苦手な人への配慮 ----- */
+@media (prefers-reduced-motion: reduce) {
+  /* ↑ パソコンやスマホの設定で「視差効果を減らす」をオンにしている人には */
+  .works__list {
+    animation: none;
+    /* ↑ 動きを止める */
+  }
+  .works__slider {
+    overflow-x: auto;
+    /* ↑ 代わりに、自分で横にスクロールして見られるようにする */
+  }
+}
+
+.work-card {
+  display: block;
+}
+
+.work-card__thumb {
+  aspect-ratio: 3 / 2;
+  /* ↑ 横3：縦2の比率の箱にする */
+  background-color: var(--color-bg-sub);
+  transition: opacity 0.3s;
+}
+
+.work-card:hover .work-card__thumb {
+  opacity: 0.8;
+  /* ↑ カードにマウスを乗せたら、画像を少しうすくする */
+}
+
+.work-card__tag {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-sub);
+}
+
+.work-card__title {
+  margin-top: 4px;
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  /* ↑ Figmaの「日/小見出し」：Medium・18px・行間150%・文字の間4% */
+}
+
+.works__btn-wrap {
+  margin-top: 56px;
+  text-align: center;
+  /* ↑ ボタンを真ん中に置く */
 }
