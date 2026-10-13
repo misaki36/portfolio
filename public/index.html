@@ -4,8 +4,8 @@
 <html lang="ja">
 <!-- ↑ ページ全体を包む箱。lang="ja" は「日本語のページです」という意味（読み上げソフトや検索エンジンが使う） -->
 
-  <head>
-  <!-- ↑ 画面には出ない「ページの設定」を書く場所 -->
+<head>
+    <!-- ↑ 画面には出ない「ページの設定」を書く場所 -->
 
     <meta charset="UTF-8">
     <!-- ↑ 文字の種類の指定。これがないと日本語が文字化けすることがある -->
@@ -23,151 +23,203 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+        rel="stylesheet">
     <!-- ↑ Figmaで使った3つのフォントを読み込む。wght@400;500 は「Regular と Medium の太さだけ使う」という意味（使う太さだけにすると軽くなる） -->
 
     <link rel="stylesheet" href="css/style.css">
     <!-- ↑ 自分で書くCSSファイルを読み込む。フォントのあとに書くのがポイント -->
-  </head>
+</head>
 
-  <body>
-  <!-- ↑ 画面に表示されるものを書く場所 -->
+<body>
+    <!-- ↑ 画面に表示されるものを書く場所 -->
 
     <!-- ==================== ヘッダー ==================== -->
     <header class="header">
-    <!-- ↑ header は「ページの頭の部分」という意味のタグ -->
+        <!-- ↑ header は「ページの頭の部分」という意味のタグ -->
 
-      <div class="header__inner inner">
-      <!-- ↑ class を2つつけている。header__inner（ヘッダー用の設定）と inner（幅をそろえる共通パーツ） -->
+        <div class="header__inner inner">
+            <!-- ↑ class を2つつけている。header__inner（ヘッダー用の設定）と inner（幅をそろえる共通パーツ） -->
 
-        <a class="header__logo" href="index.html">
-        <!-- ↑ ロゴを押すとトップページに戻るリンク -->
-          <img src="images/logo-seal.svg" alt="Kuwamoto Misaki トップページへ" width="56" height="56">
-          <!-- ↑ alt は画像が見えない人（読み上げソフト）向けの説明。
+            <a class="header__logo" href="index.html">
+                <!-- ↑ ロゴを押すとトップページに戻るリンク -->
+                <img src="images/logo-seal.svg" alt="Kuwamoto Misaki トップページへ" width="56" height="56">
+                <!-- ↑ alt は画像が見えない人（読み上げソフト）向けの説明。
                  width と height を書いておくと、画像を読み込む前から場所が確保されて、ページがガタッとずれない -->
-        </a>
+            </a>
 
-        <nav class="header__nav" aria-label="メインメニュー">
-        <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
+            <nav class="header__nav" aria-label="メインメニュー">
+                <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 
-          <ul class="header__list">
-          <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
-            <li>
-              <a class="header__link" href="works.html">
-                <span class="header__link-en">works</span>
-                <span class="header__link-ja">制作実績</span>
-              </a>
-            </li>
-            <li>
-              <a class="header__link" href="about.html">
-                <span class="header__link-en">about me</span>
-                <span class="header__link-ja">私について</span>
-              </a>
-            </li>
-            <li>
-              <a class="header__link" href="contact.html#flow">
-              <!-- ↑ #flow は「contact.html の中の flow という場所まで飛ぶ」という意味 -->
-                <span class="header__link-en">flow</span>
-                <span class="header__link-ja">ご依頼の流れ</span>
-              </a>
-            </li>
-          </ul>
+                <ul class="header__list">
+                    <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
+                    <li>
+                        <a class="header__link" href="works.html">
+                            <span class="header__link-en">works</span>
+                            <span class="header__link-ja">制作実績</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="about.html">
+                            <span class="header__link-en">about me</span>
+                            <span class="header__link-ja">私について</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="contact.html#flow">
+                            <!-- ↑ #flow は「contact.html の中の flow という場所まで飛ぶ」という意味 -->
+                            <span class="header__link-en">flow</span>
+                            <span class="header__link-ja">ご依頼の流れ</span>
+                        </a>
+                    </li>
+                </ul>
 
-          <a class="header__contact" href="contact.html">
-          <!-- ↑ お問い合わせボタン -->
-            <span class="header__contact-en">contact</span>
-            <span class="header__contact-ja">お問い合わせ</span>
-          </a>
+                <a class="header__contact" href="contact.html">
+                    <!-- ↑ お問い合わせボタン -->
+                    <span class="header__contact-en">contact</span>
+                    <span class="header__contact-ja">お問い合わせ</span>
+                </a>
 
-        </nav>
-      </div>
+            </nav>
+        </div>
     </header>
 
-    <div class="inner">
-    <!-- ↑ 中身の幅をそろえる箱 -->
+    <!-- ==================== メイン（ページの中身） ==================== -->
+    <main>
+        <!-- ↑ main は「このページのいちばん大事な中身」という意味のタグ。1ページに1つだけ -->
 
-      <h2 class="section-title">
-      <!-- ↑ セクションの見出し。h2 は「ページの中の大きな見出し」という意味 -->
-        <span class="section-title__en">WORKS</span>
-        <span class="section-title__ja">制作実績</span>
-      </h2>
+        <!-- ========== FV ========== -->
+        <section class="fv">
+            <!-- ↑ section は「ひとまとまりの区切り」という意味のタグ -->
 
-    </div>
+            <div class="fv__inner inner">
 
-        <!-- ==================== フッター ==================== -->
+                <!-- ----- 左：写真と手紙のカード ----- -->
+                <div class="fv__photo-wrap">
+                    <!-- ↑ 写真とカードをまとめる箱。カードの位置の基準になる -->
+
+                    <img class="fv__photo" src="images/fv-photo.jpg" alt="ノートパソコンとコーヒーが置かれた作業机" width="690" height="448"
+                        fetchpriority="high">
+                    <!-- ↑ fetchpriority="high" は「この画像を最初に読み込んでね」というお願い。FVの写真はいちばん先に見えるので -->
+
+                    <div class="fv__card">
+                        <!-- ↑ 手紙のカード -->
+                        <img class="fv__seal" src="images/logo-seal.svg" alt="" width="64" height="64">
+                        <!-- ↑ カードの上のシーリング。飾りなので alt は空っぽ -->
+                        <p class="fv__card-from">from</p>
+                        <p class="fv__card-name">Kuwamoto Misaki</p>
+                        <p class="fv__card-role">
+                            <span class="fv__card-ja">桑本 美咲</span>
+                            <span class="fv__card-en">Web Designer</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- ----- 右：鳩の絵・キャッチ・リード文 ----- -->
+                <div class="fv__content">
+
+                    <img class="fv__bird" src="images/illust-bird.svg" alt="" width="447" height="259">
+                    <!-- ↑ 鳩の絵。飾りなので alt は空っぽ。あとで線が描かれる動きをつける -->
+
+                    <h1 class="fv__catch">
+                        <!-- ↑ h1 は「ページでいちばん大事な見出し」。1ページに1つだけ使う -->
+                        <span class="fv__catch-line">想いが伝わる</span>
+                        <span class="fv__catch-line fv__catch-line--indent">ホームページを。</span>
+                        <!-- ↑ --indent は「字下げしたバージョン」という意味の名前。2行目だけ右にずらす -->
+                    </h1>
+
+                    <p class="fv__lead">
+                        教室・イベントのチラシやホームページを、<br>
+                        デザインから公開までひとりで
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="fv__scroll">scroll</p>
+            <!-- ↑ 下にスクロールできることを伝える文字 -->
+
+        </section>
+
+    </main>
+
+    <!-- ==================== フッター ==================== -->
     <footer class="footer">
-    <!-- ↑ footer は「ページの終わりの部分」という意味のタグ -->
+        <!-- ↑ footer は「ページの終わりの部分」という意味のタグ -->
 
-      <div class="footer__inner inner">
+        <div class="footer__inner inner">
 
-        <!-- ----- 上の段：ロゴと名前／メニュー ----- -->
-        <div class="footer__top">
+            <!-- ----- 上の段：ロゴと名前／メニュー ----- -->
+            <div class="footer__top">
 
-          <a class="footer__brand" href="index.html">
-            <img src="images/logo-seal.svg" alt="" width="56" height="56">
-            <!-- ↑ alt="" （空っぽ）にしているのは、すぐ横に名前の文字があるから。
+                <a class="footer__brand" href="index.html">
+                    <img src="images/logo-seal.svg" alt="" width="56" height="56">
+                    <!-- ↑ alt="" （空っぽ）にしているのは、すぐ横に名前の文字があるから。
                    読み上げソフトが「ロゴ、Kuwamoto Misaki」と2回読まないようにするため -->
-            <span class="footer__name">Kuwamoto Misaki</span>
-          </a>
-
-          <nav class="header__nav" aria-label="フッターメニュー">
-          <!-- ↑ ヘッダーのメニューとまったく同じ見た目なので、ヘッダー用の class を使い回す -->
-            <ul class="header__list">
-              <li>
-                <a class="header__link" href="works.html">
-                  <span class="header__link-en">works</span>
-                  <span class="header__link-ja">制作実績</span>
+                    <span class="footer__name">Kuwamoto Misaki</span>
                 </a>
-              </li>
-              <li>
-                <a class="header__link" href="about.html">
-                  <span class="header__link-en">about me</span>
-                  <span class="header__link-ja">私について</span>
-                </a>
-              </li>
-              <li>
-                <a class="header__link" href="contact.html#flow">
-                  <span class="header__link-en">flow</span>
-                  <span class="header__link-ja">ご依頼の流れ</span>
-                </a>
-              </li>
-            </ul>
-            <a class="header__contact" href="contact.html">
-              <span class="header__contact-en">contact</span>
-              <span class="header__contact-ja">お問い合わせ</span>
-            </a>
-          </nav>
 
-        </div>
+                <nav class="header__nav" aria-label="フッターメニュー">
+                    <!-- ↑ ヘッダーのメニューとまったく同じ見た目なので、ヘッダー用の class を使い回す -->
+                    <ul class="header__list">
+                        <li>
+                            <a class="header__link" href="works.html">
+                                <span class="header__link-en">works</span>
+                                <span class="header__link-ja">制作実績</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__link" href="about.html">
+                                <span class="header__link-en">about me</span>
+                                <span class="header__link-ja">私について</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__link" href="contact.html#flow">
+                                <span class="header__link-en">flow</span>
+                                <span class="header__link-ja">ご依頼の流れ</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="header__contact" href="contact.html">
+                        <span class="header__contact-en">contact</span>
+                        <span class="header__contact-ja">お問い合わせ</span>
+                    </a>
+                </nav>
 
-        <!-- ----- SNSのリンク ----- -->
-        <ul class="footer__sns">
-          <li>
-            <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
-            <!-- ↑ href="#" は仮。あとで自分の Discord のURLに変える
+            </div>
+
+            <!-- ----- SNSのリンク ----- -->
+            <ul class="footer__sns">
+                <li>
+                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                        <!-- ↑ href="#" は仮。あとで自分の Discord のURLに変える
                    target="_blank" … 新しいタブで開く
                    rel="noopener noreferrer" … 🔒セキュリティ対策（下で説明） -->
-              <img src="images/icon-discord.svg" alt="" width="24" height="24">
-              <span>discord</span>
-            </a>
-          </li>
-          <li>
-            <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
-              <img src="images/icon-github.svg" alt="" width="24" height="24">
-              <span>github</span>
-            </a>
-          </li>
-        </ul>
+                        <img src="images/icon-discord.svg" alt="" width="24" height="24">
+                        <span>discord</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                        <img src="images/icon-github.svg" alt="" width="24" height="24">
+                        <span>github</span>
+                    </a>
+                </li>
+            </ul>
 
-        <!-- ----- コピーライト ----- -->
-        <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
-        <!-- ↑ small は「注意書き・著作権表示」に使うタグ。&copy; は © マークを表す書き方 -->
+            <!-- ----- コピーライト ----- -->
+            <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
+            <!-- ↑ small は「注意書き・著作権表示」に使うタグ。&copy; は © マークを表す書き方 -->
 
-      </div>
+        </div>
     </footer>
 
     <script src="js/main.js" defer></script>
     <!-- ↑ JavaScriptファイルを読み込む。defer は「HTMLを全部読み終わってから動かしてね」という意味 -->
-  </body>
+</body>
 
 </html>

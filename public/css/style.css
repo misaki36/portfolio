@@ -303,3 +303,161 @@ body {
   font-size: 12px;
   color: var(--color-text-sub);
 }
+
+
+
+/* ==================================================
+   7. トップページ：FV
+   ================================================== */
+
+.fv {
+  padding-block: 80px 64px;
+  /* ↑ ヘッダーとの間（上）とWORKSとの間（下）の余白 */
+}
+
+.fv__inner {
+  display: grid;
+  /* ↑ grid は「表のように、列（たて）と行（よこ）で場所を決める」並べ方 */
+  grid-template-columns: 600px minmax(0, 1fr);
+  /* ↑ 1fr → minmax(0, 1fr) に変更。
+ 「右の列は、中身が大きくても広がらずに、残りの幅のままでいてね」という意味 */
+  column-gap: 64px;
+  /* ↑ 左と右の列の間かく */
+}
+
+/* ----- 左：写真とカード ----- */
+.fv__photo-wrap {
+  position: relative;
+  /* ↑ 「この箱を基準にして、中のもの（カード）の位置を決めるよ」という合図 */
+  align-self: start;
+  /* ↑ 箱の高さを右側に合わせて伸ばさず、中身（写真）の高さのままにする */
+}
+
+.fv__photo {
+  width: 100%;
+  aspect-ratio: 690 / 518;
+  /* ↑ 縦と横の比率を固定する */
+  object-fit: cover;
+  /* ↑ 比率がちがう写真でも、ゆがまないように切り取って箱いっぱいに表示する */
+}
+
+.fv__card {
+  position: absolute;
+  /* ↑ 基準の箱（fv__photo-wrap）の中で、自由な場所に置く。Figmaの「絶対位置」と同じ */
+  right: -110px;
+  bottom: -80px;
+  /* ↑ 写真の右下から、右に110px・下に80px はみ出した場所に置く */
+  width: 360px;
+  padding: 48px 40px 36px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+}
+
+.fv__seal {
+  position: absolute;
+  top: -32px;
+  /* ↑ カードの上のふちから、半分はみ出す（シーリングの高さ64pxの半分） */
+  left: 50%;
+  transform: translateX(-50%);
+  /* ↑ left: 50% でカードの真ん中に左はしを置き、translateX(-50%) で自分の幅の半分だけ左に戻す → ぴったり真ん中になる */
+  width: 64px;
+}
+
+.fv__card-from {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--color-text-sub);
+}
+
+.fv__card-name {
+  margin-top: 16px;
+  font-family: var(--font-en);
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.fv__card-role {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  color: var(--color-text-sub);
+}
+
+.fv__card-ja {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.fv__card-en {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.fv__card-en::before {
+  content: "";
+  /* ↑ ::before は「中身の前に飾りを足す」書き方。content: "" は「文字は入れない」という意味 */
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin-inline: 12px;
+  background-color: var(--color-line);
+  /* ↑ 名前と肩書きの間の「｜」の線を、CSSで描いている */
+}
+
+/* ----- 右：鳩・キャッチ・リード文 ----- */
+.fv__bird {
+  width: 100%;
+translate: 20px -60px;
+  /* ↑ 「横に20px、縦に-60px」動かす
+       1つ目の数字：プラスで右、マイナスで左
+       2つ目の数字：プラスで下、マイナスで上 */
+  scale: 1.2;
+  /* ↑ 見た目だけ1.2倍に大きくする（1 がそのままの大きさ、1.5 なら1.5倍） */
+}
+
+.fv__catch {
+  margin-top: -100px;
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.6;
+  margin-left: 50px;
+  letter-spacing: 0.04em;
+  /* ↑ Figmaの「日/キャッチ」：Medium・40px・行間160%・文字の間4% */
+}
+
+.fv__catch-line {
+  display: block;
+  /* ↑ 1行ずつ、まるごと使う箱にする */
+  white-space: nowrap;
+  /* ↑ この行は途中で折り返さない */
+}
+
+.fv__catch-line--indent {
+  padding-left: 3.3em;
+  /* ↑ 2行目だけ右にずらす。em は文字の大きさの何倍か（40px × 3.3 = 約132px） */
+}
+
+.fv__lead {
+  margin-top: 40px;
+  padding-left: 150px;
+}
+
+/* ----- scroll ----- */
+.fv__scroll {
+  margin-top: 120px;
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--color-text-sub);
+  text-align: center;
+}
