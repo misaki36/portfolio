@@ -7,21 +7,31 @@
    ================================================== */
 
 :root {
-  /* :root は「ページ全体」という意味。ここに書いた値は、どこからでも使える */
+    /* :root は「ページ全体」という意味。ここに書いた値は、どこからでも使える */
 
-  /* ----- 色（Figmaのカラースタイルと同じ） ----- */
-  --color-bg: #FAF8F5;        /* base/背景 */
-  --color-bg-sub: #EFE7DD;    /* base/背景サブ */
-  --color-white: #FFFFFF;     /* base/白 */
-  --color-text: #3B2A22;      /* text/メイン */
-  --color-text-sub: #8A7A6E;  /* text/サブ */
-  --color-accent: #9C6B4E;    /* accent/スタンプ */
-  --color-line: #E4DAD0;      /* line/線 */
+    /* ----- 色（Figmaのカラースタイルと同じ） ----- */
+    --color-bg: #FAF8F5;
+    /* base/背景 */
+    --color-bg-sub: #EFE7DD;
+    /* base/背景サブ */
+    --color-white: #FFFFFF;
+    /* base/白 */
+    --color-text: #3B2A22;
+    /* text/メイン */
+    --color-text-sub: #8A7A6E;
+    /* text/サブ */
+    --color-accent: #9C6B4E;
+    /* accent/スタンプ */
+    --color-line: #E4DAD0;
+    /* line/線 */
 
-  /* ----- フォント ----- */
-  --font-en: "Cormorant Garamond", serif;       /* 英語の見出し・メニュー */
-  --font-mincho: "Shippori Mincho", serif;      /* 日本語の見出し */
-  --font-gothic: "Zen Kaku Gothic New", sans-serif; /* 本文・ボタン */
+    /* ----- フォント ----- */
+    --font-en: "Cormorant Garamond", serif;
+    /* 英語の見出し・メニュー */
+    --font-mincho: "Shippori Mincho", serif;
+    /* 日本語の見出し */
+    --font-gothic: "Zen Kaku Gothic New", sans-serif;
+    /* 本文・ボタン */
 }
 
 
@@ -32,8 +42,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  /* ↑ 幅や高さに、内側の余白（padding）と線（border）を含めて計算する設定。Figmaと同じ考え方になる */
+    box-sizing: border-box;
+    /* ↑ 幅や高さに、内側の余白（padding）と線（border）を含めて計算する設定。Figmaと同じ考え方になる */
 }
 
 body,
@@ -43,27 +53,27 @@ h3,
 p,
 ul,
 figure {
-  margin: 0;
-  /* ↑ ブラウザが最初からつけている外側の余白を0にする */
+    margin: 0;
+    /* ↑ ブラウザが最初からつけている外側の余白を0にする */
 }
 
 ul {
-  padding: 0;
-  list-style: none;
-  /* ↑ リストの「・」と左の余白を消す（メニューなどで使うため） */
+    padding: 0;
+    list-style: none;
+    /* ↑ リストの「・」と左の余白を消す（メニューなどで使うため） */
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  /* ↑ 画像が箱からはみ出さないようにする。height: auto で縦横の比率を保つ */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /* ↑ 画像が箱からはみ出さないようにする。height: auto で縦横の比率を保つ */
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
-  /* ↑ リンクの青色と下線を消して、まわりの文字と同じ色にする */
+    color: inherit;
+    text-decoration: none;
+    /* ↑ リンクの青色と下線を消して、まわりの文字と同じ色にする */
 }
 
 
@@ -72,12 +82,12 @@ a {
    ================================================== */
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-gothic);
-  font-size: 16px;
-  line-height: 1.8;
-  /* ↑ Figmaの「本文/ふつう」と同じ：Zen Kaku Gothic New・16px・行間180% */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-gothic);
+    font-size: 16px;
+    line-height: 1.8;
+    /* ↑ Figmaの「本文/ふつう」と同じ：Zen Kaku Gothic New・16px・行間180% */
 }
 
 
@@ -88,87 +98,87 @@ body {
 
 /* ----- 中身の幅をそろえる箱 ----- */
 .inner {
-  max-width: 1240px;
-  /* ↑ 中身が広がりすぎないように、最大の幅を決める
+    max-width: 1240px;
+    /* ↑ 中身が広がりすぎないように、最大の幅を決める
        （Figmaの中身の幅1200px ＋ 左右の余白20px×2 = 1240px） */
-  margin-inline: auto;
-  /* ↑ 左右の外側の余白を自動にする → 画面の真ん中に置かれる */
-  padding-inline: 20px;
-  /* ↑ 左右の内側の余白。スマホで文字が画面のはしにくっつかないようにする */
+    margin-inline: auto;
+    /* ↑ 左右の外側の余白を自動にする → 画面の真ん中に置かれる */
+    padding-inline: 20px;
+    /* ↑ 左右の内側の余白。スマホで文字が画面のはしにくっつかないようにする */
 }
 
 /* ----- セクションの見出し（WORKS / 制作実績 の形） ----- */
 .section-title {
-  font-weight: 400;
-  /* ↑ h2 は最初から太字になっているので、ふつうの太さに戻す */
+    font-weight: 400;
+    /* ↑ h2 は最初から太字になっているので、ふつうの太さに戻す */
 }
 
 .section-title__en {
-  display: block;
-  /* ↑ 1行まるごと使う箱にする（日本語を下の行に出すため） */
-  font-family: var(--font-en);
-  font-size: 40px;
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  /* ↑ Figmaの「英/大見出し」と同じ：40px・行間120%・文字の間8% */
+    display: block;
+    /* ↑ 1行まるごと使う箱にする（日本語を下の行に出すため） */
+    font-family: var(--font-en);
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    /* ↑ Figmaの「英/大見出し」と同じ：40px・行間120%・文字の間8% */
 }
 
 .section-title__en::first-letter {
-  color: var(--color-accent);
-  /* ↑ ::first-letter は「最初の1文字だけ」という意味。W・C・A・F が茶色になる */
+    color: var(--color-accent);
+    /* ↑ ::first-letter は「最初の1文字だけ」という意味。W・C・A・F が茶色になる */
 }
 
 .section-title__ja {
-  display: block;
-  margin-top: 8px;
-  /* ↑ 英語との間を少しあける */
-  font-family: var(--font-mincho);
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 0.1em;
-  color: var(--color-text-sub);
-  /* ↑ Figmaの「日/英見出しの下」と同じ：14px・行間150%・文字の間10%・text/サブ */
+    display: block;
+    margin-top: 8px;
+    /* ↑ 英語との間を少しあける */
+    font-family: var(--font-mincho);
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    color: var(--color-text-sub);
+    /* ↑ Figmaの「日/英見出しの下」と同じ：14px・行間150%・文字の間10%・text/サブ */
 }
 
 
 /* ----- セクションの上下の余白 ----- */
 .section {
-  padding-block: 100px;
-  /* ↑ どのセクションも上下100pxの余白にそろえる（Figmaでそろえた余白） */
+    padding-block: 100px;
+    /* ↑ どのセクションも上下100pxの余白にそろえる（Figmaでそろえた余白） */
 }
 
 /* ----- ボタン ----- */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* ↑ 文字をボタンの真ん中に置く */
-  min-width: 200px;
-  height: 52px;
-  padding-inline: 32px;
-  border: 1px solid var(--color-text);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  /* ↑ Figmaの「本文/ボタン」：Medium・14px・行間100%・文字の間6% */
-  transition: opacity 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* ↑ 文字をボタンの真ん中に置く */
+    min-width: 200px;
+    height: 52px;
+    padding-inline: 32px;
+    border: 1px solid var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    /* ↑ Figmaの「本文/ボタン」：Medium・14px・行間100%・文字の間6% */
+    transition: opacity 0.3s;
 }
 
 .btn:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
 .btn--sub {
-  background-color: var(--color-white);
-  color: var(--color-text);
-  /* ↑ btn_サブ：白い箱にこげ茶の文字 */
+    background-color: var(--color-white);
+    color: var(--color-text);
+    /* ↑ btn_サブ：白い箱にこげ茶の文字 */
 }
 
 .btn--main {
-  background-color: var(--color-text);
-  color: var(--color-white);
-  /* ↑ btn_メイン：こげ茶の箱に白い文字 */
+    background-color: var(--color-text);
+    color: var(--color-white);
+    /* ↑ btn_メイン：こげ茶の箱に白い文字 */
 }
 
 
@@ -178,100 +188,100 @@ body {
    ================================================== */
 
 .header {
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-line);
-  /* ↑ ヘッダーの下に細い線を引く（Figmaと同じ line/線 の色） */
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    /* ↑ ヘッダーの下に細い線を引く（Figmaと同じ line/線 の色） */
 }
 
 .header__inner {
-  display: flex;
-  /* ↑ 中のもの（ロゴとメニュー）を横に並べる */
-  align-items: center;
-  /* ↑ 上下の真ん中にそろえる */
-  justify-content: space-between;
-  /* ↑ ロゴを左はし、メニューを右はしに置く */
-  height: 96px;
+    display: flex;
+    /* ↑ 中のもの（ロゴとメニュー）を横に並べる */
+    align-items: center;
+    /* ↑ 上下の真ん中にそろえる */
+    justify-content: space-between;
+    /* ↑ ロゴを左はし、メニューを右はしに置く */
+    height: 96px;
 }
 
 .header__logo {
-  display: block;
-  width: 56px;
+    display: block;
+    width: 56px;
 }
 
 .header__nav {
-  display: flex;
-  align-items: center;
-  gap: 56px;
-  /* ↑ メニューとお問い合わせボタンの間かく */
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    /* ↑ メニューとお問い合わせボタンの間かく */
 }
 
 .header__list {
-  display: flex;
-  gap: 24px;
-  /* ↑ メニュー同士の間かく（Figmaで決めた24） */
+    display: flex;
+    gap: 24px;
+    /* ↑ メニュー同士の間かく（Figmaで決めた24） */
 }
 
 .header__link {
-  display: flex;
-  flex-direction: column;
-  /* ↑ 英語と日本語を縦に並べる */
-  align-items: center;
-  /* ↑ 英語と日本語の真ん中をそろえる */
-  width: 100px;
-  /* ↑ 3つの幅を同じにして、間かくがそろって見えるようにする（Figmaで決めたW100） */
-  transition: opacity 0.3s;
-  /* ↑ マウスを乗せたときの変化を、0.3秒かけてふわっとさせる */
+    display: flex;
+    flex-direction: column;
+    /* ↑ 英語と日本語を縦に並べる */
+    align-items: center;
+    /* ↑ 英語と日本語の真ん中をそろえる */
+    width: 100px;
+    /* ↑ 3つの幅を同じにして、間かくがそろって見えるようにする（Figmaで決めたW100） */
+    transition: opacity 0.3s;
+    /* ↑ マウスを乗せたときの変化を、0.3秒かけてふわっとさせる */
 }
 
 .header__link-en {
-  font-family: var(--font-en);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  /* ↑ Figmaの「英/メニュー」：Medium・16px・行間100%・文字の間6% */
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    /* ↑ Figmaの「英/メニュー」：Medium・16px・行間100%・文字の間6% */
 }
 
 .header__link-ja {
-  margin-top: 6px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--color-text-sub);
-  /* ↑ Figmaの「本文/注意書き」：12px・行間160%・text/サブ */
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-sub);
+    /* ↑ Figmaの「本文/注意書き」：12px・行間160%・text/サブ */
 }
 
 .header__contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* ↑ 中の文字を、上下・左右とも真ん中に置く */
-  width: 180px;
-  height: 52px;
-  background-color: var(--color-text);
-  color: var(--color-white);
-  transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* ↑ 中の文字を、上下・左右とも真ん中に置く */
+    width: 180px;
+    height: 52px;
+    background-color: var(--color-text);
+    color: var(--color-white);
+    transition: opacity 0.3s;
 }
 
 .header__contact-en {
-  font-family: var(--font-en);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.06em;
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
 }
 
 .header__contact-ja {
-  margin-top: 4px;
-  font-size: 12px;
-  line-height: 1.6;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
 /* ----- マウスを乗せたとき ----- */
 .header__link:hover,
 .header__contact:hover {
-  opacity: 0.7;
-  /* ↑ 少しうすくして「押せるよ」と伝える */
+    opacity: 0.7;
+    /* ↑ 少しうすくして「押せるよ」と伝える */
 }
 
 
@@ -281,68 +291,68 @@ body {
    ================================================== */
 
 .footer {
-  background-color: var(--color-bg-sub);
-  padding-block: 64px 32px;
-  /* ↑ padding-block は「上と下の内側の余白」。上64px・下32px */
+    background-color: var(--color-bg-sub);
+    padding-block: 64px 32px;
+    /* ↑ padding-block は「上と下の内側の余白」。上64px・下32px */
 }
 
 .footer__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* ↑ ロゴと名前を左、メニューを右に置く */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* ↑ ロゴと名前を左、メニューを右に置く */
 }
 
 .footer__brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  /* ↑ ロゴと名前を横に並べて、間を16pxあける */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* ↑ ロゴと名前を横に並べて、間を16pxあける */
 }
 
 .footer__brand img {
-  width: 56px;
+    width: 56px;
 }
 
 .footer__name {
-  font-family: var(--font-en);
-  font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  /* ↑ Figmaの「英/名前」：32px・行間120%・文字の間4% */
+    font-family: var(--font-en);
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    /* ↑ Figmaの「英/名前」：32px・行間120%・文字の間4% */
 }
 
 .footer__sns {
-  display: flex;
-  gap: 16px;
-  margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
 }
 
 .footer__sns-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  /* ↑ マークと文字を縦に並べる */
-  font-size: 12px;
-  color: var(--color-text-sub);
-  transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    /* ↑ マークと文字を縦に並べる */
+    font-size: 12px;
+    color: var(--color-text-sub);
+    transition: opacity 0.3s;
 }
 
 .footer__sns-link:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
 .footer__copy {
-  display: block;
-  /* ↑ small は最初は横に並ぶタイプなので、1行まるごと使う箱にする */
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-line);
-  /* ↑ コピーライトの上に区切りの線を引く */
-  text-align: center;
-  font-size: 12px;
-  color: var(--color-text-sub);
+    display: block;
+    /* ↑ small は最初は横に並ぶタイプなので、1行まるごと使う箱にする */
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-line);
+    /* ↑ コピーライトの上に区切りの線を引く */
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-sub);
 }
 
 
@@ -352,155 +362,155 @@ body {
    ================================================== */
 
 .fv {
-  padding-block: 80px 64px;
-  /* ↑ ヘッダーとの間（上）とWORKSとの間（下）の余白 */
+    padding-block: 80px 64px;
+    /* ↑ ヘッダーとの間（上）とWORKSとの間（下）の余白 */
 }
 
 .fv__inner {
-  display: grid;
-  /* ↑ grid は「表のように、列（たて）と行（よこ）で場所を決める」並べ方 */
-  grid-template-columns: 600px minmax(0, 1fr);
-  /* ↑ 1fr → minmax(0, 1fr) に変更。
+    display: grid;
+    /* ↑ grid は「表のように、列（たて）と行（よこ）で場所を決める」並べ方 */
+    grid-template-columns: 600px minmax(0, 1fr);
+    /* ↑ 1fr → minmax(0, 1fr) に変更。
  「右の列は、中身が大きくても広がらずに、残りの幅のままでいてね」という意味 */
-  column-gap: 64px;
-  /* ↑ 左と右の列の間かく */
+    column-gap: 64px;
+    /* ↑ 左と右の列の間かく */
 }
 
 /* ----- 左：写真とカード ----- */
 .fv__photo-wrap {
-  position: relative;
-  /* ↑ 「この箱を基準にして、中のもの（カード）の位置を決めるよ」という合図 */
-  align-self: start;
-  /* ↑ 箱の高さを右側に合わせて伸ばさず、中身（写真）の高さのままにする */
+    position: relative;
+    /* ↑ 「この箱を基準にして、中のもの（カード）の位置を決めるよ」という合図 */
+    align-self: start;
+    /* ↑ 箱の高さを右側に合わせて伸ばさず、中身（写真）の高さのままにする */
 }
 
 .fv__photo {
-  width: 100%;
-  aspect-ratio: 690 / 518;
-  /* ↑ 縦と横の比率を固定する */
-  object-fit: cover;
-  /* ↑ 比率がちがう写真でも、ゆがまないように切り取って箱いっぱいに表示する */
+    width: 100%;
+    aspect-ratio: 690 / 518;
+    /* ↑ 縦と横の比率を固定する */
+    object-fit: cover;
+    /* ↑ 比率がちがう写真でも、ゆがまないように切り取って箱いっぱいに表示する */
 }
 
 .fv__card {
-  position: absolute;
-  /* ↑ 基準の箱（fv__photo-wrap）の中で、自由な場所に置く。Figmaの「絶対位置」と同じ */
-  right: -110px;
-  bottom: -80px;
-  /* ↑ 写真の右下から、右に110px・下に80px はみ出した場所に置く */
-  width: 360px;
-  padding: 48px 40px 36px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-line);
+    position: absolute;
+    /* ↑ 基準の箱（fv__photo-wrap）の中で、自由な場所に置く。Figmaの「絶対位置」と同じ */
+    right: -110px;
+    bottom: -80px;
+    /* ↑ 写真の右下から、右に110px・下に80px はみ出した場所に置く */
+    width: 360px;
+    padding: 48px 40px 36px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
 }
 
 .fv__seal {
-  position: absolute;
-  top: -32px;
-  /* ↑ カードの上のふちから、半分はみ出す（シーリングの高さ64pxの半分） */
-  left: 50%;
-  transform: translateX(-50%);
-  /* ↑ left: 50% でカードの真ん中に左はしを置き、translateX(-50%) で自分の幅の半分だけ左に戻す → ぴったり真ん中になる */
-  width: 64px;
+    position: absolute;
+    top: -32px;
+    /* ↑ カードの上のふちから、半分はみ出す（シーリングの高さ64pxの半分） */
+    left: 50%;
+    transform: translateX(-50%);
+    /* ↑ left: 50% でカードの真ん中に左はしを置き、translateX(-50%) で自分の幅の半分だけ左に戻す → ぴったり真ん中になる */
+    width: 64px;
 }
 
 .fv__card-from {
-  font-family: var(--font-en);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: var(--color-text-sub);
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    color: var(--color-text-sub);
 }
 
 .fv__card-name {
-  margin-top: 16px;
-  font-family: var(--font-en);
-  font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
+    margin-top: 16px;
+    font-family: var(--font-en);
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
 }
 
 .fv__card-role {
-  display: flex;
-  align-items: center;
-  margin-top: 12px;
-  color: var(--color-text-sub);
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    color: var(--color-text-sub);
 }
 
 .fv__card-ja {
-  font-size: 12px;
-  line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
 .fv__card-en {
-  font-family: var(--font-en);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.06em;
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
 }
 
 .fv__card-en::before {
-  content: "";
-  /* ↑ ::before は「中身の前に飾りを足す」書き方。content: "" は「文字は入れない」という意味 */
-  display: inline-block;
-  width: 1px;
-  height: 12px;
-  margin-inline: 12px;
-  background-color: var(--color-line);
-  /* ↑ 名前と肩書きの間の「｜」の線を、CSSで描いている */
+    content: "";
+    /* ↑ ::before は「中身の前に飾りを足す」書き方。content: "" は「文字は入れない」という意味 */
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin-inline: 12px;
+    background-color: var(--color-line);
+    /* ↑ 名前と肩書きの間の「｜」の線を、CSSで描いている */
 }
 
 /* ----- 右：鳩・キャッチ・リード文 ----- */
 .fv__bird {
-  width: 100%;
-translate: 20px -60px;
-  /* ↑ 「横に20px、縦に-60px」動かす
+    width: 100%;
+    translate: 20px -60px;
+    /* ↑ 「横に20px、縦に-60px」動かす
        1つ目の数字：プラスで右、マイナスで左
        2つ目の数字：プラスで下、マイナスで上 */
-  scale: 1.2;
-  /* ↑ 見た目だけ1.2倍に大きくする（1 がそのままの大きさ、1.5 なら1.5倍） */
+    scale: 1.2;
+    /* ↑ 見た目だけ1.2倍に大きくする（1 がそのままの大きさ、1.5 なら1.5倍） */
 }
 
 .fv__catch {
-  margin-top: -100px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 1.6;
-  margin-left: 50px;
-  letter-spacing: 0.04em;
-  /* ↑ Figmaの「日/キャッチ」：Medium・40px・行間160%・文字の間4% */
+    margin-top: -100px;
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.6;
+    margin-left: 50px;
+    letter-spacing: 0.04em;
+    /* ↑ Figmaの「日/キャッチ」：Medium・40px・行間160%・文字の間4% */
 }
 
 .fv__catch-line {
-  display: block;
-  /* ↑ 1行ずつ、まるごと使う箱にする */
-  white-space: nowrap;
-  /* ↑ この行は途中で折り返さない */
+    display: block;
+    /* ↑ 1行ずつ、まるごと使う箱にする */
+    white-space: nowrap;
+    /* ↑ この行は途中で折り返さない */
 }
 
 .fv__catch-line--indent {
-  padding-left: 3.3em;
-  /* ↑ 2行目だけ右にずらす。em は文字の大きさの何倍か（40px × 3.3 = 約132px） */
+    padding-left: 3.3em;
+    /* ↑ 2行目だけ右にずらす。em は文字の大きさの何倍か（40px × 3.3 = 約132px） */
 }
 
 .fv__lead {
-  margin-top: 40px;
-  padding-left: 150px;
+    margin-top: 40px;
+    padding-left: 150px;
 }
 
 /* ----- scroll ----- */
 .fv__scroll {
-  margin-top: 120px;
-  font-family: var(--font-en);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: var(--color-text-sub);
-  text-align: center;
+    margin-top: 120px;
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    color: var(--color-text-sub);
+    text-align: center;
 }
 
 
@@ -510,96 +520,100 @@ translate: 20px -60px;
    ================================================== */
 
 .works__slider {
-  margin-top: 48px;
-  overflow: hidden;
-  /* ↑ 窓からはみ出したカードを隠す */
+    margin-top: 48px;
+    overflow: hidden;
+    /* ↑ 窓からはみ出したカードを隠す */
 }
 
 .works__list {
-  display: flex;
-  gap: 24px;
-  width: max-content;
-  /* ↑ 箱の幅を「中身（カード12枚）がちょうど入る幅」にする */
-  animation: works-loop 150s linear infinite;
-  /* ↑ 下で作る「works-loop」という動きを、150秒かけて、同じ速さで、ずっとくり返す
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    /* ↑ 箱の幅を「中身（カード12枚）がちょうど入る幅」にする */
+    animation: works-loop 150s linear infinite;
+    /* ↑ 下で作る「works-loop」という動きを、150秒かけて、同じ速さで、ずっとくり返す
     数字を大きくするとゆっくり、小さくすると速くなる */
 }
 
-.works__list > li {
-  flex-shrink: 0;
-  width: 384px;
+.works__list>li {
+    flex-shrink: 0;
+    width: 384px;
 }
 
 /* ----- マウスを乗せたら止める ----- */
 .works__slider:hover .works__list,
 .works__slider:focus-within .works__list {
-  animation-play-state: paused;
-  /* ↑ マウスを乗せたとき・Tabキーでカードを選んだときは止める（ゆっくり見られるように） */
+    animation-play-state: paused;
+    /* ↑ マウスを乗せたとき・Tabキーでカードを選んだときは止める（ゆっくり見られるように） */
 }
 
 /* ----- 流れる動きの中身 ----- */
 @keyframes works-loop {
-  /* ↑ @keyframes は「動きのレシピ」。from（はじめ）から to（おわり）まで変化する */
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - 12px));
-    /* ↑ 列の幅の半分（＝カード6枚分）だけ左に動かす
+
+    /* ↑ @keyframes は「動きのレシピ」。from（はじめ）から to（おわり）まで変化する */
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 12px));
+        /* ↑ 列の幅の半分（＝カード6枚分）だけ左に動かす
          −12px は、カードとカードのすき間24pxの半分。これがないと、つなぎ目で少しガクッとずれる */
-  }
+    }
 }
 
 /* ----- 動きが苦手な人への配慮 ----- */
 @media (prefers-reduced-motion: reduce) {
-  /* ↑ パソコンやスマホの設定で「視差効果を減らす」をオンにしている人には */
-  .works__list {
-    animation: none;
-    /* ↑ 動きを止める */
-  }
-  .works__slider {
-    overflow-x: auto;
-    /* ↑ 代わりに、自分で横にスクロールして見られるようにする */
-  }
+
+    /* ↑ パソコンやスマホの設定で「視差効果を減らす」をオンにしている人には */
+    .works__list {
+        animation: none;
+        /* ↑ 動きを止める */
+    }
+
+    .works__slider {
+        overflow-x: auto;
+        /* ↑ 代わりに、自分で横にスクロールして見られるようにする */
+    }
 }
 
 .work-card {
-  display: block;
+    display: block;
 }
 
 .work-card__thumb {
-  aspect-ratio: 3 / 2;
-  /* ↑ 横3：縦2の比率の箱にする */
-  background-color: var(--color-bg-sub);
-  transition: opacity 0.3s;
+    aspect-ratio: 3 / 2;
+    /* ↑ 横3：縦2の比率の箱にする */
+    background-color: var(--color-bg-sub);
+    transition: opacity 0.3s;
 }
 
 .work-card:hover .work-card__thumb {
-  opacity: 0.8;
-  /* ↑ カードにマウスを乗せたら、画像を少しうすくする */
+    opacity: 0.8;
+    /* ↑ カードにマウスを乗せたら、画像を少しうすくする */
 }
 
 .work-card__tag {
-  margin-top: 16px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--color-text-sub);
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-sub);
 }
 
 .work-card__title {
-  margin-top: 4px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  /* ↑ Figmaの「日/小見出し」：Medium・18px・行間150%・文字の間4% */
+    margin-top: 4px;
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    /* ↑ Figmaの「日/小見出し」：Medium・18px・行間150%・文字の間4% */
 }
 
 .works__btn-wrap {
-  margin-top: 56px;
-  text-align: center;
-  /* ↑ ボタンを真ん中に置く */
+    margin-top: 56px;
+    text-align: center;
+    /* ↑ ボタンを真ん中に置く */
 }
 
 
@@ -609,35 +623,109 @@ translate: 20px -60px;
    ================================================== */
 
 .concept__body {
-  display: flex;
-  align-items: center;
-  /* ↑ シーリングと文章を、上下の真ん中でそろえる */
-  justify-content: center;
-  /* ↑ シーリングと文章のまとまりを、左右の真ん中に置く
+    display: flex;
+    align-items: center;
+    /* ↑ シーリングと文章を、上下の真ん中でそろえる */
+    justify-content: center;
+    /* ↑ シーリングと文章のまとまりを、左右の真ん中に置く
        （Figmaで「右側があいて左に寄って見える」と話したところを、ここで解決） */
-  gap: 120px;
-  /* ↑ シーリングと文章の間かく */
-  margin-top: 48px;
+    gap: 120px;
+    /* ↑ シーリングと文章の間かく */
+    margin-top: 48px;
 }
 
 .concept__seal {
-  flex-shrink: 0;
-  /* ↑ 画面がせまくなっても、シーリングを縮ませない */
-  width: 300px;
-  translate: -60px 0;
-  /* ↑ 見た目だけ左に60px動かす（文章の位置は変わらない） */
+    flex-shrink: 0;
+    /* ↑ 画面がせまくなっても、シーリングを縮ませない */
+    width: 300px;
+    translate: -60px 0;
+    /* ↑ 見た目だけ左に60px動かす（文章の位置は変わらない） */
 }
 
 .concept__heading {
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  /* ↑ Figmaの「日/見出し」：Medium・24px・行間150%・文字の間4% */
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    /* ↑ Figmaの「日/見出し」：Medium・24px・行間150%・文字の間4% */
 }
 
 .concept__desc {
-  margin-top: 24px;
-  /* ↑ 文字の大きさや行間は、body に書いた「本文/ふつう」がそのまま効くので書かなくてOK */
+    margin-top: 24px;
+    /* ↑ 文字の大きさや行間は、body に書いた「本文/ふつう」がそのまま効くので書かなくてOK */
+}
+
+
+
+/* ==================================================
+   10. トップページ：ABOUT ME
+   ================================================== */
+
+.about__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* ↑ 文章を左はし、写真を右はしに置く */
+    gap: 80px;
+    margin-top: 64px;
+}
+
+.about__name {
+    font-family: var(--font-en);
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    /* ↑ 「英/名前」：FVのカードの名前と同じ */
+}
+
+.about__role {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    color: var(--color-text-sub);
+}
+
+.about__role-ja {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.about__role-en {
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+}
+
+.about__role-en::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin-inline: 12px;
+    background-color: var(--color-line);
+    /* ↑ 名前と肩書きの間の「｜」の線 */
+}
+
+.about__desc {
+    margin-top: 32px;
+}
+
+.about__btn {
+    margin-top: 48px;
+}
+
+.about__photo {
+    flex-shrink: 0;
+    width: 400px;
+    aspect-ratio: 1 / 1;
+    /* ↑ 正方形にする */
+    border-radius: 50%;
+    /* ↑ 角を50%丸める → まん丸になる */
+    object-fit: cover;
+    /* ↑ 写真がゆがまないように、丸の中に切り取って表示する */
+    background-color: var(--color-bg-sub);
+    /* ↑ 写真を読み込む前は、うすいベージュの丸を出しておく */
 }
