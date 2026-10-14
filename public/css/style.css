@@ -1086,3 +1086,143 @@ button:focus-visible {
     gap: 24px;
     margin-top: 100px;
 }
+
+/* ==================================================
+   14. 私についてページ
+   ================================================== */
+
+/* ----- ① ABOUT ME ----- */
+
+/* 左に写真、右にプロフィールを並べる */
+.profile__body {
+    display: flex;
+    align-items: flex-start;
+    /* ↑ center → flex-start：写真の上と、名前の上をそろえる */
+    gap: 160px;
+    margin-top: 64px;
+}
+
+/* 丸い写真 */
+.profile__photo {
+    flex-shrink: 0;
+    /* ↑ 画面がせまくなっても、写真を縮ませない */
+    width: 400px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    /* ↑ 正方形の角を50%丸める → まん丸 */
+    object-fit: cover;
+    background-color: var(--color-bg-sub);
+}
+
+/* プロフィールの表 */
+.profile__info {
+    margin: 32px 0 0;
+    /* ↑ dl は最初から上下に余白があるので、上だけ32pxにする */
+}
+
+/* 1行ぶん：左に項目名、右に中身 */
+.profile__info-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    /* ↑ 左は120px、右は残り全部 */
+    column-gap: 24px;
+    padding-block: 6px;
+}
+
+/* 項目名（出身など） */
+.profile__info-term {
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* 中身 */
+.profile__info-desc {
+    margin: 0;
+    /* ↑ dd は最初から左に余白があるので消す */
+    font-size: 14px;
+}
+
+.profile__lead {
+    margin-top: 32px;
+    padding-top: 32px;
+    /* ↑ 線と文章の間のすき間 */
+    border-top: 1px solid var(--color-line);
+    /* ↑ 表と想いの文章の間に、細い区切りの線を引く */
+}
+
+/* ----- ③ SKILL ----- */
+
+/* 大きい箱 */
+.skill__main {
+    margin-top: 48px;
+    padding: 40px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+/* 「得意なこと」の小さい文字 */
+.skill__label {
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* 大きい箱の見出し */
+.skill__heading {
+    margin-top: 8px;
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* 大きい箱の説明文 */
+.skill__text {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* 小さい箱を3つ並べる */
+.skill__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* ↑ 同じ幅の列を3つ（制作実績一覧のカードと同じ書き方） */
+    gap: 16px;
+    margin-top: 40px;
+}
+
+/* 小さい箱1つ */
+.skill__card {
+    padding: 32px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+/* 小さい箱の見出し（デザイン・コーディング・ツール） */
+.skill__card-title {
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* ツールのタグを横に並べる */
+.skill__tags {
+    display: flex;
+    flex-wrap: wrap;
+    /* ↑ 入りきらないときは、次の行に折り返す */
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* タグ1つ（Figma など） */
+.skill__tag {
+    padding: 4px 12px;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    /* ↑ 大きい数字にすると、左右がまん丸の「カプセルの形」になる */
+    background-color: var(--color-bg);
+    font-size: 12px;
+    line-height: 1.6;
+}

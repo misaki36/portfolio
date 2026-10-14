@@ -88,7 +88,123 @@
 
     <!-- ==================== メイン（ページの中身） ==================== -->
     <main>
+        <!-- ========== ① ABOUT ME ========== -->
+        <section class="profile section">
+            <!-- ↓ section の1段内側 -->
+            <div class="inner">
+                <!-- ↓ div.inner の1段内側 -->
 
+                <!-- このページの一番大きい見出しなので h1 にする（1ページに h1 は1つだけ） -->
+                <h1 class="section-title">
+                    <span class="section-title__en">ABOUT ME</span>
+                    <span class="section-title__ja">私について</span>
+                </h1>
+
+                <!-- 左に写真、右にプロフィールを並べる箱 -->
+                <div class="profile__body">
+                    <!-- ↓ div.profile__body の1段内側 -->
+
+                    <!-- 左：丸い写真 -->
+                    <img class="profile__photo" src="images/about-photo.jpg" alt="桑本美咲の似顔絵イラスト" width="360"
+                        height="360">
+
+                    <!-- 右：名前・表・ひとこと -->
+                    <div class="profile__text">
+                        <!-- ↓ div.profile__text の1段内側 -->
+
+                        <!-- 名前と肩書き（トップページの ABOUT と同じ見た目なので class を使い回す） -->
+                        <p class="about__name">Kuwamoto Misaki</p>
+                        <p class="about__role">
+                            <span class="about__role-ja">桑本 美咲</span>
+                            <span class="about__role-en">Web Designer</span>
+                        </p>
+
+                        <!-- プロフィールの表（項目名と中身のセット） -->
+                        <dl class="profile__info">
+                            <!-- ↓ dl の1段内側：1行ぶんのまとまり -->
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">出身</dt>
+                                <dd class="profile__info-desc">愛知県</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">経歴</dt>
+                                <dd class="profile__info-desc">短大卒業 → 会社員（6年半）→ 出産・子育て<br>→ プログラミングスクールでWeb制作を学ぶ</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">得意なこと</dt>
+                                <dd class="profile__info-desc">デザインから公開まで一貫した制作</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">好きなこと</dt>
+                                <dd class="profile__info-desc">お菓子づくり🍪・ゲーム🎮・可愛い文房具集め📎</dd>
+                            </div>
+                        </dl>
+
+                        <!-- 活動への想い。文の終わりで改行して、手紙のように読みやすくする -->
+                        <p class="profile__lead">
+                            初めまして！<br>
+                            作りたい想いはあるのに、作れない方。<br>
+                            教室やイベント、地域の活動のように、小さくても大切な想いを届けたい方。<br>
+                            そんな方々の想いをかたちにするお手伝いがしたい。<br>
+                            そう思い、フリーランスとして活動しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== ③ SKILL ========== -->
+        <section class="skill section">
+            <!-- ↓ section の1段内側 -->
+            <div class="inner">
+                <!-- ↓ div.inner の1段内側 -->
+
+                <h2 class="section-title">
+                    <span class="section-title__en">SKILL</span>
+                    <span class="section-title__ja">できること</span>
+                </h2>
+
+                <!-- 大きい箱：いちばんの強み -->
+                <div class="skill__main">
+                    <!-- ↓ div.skill__main の1段内側 -->
+                    <p class="skill__label">得意なこと</p>
+                    <h3 class="skill__heading">デザインからコーディング、公開まで一人で</h3>
+                    <p class="skill__text">打ち合わせから公開まで同じ人が担当するので、イメージのずれが少なく、やりとりもスムーズです。</p>
+                </div>
+
+                <!-- 小さい箱3つ（リストなので ul と li） -->
+                <ul class="skill__list">
+                    <!-- ↓ ul の1段内側：箱1つ＝li 1つ -->
+                    <li class="skill__card">
+                        <!-- ↓ li の1段内側 -->
+                        <h3 class="skill__card-title">デザイン</h3>
+                        <!-- 使えるツールもリストなので、ul の中にもう1つ ul を入れる -->
+                        <ul class="skill__tags">
+                            <!-- ↓ ul.skill__tags の1段内側 -->
+                            <li class="skill__tag">Figma</li>
+                            <li class="skill__tag">Clip Studio</li>
+                            <li class="skill__tag">Canva</li>
+                        </ul>
+                    </li>
+                    <li class="skill__card">
+                        <h3 class="skill__card-title">コーディング</h3>
+                        <ul class="skill__tags">
+                            <li class="skill__tag">HTML</li>
+                            <li class="skill__tag">CSS</li>
+                            <li class="skill__tag">JavaScript</li>
+                        </ul>
+                    </li>
+                    <li class="skill__card">
+                        <h3 class="skill__card-title">ツール</h3>
+                        <ul class="skill__tags">
+                            <li class="skill__tag">VS Code</li>
+                            <li class="skill__tag">GitHub</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <!-- ==================== フッター ==================== -->
