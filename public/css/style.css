@@ -1226,3 +1226,74 @@ button:focus-visible {
     font-size: 12px;
     line-height: 1.6;
 }
+
+/* ----- ③ WORK STYLE ----- */
+
+/* 箱を2つ横に並べる */
+.work-style__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* ↑ 同じ幅の列を2つ */
+    gap: 16px;
+    margin-top: 48px;
+}
+
+/* 箱1つ */
+.work-style__card {
+    padding: 32px 40px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+/* 箱の見出し */
+.work-style__title {
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* 「・」付きのリスト */
+.work-style__items {
+    display: grid;
+    gap: 4px;
+    /* ↑ 行と行の間 */
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.work-style__items li {
+    position: relative;
+    /* ↑ 「・」の位置の基準にする */
+    padding-left: 1em;
+    /* ↑ 左に1文字ぶんのすき間をあけて、そこに「・」を置く */
+}
+
+.work-style__items li::before {
+    content: "・";
+    /* ↑ 文字の前に「・」を足す */
+    position: absolute;
+    left: 0;
+}
+
+/* ----- ④ 最後のボタン ----- */
+
+.about-cta {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.about-cta__text {
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+}
+
+.about-cta__btns {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+}
