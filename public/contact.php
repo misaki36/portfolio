@@ -1,3 +1,23 @@
+<?php
+declare(strict_types=1);
+
+// 道具箱（public の外）を読み込む
+// __DIR__ は「このファイルがあるフォルダ」。そこから1つ上（..）の app/functions.php
+require_once __DIR__ . '/../app/functions.php';
+
+start_session();
+
+// 合言葉を用意する
+$token = csrf_token();
+
+// send.php から戻ってきたときの「エラー」と「入力していた内容」を受け取る
+// ?? [] は「なければ空っぽにする」という意味
+$errors = $_SESSION['errors'] ?? [];
+$old    = $_SESSION['old'] ?? [];
+
+// 一度表示したら消す（再読み込みしたら、エラーが消えるように）
+unset($_SESSION['errors'], $_SESSION['old']);
+?>
 <!DOCTYPE html>
 <!-- ↑ 「このファイルはHTMLで書いてあるよ」とブラウザに伝える合図。必ず1行目に書く -->
 
@@ -74,8 +94,9 @@
                             <span class="header__link-ja">ご依頼の流れ</span>
                         </a>
                     </li>
+                </ul>
 
-                    <a class="header__contact" href="contact.php">
+                    <a class="header__contact" href="contact.php" aria-current="page">
                         <!-- ↑ お問い合わせボタン -->
                         <span class="header__contact-en">contact</span>
                         <span class="header__contact-ja">お問い合わせ</span>
@@ -231,62 +252,74 @@
 
                 <p class="contact__lead">制作のご依頼・ご相談など、お気軽にお問い合わせください。</p>
 
-                <!-- form = 入力した内容を送るための箱。
-                     method="post" は「中身を見えない形で送る」送り方（URLに入力内容が出ない）
-                     action は送り先。PHP を作るときに決めるので、今は仮 -->
-                <form class="contact-form" action="#" method="post">
+                <!-- action="send.php"：送り先。method="post"：中身を見えない形で送る -->
                     <!-- ↓ form の1段内側 -->
 
-                    <!-- 1つの項目 = div 1つ -->
+                    <!-- エラーがあるときだけ、上にまとめのメッセージを出す
+                    role="alert" で、読み上げソフトにもすぐ伝わる -->
+                    <?php if ($errors): ?>
+                    <p class="contact-form__alert" role="alert">入力内容をご確認ください。</p>
+                    <?php endif; ?>
+
+                    <!-- 合言葉（画面には出ない）。送信するときに一緒に送られる -->
+                    <input type="hidden" name="csrf_token" value="<?= h($token) ?>">
+
                     <div class="contact-form__item">
-                        <!-- ↓ div の1段内側 -->
-                        <!-- label の for と input の id を同じにすると、文字を押しても入力欄が選ばれる -->
                         <label class="contact-form__label" for="name">
                             お名前<span class="contact-form__required" aria-hidden="true">*</span>
                         </label>
-                        <!-- required = 入力しないと送れない／maxlength = 入力できる文字数の上限 -->
-                        <input class="contact-form__input" type="text" id="name" name="name" autocomplete="name"
-                            maxlength="50" required>
+                        <!-- value に前回入力した内容を入れる（エラーで戻ったとき、書き直さなくていいように）
+                             ユーザーの入力なので、必ず h() を通す -->
+                        <input class="contact-form__input" type="text" id="name" name="name" autocomplete="name" maxlength="50" required value="<?= h($old['name'] ?? '') ?>">
+                        <?php if (isset($errors['name'])): ?>
+                            <p class="contact-form__error"><?= h($errors['name']) ?></p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="contact-form__item">
                         <label class="contact-form__label" for="company">会社名・団体名（任意）</label>
-                        <input class="contact-form__input" type="text" id="company" name="company"
-                            autocomplete="organization" maxlength="100">
+                        <input class="contact-form__input" type="text" id="company" name="company" autocomplete="organization" maxlength="100" value="<?= h($old['company'] ?? '') ?>">
+                        <?php if (isset($errors['company'])): ?>
+                            <p class="contact-form__error"><?= h($errors['company']) ?></p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="contact-form__item">
                         <label class="contact-form__label" for="email">
                             メールアドレス<span class="contact-form__required" aria-hidden="true">*</span>
                         </label>
-                        <!-- type="email" にすると、@ がないときにブラウザが教えてくれる。スマホではメール用のキーボードが出る -->
-                        <input class="contact-form__input" type="email" id="email" name="email" autocomplete="email"
-                            maxlength="254" required>
+                        <input class="contact-form__input" type="email" id="email" name="email" autocomplete="email" maxlength="254" required value="<?= h($old['email'] ?? '') ?>">
+                        <?php if (isset($errors['email'])): ?>
+                            <p class="contact-form__error"><?= h($errors['email']) ?></p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="contact-form__item">
                         <label class="contact-form__label" for="message">
                             ご相談内容<span class="contact-form__required" aria-hidden="true">*</span>
                         </label>
-                        <!-- textarea = 何行も書ける入力欄 -->
-                        <textarea class="contact-form__textarea" id="message" name="message" rows="8" maxlength="2000"
-                            required></textarea>
+                        <!-- textarea は開くタグと閉じるタグの間が中身。間に空白や改行を入れないように -->
+                        <textarea class="contact-form__textarea" id="message" name="message" rows="8" maxlength="2000" required><?= h($old['message'] ?? '') ?></textarea>
+                        <?php if (isset($errors['message'])): ?>
+                            <p class="contact-form__error"><?= h($errors['message']) ?></p>
+                        <?php endif; ?>
                     </div>
 
-                    <!-- プライバシーポリシーへの同意 -->
                     <div class="contact-form__agree">
-                        <!-- ↓ div の1段内側：label で checkbox と文字を包むと、文字を押してもチェックできる -->
                         <label>
-                            <input type="checkbox" name="agree" required>
+                            <input type="checkbox" name="agree" value="1" required <?= !empty($old['agree']) ? 'checked' : '' ?>>
                             <a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する
                         </label>
+                        <?php if (isset($errors['agree'])): ?>
+                            <p class="contact-form__error"><?= h($errors['agree']) ?></p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="contact-form__submit">
-                        <!-- 送信ボタンは a ではなく button。type="submit" で「フォームを送る」ボタンになる -->
                         <button class="btn btn--main" type="submit">送信する</button>
                     </div>
                 </form>
+                
             </div>
         </section>
     </main>
@@ -329,7 +362,7 @@
                                 <span class="header__link-ja">ご依頼の流れ</span>
                             </a>
                         </li>
-                        <a class="header__contact" href="contact.php">
+                        <a class="header__contact" href="contact.php" aria-current="page">
                             <span class="header__contact-en">contact</span>
                             <span class="header__contact-ja">お問い合わせ</span>
                         </a>
