@@ -80,6 +80,17 @@ a {
 /* ==================================================
    3. ページ全体の基本（本文/ふつう のスタイル）
    ================================================== */
+/* ページ内リンク（#〇〇）で移動するとき、するっとなめらかに動かす */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 「視差効果を減らす」がオンの人には、なめらかな動きをやめて一瞬で移動する */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
 
 body {
     background-color: var(--color-bg);
@@ -185,8 +196,8 @@ body {
 /* 枠を消すと、キーボードで操作する人が今どこにいるか分からなくなるので、消さずに色だけ合わせる */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
 }
 
 
@@ -295,8 +306,8 @@ button:focus-visible {
 
 /* ----- 今いるページのメニュー ----- */
 .header__link[aria-current="page"] .header__link-en {
-  color: var(--color-accent);
-  /* ↑ aria-current="page" がついたリンクの英語だけ茶色にする → 「今ここにいる」とわかる */
+    color: var(--color-accent);
+    /* ↑ aria-current="page" がついたリンクの英語だけ茶色にする → 「今ここにいる」とわかる */
 }
 
 
@@ -752,77 +763,77 @@ button:focus-visible {
    ================================================== */
 
 .flow__list {
-  position: relative;
-  /* ↑ 丸をつなぐ横線（下の ::before）の位置の基準にする */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  /* ↑ repeat(5, 1fr) は「同じ幅の列を5つ作る」という意味 */
-  margin-top: 64px;
+    position: relative;
+    /* ↑ 丸をつなぐ横線（下の ::before）の位置の基準にする */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* ↑ repeat(5, 1fr) は「同じ幅の列を5つ作る」という意味 */
+    margin-top: 64px;
 }
 
 .flow__list::before {
-  content: "";
-  position: absolute;
-  top: 60px;
-  /* ↑ 丸の高さ120pxの半分 → 丸の真ん中の高さに線を引く */
-  left: 10%;
-  right: 10%;
-  /* ↑ 1列は全体の20%。その真ん中は10%の位置
+    content: "";
+    position: absolute;
+    top: 60px;
+    /* ↑ 丸の高さ120pxの半分 → 丸の真ん中の高さに線を引く */
+    left: 10%;
+    right: 10%;
+    /* ↑ 1列は全体の20%。その真ん中は10%の位置
        → 1つ目の丸の真ん中から、5つ目の丸の真ん中まで線を引く */
-  height: 1px;
-  background-color: var(--color-line);
+    height: 1px;
+    background-color: var(--color-line);
 }
 
 .flow__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* ↑ 丸・見出し・説明文を、縦に並べて真ん中にそろえる */
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ↑ 丸・見出し・説明文を、縦に並べて真ん中にそろえる */
+    text-align: center;
 }
 
 .flow__num {
-  position: relative;
-  /* ↑ 横線より上に表示するため（position をつけたものは、つけていないものより前に出る） */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* ↑ 数字を丸の真ん中に置く */
-  width: 120px;
-  height: 120px;
-  border: 1px solid var(--color-line);
-  border-radius: 50%;
-  background-color: var(--color-white);
-  /* ↑ 白で塗りつぶして、後ろの横線を隠す（丸の中に線が見えないように） */
-  font-family: var(--font-mincho);
-  font-size: 32px;
-  line-height: 1;
-  color: var(--color-accent);
+    position: relative;
+    /* ↑ 横線より上に表示するため（position をつけたものは、つけていないものより前に出る） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ↑ 数字を丸の真ん中に置く */
+    width: 120px;
+    height: 120px;
+    border: 1px solid var(--color-line);
+    border-radius: 50%;
+    background-color: var(--color-white);
+    /* ↑ 白で塗りつぶして、後ろの横線を隠す（丸の中に線が見えないように） */
+    font-family: var(--font-mincho);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--color-accent);
 }
 
 .flow__title {
-  margin-top: 24px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  /* ↑ 「日/小見出し」 */
+    margin-top: 24px;
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    /* ↑ 「日/小見出し」 */
 }
 
 .flow__text {
-  margin-top: 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--color-text-sub);
-  /* ↑ 「本文/小さい」：14px・行間170%・text/サブ */
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-sub);
+    /* ↑ 「本文/小さい」：14px・行間170%・text/サブ */
 }
 
 .flow__btns {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 64px;
 }
 
 
@@ -833,59 +844,214 @@ button:focus-visible {
 
 /* ----- しおり風のタブ ----- */
 .works-tabs {
-  display: flex;
-  gap: 8px;
-  margin-top: 48px;
-  border-bottom: 1px solid var(--color-line);
-  /* ↑ タブの下に1本の線を引く（ファイルのふち） */
+    display: flex;
+    gap: 8px;
+    margin-top: 48px;
+    border-bottom: 1px solid var(--color-line);
+    /* ↑ タブの下に1本の線を引く（ファイルのふち） */
 }
 
 .works-tabs__btn {
-  margin-bottom: -1px;
-  /* ↑ 下に1pxはみ出させて、タブの下のふちを、下の線にぴったり重ねる */
-  padding: 12px 28px;
-  border: 1px solid var(--color-line);
-  border-radius: 8px 8px 0 0;
-  /* ↑ 左上・右上・右下・左下の順。上だけ丸く、下は四角 → しおりの形 */
-  background-color: var(--color-white);
-  font-family: inherit;
-  /* ↑ ボタンは最初、まわりのフォントを受けつがないので、受けつぐように指定する */
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--color-text-sub);
-  cursor: pointer;
-  /* ↑ マウスを乗せたとき、指のマークにする */
-  transition: background-color 0.3s, color 0.3s;
+    margin-bottom: -1px;
+    /* ↑ 下に1pxはみ出させて、タブの下のふちを、下の線にぴったり重ねる */
+    padding: 12px 28px;
+    border: 1px solid var(--color-line);
+    border-radius: 8px 8px 0 0;
+    /* ↑ 左上・右上・右下・左下の順。上だけ丸く、下は四角 → しおりの形 */
+    background-color: var(--color-white);
+    font-family: inherit;
+    /* ↑ ボタンは最初、まわりのフォントを受けつがないので、受けつぐように指定する */
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-sub);
+    cursor: pointer;
+    /* ↑ マウスを乗せたとき、指のマークにする */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .works-tabs__btn:hover {
-  color: var(--color-text);
+    color: var(--color-text);
 }
 
 .works-tabs__btn.is-active {
-  border-color: var(--color-text);
-  background-color: var(--color-text);
-  color: var(--color-white);
-  /* ↑ 選ばれているタブは、こげ茶の塗りに白い文字 */
+    border-color: var(--color-text);
+    background-color: var(--color-text);
+    color: var(--color-white);
+    /* ↑ 選ばれているタブは、こげ茶の塗りに白い文字 */
 }
 
 .works-tabs__btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  /* ↑ キーボードで選んだときだけ、茶色の枠を少し離して表示する */
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    /* ↑ キーボードで選んだときだけ、茶色の枠を少し離して表示する */
 }
 
 .works-tabs__btn:focus:not(:focus-visible) {
-  outline: none;
-  /* ↑ マウスでクリックしたときは、枠を出さない */
+    outline: none;
+    /* ↑ マウスでクリックしたときは、枠を出さない */
 }
 
 /* ----- 作品カードの並び ----- */
 .works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* ↑ 同じ幅の列を3つ作る → カードが3枚ずつ並ぶ */
-  gap: 48px 24px;
-  /* ↑ 縦の間かく48px・横の間かく24px */
-  margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* ↑ 同じ幅の列を3つ作る → カードが3枚ずつ並ぶ */
+    gap: 48px 24px;
+    /* ↑ 縦の間かく48px・横の間かく24px */
+    margin-top: 48px;
+}
+
+/* ==============================
+   13. 作品詳細ページ
+   ============================== */
+
+/* ① 作品タイトル */
+.detail__title {
+    font-family: var(--font-mincho);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* 作品の種類（#Webサイト） */
+.detail__tag {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* ② メイン画像（仮の箱） */
+.detail__mv {
+    margin-top: 32px;
+    aspect-ratio: 16 / 9;
+    /* 横16：縦9 の形にする */
+    background-color: var(--color-bg-sub);
+}
+
+/* ③ 基本情報のリスト全体 */
+.detail__info {
+    margin: 48px 0 0;
+    /* dl は最初から上下に余白があるので、上だけ48pxにする */
+}
+
+/* 1行ぶん：左に項目名、右に中身を並べる */
+.detail__info-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    /* 左は120px、右は残り全部 */
+    column-gap: 24px;
+    padding-block: 6px;
+}
+
+/* 項目名（対応内容など） */
+.detail__info-term {
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* 中身 */
+.detail__info-desc {
+    margin: 0;
+    /* dd は最初から左に余白があるので消す */
+    font-size: 14px;
+}
+
+/* サイトURLのリンク */
+.detail__info-link {
+    color: var(--color-accent);
+    word-break: break-all;
+    /* 長いURLでも途中で折り返す */
+}
+
+.detail__info-link:hover {
+    text-decoration: underline;
+}
+
+/* ④ 本文エリア：左に目次（240px）、右に本文（残り全部） */
+.detail__body {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 100px;
+    margin-top: 80px;
+}
+
+/* 目次の白い箱 */
+.detail-toc {
+    position: sticky; /* スクロールしても、決めた位置でついてくる */
+    top: 128px; /* 画面の上から128pxの所で止まる（ヘッダー96px＋すき間32px） */
+    align-self: start; /* 箱の高さを中身ぶんだけにする（これがないと sticky が効かない） */
+    padding: 24px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+/* 「目次」の文字 */
+.detail-toc__title {
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* 目次のリスト */
+.detail-toc__list {
+    display: grid;
+    gap: 8px; /* 項目と項目の間 */
+    margin-top: 12px;
+}
+
+/* 目次のリンク */
+.detail-toc__link {
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+/* マウスを乗せたとき・今読んでいる所（is-active は次の JS で付ける） */
+.detail-toc__link:hover,
+.detail-toc__link.is-active {
+    color: var(--color-accent);
+}
+
+.detail-toc__link.is-active {
+    text-decoration: underline;
+    text-underline-offset: 4px; /* 下線と文字のすき間 */
+}
+
+/* 本文のまとまり */
+.detail__block {
+    scroll-margin-top: 128px; /* 目次で移動したとき、見出しがヘッダーの下にかくれないようにする */
+}
+
+/* 2つ目からのまとまりだけ、上に余白をあける */
+.detail__block + .detail__block {
+    margin-top: 80px;
+}
+
+/* 本文の見出し */
+.detail__heading {
+    font-family: var(--font-mincho);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+/* 本文の文章 */
+.detail__text {
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+/* 本文の画像（仮の箱） */
+.detail__img {
+    margin-top: 24px;
+    aspect-ratio: 2 / 1; /* 横2：縦1 */
+    background-color: var(--color-bg-sub);
+}
+
+/* ⑤ 下のボタン3つ */
+.detail__nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 100px;
 }
