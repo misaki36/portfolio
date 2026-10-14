@@ -138,54 +138,155 @@
 
         </section>
 
-        <!-- ========== PRICE ========== -->
-        <!-- id="price" は、トップページの「料金を見る」ボタンから飛んでくる目印 -->
-        <section class="price section" id="price">
+        <!-- ========== PRICE と WORKING（横に並べる） ========== -->
+        <section class="price-working section">
+            <!-- ↓ section の1段内側 -->
+            <div class="inner">
+                <!-- ↓ div.inner の1段内側：2つを横に並べる箱 -->
+                <div class="price-working__grid">
+                    <!-- ↓ div.price-working__grid の1段内側 -->
+
+                    <!-- 左：PRICE（id="price" はトップの「料金を見る」から飛んでくる目印） -->
+                    <div class="price" id="price">
+                        <!-- ↓ div.price の1段内側 -->
+                        <h2 class="section-title">
+                            <span class="section-title__en">PRICE</span>
+                            <span class="section-title__ja">料金の目安</span>
+                        </h2>
+
+                        <table class="price__table">
+                            <tbody>
+                                <tr>
+                                    <th class="price__name" scope="row">LP制作</th>
+                                    <td class="price__desc">1ページ・デザインから公開まで</td>
+                                    <td class="price__cost">〇〇円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">ホームページ制作</th>
+                                    <td class="price__desc">5ページ程度・デザインから公開まで</td>
+                                    <td class="price__cost">〇〇円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">バナー制作</th>
+                                    <td class="price__desc">SNS・Web広告用</td>
+                                    <td class="price__cost">〇〇円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">チラシ・POP制作</th>
+                                    <td class="price__desc">A4片面・印刷データまで</td>
+                                    <td class="price__cost">〇〇円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">更新・修正</th>
+                                    <td class="price__desc">公開後の文章・画像の差し替えなど</td>
+                                    <td class="price__cost">〇〇円〜</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="price__note">※ 料金は目安です。内容をうかがったうえで、お見積もりをお出しします。</p>
+                    </div>
+
+                    <!-- 右：WORKING -->
+                    <div class="working">
+                        <!-- ↓ div.working の1段内側 -->
+                        <h2 class="section-title">
+                            <span class="section-title__en">WORKING</span>
+                            <span class="section-title__ja">稼働条件</span>
+                        </h2>
+
+                        <dl class="profile__info">
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">稼働時間</dt>
+                                <dd class="profile__info-desc">平日 10:00〜14:00、22:00〜2:00</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">ご返信</dt>
+                                <dd class="profile__info-desc">24時間以内（土日祝は翌営業日）</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">ご連絡方法</dt>
+                                <dd class="profile__info-desc">メール・Discord</dd>
+                            </div>
+                            <div class="profile__info-row">
+                                <dt class="profile__info-term">納期の目安</dt>
+                                <dd class="profile__info-desc">LP：約〇週間〜</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section class="contact section" id="contact">
             <!-- ↓ section の1段内側 -->
             <div class="inner">
                 <!-- ↓ div.inner の1段内側 -->
 
                 <h2 class="section-title">
-                    <span class="section-title__en">PRICE</span>
-                    <span class="section-title__ja">料金の目安</span>
+                    <span class="section-title__en">CONTACT</span>
+                    <span class="section-title__ja">お問い合わせ</span>
                 </h2>
 
-                <!-- table = 表。行（tr）の中に、見出しのマス（th）と中身のマス（td）を並べる -->
-                <table class="price__table">
-                    <!-- ↓ table の1段内側 -->
-                    <tbody>
-                        <!-- ↓ tbody の1段内側：1行 = tr 1つ -->
-                        <tr>
-                            <!-- ↓ tr の1段内側：1マス = th か td 1つ -->
-                            <!-- scope="row" は「この th は、この行の見出しです」という意味 -->
-                            <th class="price__name" scope="row">LP制作</th>
-                            <td class="price__desc">1ページ・デザインから公開まで</td>
-                            <td class="price__cost">〇〇円〜</td>
-                        </tr>
-                        <tr>
-                            <th class="price__name" scope="row">ホームページ制作</th>
-                            <td class="price__desc">5ページ程度・デザインから公開まで</td>
-                            <td class="price__cost">〇〇円〜</td>
-                        </tr>
-                        <tr>
-                            <th class="price__name" scope="row">バナー制作</th>
-                            <td class="price__desc">SNS・Web広告用</td>
-                            <td class="price__cost">〇〇円〜</td>
-                        </tr>
-                        <tr>
-                            <th class="price__name" scope="row">チラシ・POP制作</th>
-                            <td class="price__desc">A4片面・印刷データまで</td>
-                            <td class="price__cost">〇〇円〜</td>
-                        </tr>
-                        <tr>
-                            <th class="price__name" scope="row">更新・修正</th>
-                            <td class="price__desc">公開後の文章・画像の差し替えなど</td>
-                            <td class="price__cost">〇〇円〜</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p class="contact__lead">制作のご依頼・ご相談など、お気軽にお問い合わせください。</p>
 
-                <p class="price__note">※ 料金は目安です。内容をうかがったうえで、お見積もりをお出しします。</p>
+                <!-- form = 入力した内容を送るための箱。
+                     method="post" は「中身を見えない形で送る」送り方（URLに入力内容が出ない）
+                     action は送り先。PHP を作るときに決めるので、今は仮 -->
+                <form class="contact-form" action="#" method="post">
+                    <!-- ↓ form の1段内側 -->
+
+                    <!-- 1つの項目 = div 1つ -->
+                    <div class="contact-form__item">
+                        <!-- ↓ div の1段内側 -->
+                        <!-- label の for と input の id を同じにすると、文字を押しても入力欄が選ばれる -->
+                        <label class="contact-form__label" for="name">
+                            お名前<span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <!-- required = 入力しないと送れない／maxlength = 入力できる文字数の上限 -->
+                        <input class="contact-form__input" type="text" id="name" name="name" autocomplete="name"
+                            maxlength="50" required>
+                    </div>
+
+                    <div class="contact-form__item">
+                        <label class="contact-form__label" for="company">会社名・団体名（任意）</label>
+                        <input class="contact-form__input" type="text" id="company" name="company"
+                            autocomplete="organization" maxlength="100">
+                    </div>
+
+                    <div class="contact-form__item">
+                        <label class="contact-form__label" for="email">
+                            メールアドレス<span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <!-- type="email" にすると、@ がないときにブラウザが教えてくれる。スマホではメール用のキーボードが出る -->
+                        <input class="contact-form__input" type="email" id="email" name="email" autocomplete="email"
+                            maxlength="254" required>
+                    </div>
+
+                    <div class="contact-form__item">
+                        <label class="contact-form__label" for="message">
+                            ご相談内容<span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <!-- textarea = 何行も書ける入力欄 -->
+                        <textarea class="contact-form__textarea" id="message" name="message" rows="8" maxlength="2000"
+                            required></textarea>
+                    </div>
+
+                    <!-- プライバシーポリシーへの同意 -->
+                    <div class="contact-form__agree">
+                        <!-- ↓ div の1段内側：label で checkbox と文字を包むと、文字を押してもチェックできる -->
+                        <label>
+                            <input type="checkbox" name="agree" required>
+                            <a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する
+                        </label>
+                    </div>
+
+                    <div class="contact-form__submit">
+                        <!-- 送信ボタンは a ではなく button。type="submit" で「フォームを送る」ボタンになる -->
+                        <button class="btn btn--main" type="submit">送信する</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
