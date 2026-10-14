@@ -14,11 +14,9 @@
     <!-- ↑ スマホで見たときに、画面の幅に合わせて表示する設定 -->
 
 
-    <title>制作実績 | Kuwamoto Misaki</title>
+    <title>作品タイトル | Kuwamoto Misaki</title>
 
-    <meta name="description" content="Webデザイナー桑本美咲の制作実績一覧です。Webサイト・LP・バナー・チラシなどの作品を掲載しています。">
-
-    <meta name="description" content="教室・イベントのチラシやホームページを、デザインから公開までひとりで手がけるWebデザイナー、桑本美咲のポートフォリオサイトです。">
+    <meta name="description" content="Webデザイナー桑本美咲の制作実績の詳細です。制作の背景やデザインのポイントを紹介しています。">
     <!-- ↑ 検索結果のタイトルの下に出る説明文 -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +55,7 @@
                 <ul class="header__list">
                     <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
                     <li>
-                        <a class="header__link" href="works.html" aria-current="page">
+                        <a class="header__link" href="works.html">
                             <span class="header__link-en">works</span>
                             <span class="header__link-ja">制作実績</span>
                         </a>
@@ -94,42 +92,53 @@
             <!-- ↓ section の1段内側：横幅をそろえる箱 -->
             <div class="inner">
                 <!-- ↓ div.inner の1段内側 -->
+                <!-- 画像と「タイトル＋表」を横に並べるための箱 -->
+                <div class="detail__overview">
+                    <!-- ↓ div.detail__overview の1段内側 -->
 
-                <!-- ① 作品の名前と種類 -->
-                <h1 class="detail__title">作品タイトル</h1>
-                <p class="detail__tag">#Webサイト</p>
+                    <!-- 右の列：タイトル・種類・基本情報（HTML では先に書く） -->
+                    <div class="detail__summary">
+                        <!-- ↓ div.detail__summary の1段内側 -->
 
-                <!-- ② メイン画像（今は仮の箱。画像ができたら img に差し替える） -->
-                <div class="detail__mv"></div>
+                        <!-- ① 作品の名前と種類 -->
+                        <h1 class="detail__title">作品タイトル</h1>
+                        <p class="detail__tag">#Webサイト</p>
 
-                <!-- ③ 作品の基本情報（dl = 「項目名」と「中身」をセットで並べるタグ） -->
-                <dl class="detail__info">
-                    <!-- ↓ dl の1段内側：1行ぶんのまとまり -->
-                    <div class="detail__info-row">
-                        <!-- ↓ div の1段内側 -->
-                        <dt class="detail__info-term">対応内容</dt>
-                        <dd class="detail__info-desc">デザイン・コーディング</dd>
+                        <!-- ③ 作品の基本情報（dl = 「項目名」と「中身」をセットで並べるタグ） -->
+                        <dl class="detail__info">
+                            <!-- ↓ dl の1段内側：1行ぶんのまとまり -->
+                            <div class="detail__info-row">
+                                <dt class="detail__info-term">対応内容</dt>
+                                <dd class="detail__info-desc">デザイン・コーディング</dd>
+                            </div>
+                            <div class="detail__info-row">
+                                <dt class="detail__info-term">制作期間</dt>
+                                <dd class="detail__info-desc">
+                                    約60時間
+                                    <!-- 内訳は小さい文字で、下の行に出す -->
+                                    <span class="detail__info-note">（情報設計・ワイヤー10h／デザインカンプ20h／実装30h）</span>
+                                </dd>
+                            </div>
+                            <div class="detail__info-row">
+                                <dt class="detail__info-term">使用ツール</dt>
+                                <dd class="detail__info-desc">Figma／Clip Studio</dd>
+                            </div>
+                            <div class="detail__info-row">
+                                <dt class="detail__info-term">サイトURL</dt>
+                                <dd class="detail__info-desc">
+                                    <!-- 別タブで開くときは rel="noopener noreferrer" を必ず付ける（セキュリティ対策） -->
+                                    <a class="detail__info-link" href="https://example.com" target="_blank"
+                                        rel="noopener noreferrer">https://example.com</a>
+                                </dd>
+                            </div>
+                        </dl>
                     </div>
-                    <div class="detail__info-row">
-                        <dt class="detail__info-term">制作期間</dt>
-                        <dd class="detail__info-desc">約60時間（情報設計・ワイヤー10h／デザインカンプ20h／実装30h）</dd>
-                    </div>
-                    <div class="detail__info-row">
-                        <dt class="detail__info-term">使用ツール</dt>
-                        <dd class="detail__info-desc">Figma／Clip Studio</dd>
-                    </div>
-                    <div class="detail__info-row">
-                        <dt class="detail__info-term">サイトURL</dt>
-                        <dd class="detail__info-desc">
-                            <!-- ↓ dd の1段内側：別タブで開くリンク -->
-                            <!-- 別タブで開くときは rel="noopener noreferrer" を必ず付ける（セキュリティ対策） -->
-                            <a class="detail__info-link" href="https://example.com" target="_blank"
-                                rel="noopener noreferrer">https://example.com</a>
-                        </dd>
-                    </div>
-                </dl>
 
-                                <!-- ④ 本文エリア：左に目次、右に本文を並べる -->
+                    <!-- 左の列：② メイン画像（今は仮の箱。CSS の order で左に表示する） -->
+                    <div class="detail__mv"></div>
+                </div>
+
+                <!-- ④ 本文エリア：左に目次、右に本文を並べる -->
                 <div class="detail__body">
                     <!-- ↓ div.detail__body の1段内側 -->
 
@@ -205,9 +214,10 @@
             <div class="footer__top">
 
                 <a class="footer__brand" href="index.html">
+                    <!-- ↓ a の1段内側：ロゴと名前（押すとトップページに戻る） -->
                     <img src="images/logo-seal.svg" alt="" width="56" height="56">
                     <!-- ↑ alt="" （空っぽ）にしているのは、すぐ横に名前の文字があるから。
-                   読み上げソフトが「ロゴ、Kuwamoto Misaki」と2回読まないようにするため -->
+                       読み上げソフトが「ロゴ、Kuwamoto Misaki」と2回読まないようにするため -->
                     <span class="footer__name">Kuwamoto Misaki</span>
                 </a>
 
@@ -215,7 +225,7 @@
                     <!-- ↑ ヘッダーのメニューとまったく同じ見た目なので、ヘッダー用の class を使い回す -->
                     <ul class="header__list">
                         <li>
-                            <a class="header__link" href="works.html" aria-current="page">
+                            <a class="header__link" href="works.html">
                                 <span class="header__link-en">works</span>
                                 <span class="header__link-ja">制作実績</span>
                             </a>

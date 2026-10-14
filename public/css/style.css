@@ -207,6 +207,12 @@ button:focus-visible {
    ================================================== */
 
 .header {
+    position: sticky;
+    /* ↑ スクロールしても、画面の上にくっついてくる */
+    top: 0;
+    /* ↑ 画面の一番上（0px）でくっつく */
+    z-index: 100;
+    /* ↑ ほかのものより手前に表示する（下の写真やカードに隠れないように） */
     background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-line);
     /* ↑ ヘッダーの下に細い線を引く（Figmaと同じ line/線 の色） */
@@ -921,9 +927,19 @@ button:focus-visible {
     color: var(--color-text-sub);
 }
 
+/* 画像と表を横に並べる箱 */
+.detail__overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* 左右半分ずつ */
+    column-gap: 64px;
+    /* 画像と表の間 */
+    align-items: center;
+    /* 表を画像の上下まん中にそろえる */
+}
+
 /* ② メイン画像（仮の箱） */
 .detail__mv {
-    margin-top: 32px;
     aspect-ratio: 16 / 9;
     /* 横16：縦9 の形にする */
     background-color: var(--color-bg-sub);
@@ -931,15 +947,15 @@ button:focus-visible {
 
 /* ③ 基本情報のリスト全体 */
 .detail__info {
-    margin: 48px 0 0;
-    /* dl は最初から上下に余白があるので、上だけ48pxにする */
+    margin: 32px 0 0;
+    /* dl は最初から上下に余白があるので、上だけ32pxにする */
 }
 
 /* 1行ぶん：左に項目名、右に中身を並べる */
 .detail__info-row {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    /* 左は120px、右は残り全部 */
+    grid-template-columns: 88px 1fr;
+    /* 左は88px、右は残り全部 */
     column-gap: 24px;
     padding-block: 6px;
 }
@@ -955,6 +971,14 @@ button:focus-visible {
     margin: 0;
     /* dd は最初から左に余白があるので消す */
     font-size: 14px;
+}
+
+/* 制作期間の内訳（小さいグレーの文字） */
+.detail__info-note {
+    display: block;
+    /* span は横に並ぶので、block にして下の行に出す */
+    font-size: 12px;
+    color: var(--color-text-sub);
 }
 
 /* サイトURLのリンク */
@@ -978,9 +1002,12 @@ button:focus-visible {
 
 /* 目次の白い箱 */
 .detail-toc {
-    position: sticky; /* スクロールしても、決めた位置でついてくる */
-    top: 128px; /* 画面の上から128pxの所で止まる（ヘッダー96px＋すき間32px） */
-    align-self: start; /* 箱の高さを中身ぶんだけにする（これがないと sticky が効かない） */
+    position: sticky;
+    /* スクロールしても、決めた位置でついてくる */
+    top: 128px;
+    /* 画面の上から128pxの所で止まる（ヘッダー96px＋すき間32px） */
+    align-self: start;
+    /* 箱の高さを中身ぶんだけにする（これがないと sticky が効かない） */
     padding: 24px;
     background-color: var(--color-white);
     border: 1px solid var(--color-line);
@@ -995,7 +1022,8 @@ button:focus-visible {
 /* 目次のリスト */
 .detail-toc__list {
     display: grid;
-    gap: 8px; /* 項目と項目の間 */
+    gap: 8px;
+    /* 項目と項目の間 */
     margin-top: 12px;
 }
 
@@ -1013,16 +1041,18 @@ button:focus-visible {
 
 .detail-toc__link.is-active {
     text-decoration: underline;
-    text-underline-offset: 4px; /* 下線と文字のすき間 */
+    text-underline-offset: 4px;
+    /* 下線と文字のすき間 */
 }
 
 /* 本文のまとまり */
 .detail__block {
-    scroll-margin-top: 128px; /* 目次で移動したとき、見出しがヘッダーの下にかくれないようにする */
+    scroll-margin-top: 128px;
+    /* 目次で移動したとき、見出しがヘッダーの下にかくれないようにする */
 }
 
 /* 2つ目からのまとまりだけ、上に余白をあける */
-.detail__block + .detail__block {
+.detail__block+.detail__block {
     margin-top: 80px;
 }
 
@@ -1044,7 +1074,8 @@ button:focus-visible {
 /* 本文の画像（仮の箱） */
 .detail__img {
     margin-top: 24px;
-    aspect-ratio: 2 / 1; /* 横2：縦1 */
+    aspect-ratio: 2 / 1;
+    /* 横2：縦1 */
     background-color: var(--color-bg-sub);
 }
 
