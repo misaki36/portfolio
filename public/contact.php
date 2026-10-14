@@ -68,14 +68,14 @@
                         </a>
                     </li>
                     <li>
-                        <a class="header__link" href="contact.html#flow">
-                            <!-- ↑ #flow は「contact.html の中の flow という場所まで飛ぶ」という意味 -->
+                        <a class="header__link" href="contact.php#flow">
+                            <!-- ↑ #flow は「contact.php の中の flow という場所まで飛ぶ」という意味 -->
                             <span class="header__link-en">flow</span>
                             <span class="header__link-ja">ご依頼の流れ</span>
                         </a>
                     </li>
 
-                    <a class="header__contact" href="contact.html">
+                    <a class="header__contact" href="contact.php">
                         <!-- ↑ お問い合わせボタン -->
                         <span class="header__contact-en">contact</span>
                         <span class="header__contact-ja">お問い合わせ</span>
@@ -323,13 +323,13 @@
                             </a>
                         </li>
                         <li>
-                            <a class="header__link" href="contact.html#flow">
-                                <!-- ↑ #flow は「contact.html の中の flow という場所まで飛ぶ」という意味 -->
+                            <a class="header__link" href="contact.php#flow">
+                                <!-- ↑ #flow は「contact.php の中の flow という場所まで飛ぶ」という意味 -->
                                 <span class="header__link-en">flow</span>
                                 <span class="header__link-ja">ご依頼の流れ</span>
                             </a>
                         </li>
-                        <a class="header__contact" href="contact.html">
+                        <a class="header__contact" href="contact.php">
                             <span class="header__contact-en">contact</span>
                             <span class="header__contact-ja">お問い合わせ</span>
                         </a>
