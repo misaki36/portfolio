@@ -253,6 +253,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                 <p class="contact__lead">制作のご依頼・ご相談など、お気軽にお問い合わせください。</p>
 
                 <!-- action="send.php"：送り先。method="post"：中身を見えない形で送る -->
+                 <form class="contact-form" action="send.php" method="post">
                     <!-- ↓ form の1段内側 -->
 
                     <!-- エラーがあるときだけ、上にまとめのメッセージを出す

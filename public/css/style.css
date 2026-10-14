@@ -85,12 +85,9 @@ a {
 /* ページ内リンク（#〇〇）で移動するとき、するっとなめらかに動かす */
 html {
     scroll-behavior: smooth;
-    html {
-    scroll-behavior: smooth;
     scroll-padding-top: 120px;
     /* ↑ ページ内の移動（目次・#flow・入力欄など）で、上から120px手前で止まる。
        くっついてくるヘッダー（96px）の裏にかくれないようにするため */
-}
 }
 
 /* 「視差効果を減らす」がオンの人には、なめらかな動きをやめて一瞬で移動する */
@@ -1396,7 +1393,6 @@ button:focus-visible {
 /* 注意書き */
 .price__note {
     margin-top: 16px;
-    /* ↑ 表と同じように、まん中に置く */
     font-size: 12px;
     color: var(--color-text-sub);
 }
@@ -1502,4 +1498,23 @@ button:focus-visible {
     margin-top: 8px;
     font-size: 13px;
     color: var(--color-error);
+}
+
+/* ==================================================
+   16. 送信完了ページ
+   ================================================== */
+
+.thanks__body {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.thanks__note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+.thanks__body .btn {
+    margin-top: 48px;
 }

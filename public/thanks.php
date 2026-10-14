@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- ↑ 「このファイルはHTMLで書いてあるよ」とブラウザに伝える合図。必ず1行目に書く -->
+
+<html lang="ja">
+<!-- ↑ ページ全体を包む箱。lang="ja" は「日本語のページです」という意味（読み上げソフトや検索エンジンが使う） -->
+
+<head>
+    <!-- ↑ 画面には出ない「ページの設定」を書く場所 -->
+
+    <meta charset="UTF-8">
+    <!-- ↑ 文字の種類の指定。これがないと日本語が文字化けすることがある -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ↑ スマホで見たときに、画面の幅に合わせて表示する設定 -->
+
+
+    <title>送信完了 | Kuwamoto Misaki</title>
+
+    <!-- 完了ページは Google の検索結果に出さない（いきなりこのページに来ても意味がないので） -->
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- ↑ Figmaで使った3つのフォントを読み込む。wght@400;500 は「Regular と Medium の太さだけ使う」という意味（使う太さだけにすると軽くなる） -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ↑ 自分で書くCSSファイルを読み込む。フォントのあとに書くのがポイント -->
+</head>
+
+<body>
+    <!-- ↑ 画面に表示されるものを書く場所 -->
+
+    <!-- ==================== ヘッダー ==================== -->
+    <header class="header">
+        <!-- ↑ header は「ページの頭の部分」という意味のタグ -->
+
+        <div class="header__inner inner">
+            <!-- ↑ class を2つつけている。header__inner（ヘッダー用の設定）と inner（幅をそろえる共通パーツ） -->
+
+            <a class="header__logo" href="index.html">
+                <!-- ↑ ロゴを押すとトップページに戻るリンク -->
+                <img src="images/logo-seal.svg" alt="Kuwamoto Misaki トップページへ" width="56" height="56">
+                <!-- ↑ alt は画像が見えない人（読み上げソフト）向けの説明。
+                 width と height を書いておくと、画像を読み込む前から場所が確保されて、ページがガタッとずれない -->
+            </a>
+
+            <nav class="header__nav" aria-label="メインメニュー">
+                <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
+
+                <ul class="header__list">
+                    <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
+                    <li>
+                        <a class="header__link" href="works.html">
+                            <span class="header__link-en">works</span>
+                            <span class="header__link-ja">制作実績</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="about.html">
+                            <span class="header__link-en">about me</span>
+                            <span class="header__link-ja">私について</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="contact.php#flow">
+                            <!-- ↑ #flow は「contact.php の中の flow という場所まで飛ぶ」という意味 -->
+                            <span class="header__link-en">flow</span>
+                            <span class="header__link-ja">ご依頼の流れ</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <a class="header__contact" href="contact.php">
+                    <!-- ↑ お問い合わせボタン -->
+                    <span class="header__contact-en">contact</span>
+                    <span class="header__contact-ja">お問い合わせ</span>
+                </a>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== メイン（ページの中身） ==================== -->
+    <main>
+                <section class="thanks section">
+            <!-- ↓ section の1段内側 -->
+            <div class="inner">
+                <!-- ↓ div.inner の1段内側 -->
+
+                <h1 class="section-title">
+                    <span class="section-title__en">THANK YOU</span>
+                    <span class="section-title__ja">送信完了</span>
+                </h1>
+
+                <div class="thanks__body">
+                    <!-- ↓ div.thanks__body の1段内側 -->
+                    <p class="thanks__text">お問い合わせいただき、ありがとうございます。<br>内容を確認のうえ、24時間以内（土日祝は翌営業日）にご連絡いたします。</p>
+                    <p class="thanks__note">※ しばらくたっても返信がない場合は、迷惑メールフォルダもご確認ください。</p>
+                    <a class="btn btn--sub" href="index.html">トップページへ戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== フッター ==================== -->
+    <footer class="footer">
+        <!-- ↑ footer は「ページの終わりの部分」という意味のタグ -->
+
+        <div class="footer__inner inner">
+
+            <!-- ----- 上の段：ロゴと名前／メニュー ----- -->
+            <div class="footer__top">
+
+                <a class="footer__brand" href="index.html">
+                    <img src="images/logo-seal.svg" alt="" width="56" height="56">
+                    <!-- ↑ alt="" （空っぽ）にしているのは、すぐ横に名前の文字があるから。
+                   読み上げソフトが「ロゴ、Kuwamoto Misaki」と2回読まないようにするため -->
+                    <span class="footer__name">Kuwamoto Misaki</span>
+                </a>
+
+                <nav class="header__nav" aria-label="フッターメニュー">
+                    <!-- ↑ ヘッダーのメニューとまったく同じ見た目なので、ヘッダー用の class を使い回す -->
+                    <ul class="header__list">
+                        <li>
+                            <a class="header__link" href="works.html">
+                                <span class="header__link-en">works</span>
+                                <span class="header__link-ja">制作実績</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__link" href="about.html">
+                                <span class="header__link-en">about me</span>
+                                <span class="header__link-ja">私について</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__link" href="contact.php#flow">
+                                <span class="header__link-en">flow</span>
+                                <span class="header__link-ja">ご依頼の流れ</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="header__contact" href="contact.php">
+                        <span class="header__contact-en">contact</span>
+                        <span class="header__contact-ja">お問い合わせ</span>
+                    </a>
+                </nav>
+
+            </div>
+
+            <!-- ----- SNSのリンク ----- -->
+            <ul class="footer__sns">
+                <li>
+                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                        <!-- ↑ href="#" は仮。あとで自分の Discord のURLに変える
+                   target="_blank" … 新しいタブで開く
+                   rel="noopener noreferrer" … 🔒セキュリティ対策（下で説明） -->
+                        <img src="images/icon-discord.svg" alt="" width="24" height="24">
+                        <span>discord</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                        <img src="images/icon-github.svg" alt="" width="24" height="24">
+                        <span>github</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- ----- コピーライト ----- -->
+            <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
+            <!-- ↑ small は「注意書き・著作権表示」に使うタグ。&copy; は © マークを表す書き方 -->
+
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <!-- ↑ JavaScriptファイルを読み込む。defer は「HTMLを全部読み終わってから動かしてね」という意味 -->
+</body>
+
+</html>
