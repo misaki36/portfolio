@@ -200,6 +200,21 @@ button:focus-visible {
     outline-offset: 4px;
 }
 
+/* ----- 画面には見せないけど、読み上げソフトには読んでもらう ----- */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+    /* ↑ 1pxの小さな箱に閉じこめて、はみ出た所を隠す。
+       display: none だと読み上げソフトにも読まれなくなるので、この書き方を使う */
+}
+
 
 
 /* ==================================================
@@ -1296,4 +1311,66 @@ button:focus-visible {
     justify-content: center;
     gap: 24px;
     margin-top: 24px;
+}
+
+/* ==================================================
+   15. 料金・お問い合わせページ
+   ================================================== */
+
+/* ----- PRICE ----- */
+
+/* 表全体 */
+.price__table {
+    width: 100%;
+    max-width: 880px;
+    /* ↑ 表が横に広がりすぎないように、上限を880pxにする */
+    margin: 48px auto 0;
+    /* ↑ 上48px・左右auto・下0 → 左右の余白が同じになって、まん中に置かれる */
+    border-collapse: collapse;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+/* マス全部に共通 */
+.price__table th,
+.price__table td {
+    padding: 24px;
+    border-bottom: 1px solid var(--color-line);
+    /* ↑ 行と行の間に線を引く */
+    text-align: left;
+    vertical-align: middle;
+    /* ↑ マスの中で、文字を上下まん中に置く */
+}
+
+/* 左：サービス名 */
+.price__name {
+    width: 240px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* まん中：説明 */
+.price__desc {
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+/* 右：料金 */
+.price__table .price__cost {
+    text-align: right;
+    /* ↑ 料金は右にそろえる */
+    white-space: nowrap;
+    /* ↑ 料金が途中で折り返さないようにする */
+    font-family: var(--font-mincho);
+    font-size: 16px;
+}
+
+/* 注意書き */
+.price__note {
+    max-width: 880px;
+    /* ↑ 表と同じ横幅にする */
+    margin: 16px auto 0;
+    /* ↑ 表と同じように、まん中に置く */
+    font-size: 12px;
+    color: var(--color-text-sub);
 }
