@@ -129,3 +129,27 @@ if (tocLinks.length > 0) {
         observer.observe(block);
     });
 }
+
+// スマホ：メニューの開け閉め
+const header = document.querySelector('.header');
+const menuBtn = document.querySelector('.header__menu-btn');
+
+if (header && menuBtn) {
+    // ≡ ボタンを押したとき
+    menuBtn.addEventListener('click', () => {
+        // toggle = 付いていなければ付ける・付いていれば外す。付けたら true が返ってくる
+        const isOpen = header.classList.toggle('is-open');
+        // 読み上げソフト向けに、今の状態とボタンの名前を変える
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    // メニューの中のリンクを押したら閉じる（同じページの #flow に飛んだときに、開いたままにならないように）
+    header.querySelectorAll('.header__nav a').forEach((link) => {
+        link.addEventListener('click', () => {
+            header.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'メニューを開く');
+        });
+    });
+}

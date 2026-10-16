@@ -257,6 +257,11 @@ button:focus-visible {
     width: 56px;
 }
 
+/* スマホ用のメニューボタン（PC ではかくす） */
+.header__menu-btn {
+    display: none;
+}
+
 .header__nav {
     display: flex;
     align-items: center;
@@ -1415,7 +1420,7 @@ button:focus-visible {
 }
 
 /* 2つ目からの項目だけ、上に余白をあける */
-.contact-form__item + .contact-form__item {
+.contact-form__item+.contact-form__item {
     margin-top: 24px;
 }
 
@@ -1517,4 +1522,106 @@ button:focus-visible {
 
 .thanks__body .btn {
     margin-top: 48px;
+}
+
+/* ==================================================
+   17. スマホ対応（画面の幅が 767px 以下のとき）
+   ================================================== */
+@media (max-width: 767px) {
+    /* ↓ @media の1段内側に、上書きしたい CSS を書いていく */
+
+    /* ----- 共通：セクションの上下の余白をせまく ----- */
+    .section {
+        padding-block: 64px;
+        /* ↑ PC は 100px。スマホは画面が小さいので少しせまく */
+    }
+
+    /* ----- 共通：英語の大見出しを少し小さく ----- */
+    .section-title__en {
+        font-size: 32px;
+        /* ↑ PC は 40px */
+    }
+
+        /* ----- ヘッダー ----- */
+    .header__inner {
+        height: 64px;
+        /* ↑ PC は 96px。スマホは少し低く */
+    }
+
+    .header__logo {
+        width: 44px;
+    }
+
+    /* ≡ ボタンを出す */
+    .header__menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        /* ↑ 3本線の間 */
+        width: 44px;
+        height: 44px;
+        /* ↑ 指で押しやすい大きさ（44px 以上が目安） */
+        padding: 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    /* 3本線の1本 */
+    .header__menu-line {
+        display: block;
+        height: 1px;
+        background-color: var(--color-text);
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* メニュー：画面いっぱいの板にして、最初はかくしておく */
+    /* .header を前に付けて、footer のメニュー（同じ class）には効かないようにする */
+    .header .header__nav {
+        position: fixed;
+        top: 64px;
+        /* ↑ ヘッダーのすぐ下から */
+        right: 0;
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
+        padding: 48px 20px;
+        background-color: var(--color-bg);
+        visibility: hidden;
+        opacity: 0;
+        /* ↑ 見えないし、Tab キーでも選べない状態 */
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    /* メニューの中のリンクを縦に並べる */
+    .header .header__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    /* 開いたとき（JS で .header に is-open を付ける） */
+    .header.is-open .header__nav {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* 開いたとき、≡ を × にする */
+    .header.is-open .header__menu-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+        /* ↑ 1本目：7px 下げて、45度かたむける */
+    }
+
+    .header.is-open .header__menu-line:nth-child(2) {
+        opacity: 0;
+        /* ↑ 2本目：消す */
+    }
+
+    .header.is-open .header__menu-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+        /* ↑ 3本目：7px 上げて、反対にかたむける */
+    }
 }
