@@ -1527,6 +1527,12 @@ button:focus-visible {
    16. 送信完了ページ
    ================================================== */
 
+/* 見出し（THANK YOU / 送信完了）をまん中に */
+.thanks .section-title {
+    text-align: center;
+    /* ↑ .thanks の中の見出しだけ。ほかのページの見出しは左のまま */
+}
+
 .thanks__body {
     margin-top: 48px;
     text-align: center;
@@ -1540,6 +1546,11 @@ button:focus-visible {
 
 .thanks__body .btn {
     margin-top: 48px;
+}
+
+/* 言葉のまとまり：この箱の途中では折り返さない */
+.thanks__phrase {
+    display: inline-block;
 }
 
 /* ==================================================

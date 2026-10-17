@@ -92,20 +92,26 @@
 
     <!-- ==================== メイン（ページの中身） ==================== -->
     <main>
-                <section class="thanks section">
+            <section class="thanks section">
             <!-- ↓ section の1段内側 -->
             <div class="inner">
                 <!-- ↓ div.inner の1段内側 -->
 
                 <h1 class="section-title">
                     <span class="section-title__en">THANK YOU</span>
+                    </span>
                     <span class="section-title__ja">送信完了</span>
                 </h1>
 
                 <div class="thanks__body">
                     <!-- ↓ div.thanks__body の1段内側 -->
-                    <p class="thanks__text">お問い合わせいただき、ありがとうございます。<br>内容を確認のうえ、24時間以内（土日祝は翌営業日）にご連絡いたします。</p>
-                    <p class="thanks__note">※ しばらくたっても返信がない場合は、迷惑メールフォルダもご確認ください。</p>
+                    <p class="thanks__text">
+                        <span class="thanks__phrase">お問い合わせいただき、</span><span class="thanks__phrase">ありがとうございます。</span><br>
+                        <span class="thanks__phrase">内容を確認のうえ、</span><span class="thanks__phrase">24時間以内（土日祝は翌営業日）</span><span class="thanks__phrase">にご連絡いたします。</span>
+                    </p>
+                    <p class="thanks__note">
+                        <span class="thanks__phrase">※ しばらくたっても返信がない場合は、</span><span class="thanks__phrase">迷惑メールフォルダもご確認ください。</span>
+                    </p>
                     <a class="btn btn--sub" href="index.html">トップページへ戻る</a>
                 </div>
             </div>
