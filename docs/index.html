@@ -30,10 +30,51 @@
 
     <link rel="stylesheet" href="css/style.css">
     <!-- ↑ 自分で書くCSSファイルを読み込む。フォントのあとに書くのがポイント -->
+
+    <script>
+        // ↓ ページを表示する前に、「手紙の演出を出すかどうか」を決める
+        // （ページが一瞬見えてから封筒が出る…というチラつきを防ぐため、head の中に書く）
+        try {
+            const seen = sessionStorage.getItem('introSeen');
+            // ↑ このタブで、もう演出を見たかどうか（見ていたら '1' が入っている）
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // ↑ 「視差効果を減らす」がオンなら true
+            if (!seen && !reduce) {
+                document.documentElement.classList.add('is-intro');
+                // ↑ はじめてで、動きを減らす設定でもなければ、<html> に is-intro という目印をつける
+            }
+        } catch (e) {
+            // ↑ ブラウザの設定で記録が使えないときは、何もしない（演出なしでふつうに表示）
+        }
+    </script>
 </head>
 
 <body>
     <!-- ↑ 画面に表示されるものを書く場所 -->
+
+    <!-- ==================== 最初の手紙の演出 ==================== -->
+    <div class="intro">
+        <div class="intro__inner">
+            <!-- ↑ 封筒とスキップボタンを包む箱（封筒と同じはば） -->
+
+            <!-- ↓ 封筒（飾りなので、読み上げソフトには読ませない） -->
+            <div class="intro__envelope" aria-hidden="true">
+                <div class="intro__letter">
+                    <!-- ↑ 封筒の中から出てくる手紙 -->
+                    <p class="intro__letter-text">Kuwamoto Misaki</p>
+                </div>
+                <div class="intro__body"></div>
+                <!-- ↑ 封筒の本体（手前の部分） -->
+                <div class="intro__flap"></div>
+                <!-- ↑ 封筒のふた（三角の部分） -->
+                <img class="intro__seal" src="images/logo-seal.svg" alt="" width="64" height="64">
+                <!-- ↑ ふたをとめているシール。サイトのロゴを使う -->
+            </div>
+
+            <button class="intro__skip" type="button">スキップ</button>
+            <!-- ↑ 封筒の右下に出るボタン -->
+        </div>
+    </div>
 
     <!-- ==================== ヘッダー ==================== -->
     <header class="header">
@@ -248,7 +289,7 @@
                         <p>教室のお知らせ、バザーのご案内、地域のイベント。<br>身近な場所には、たくさんの「伝えたい想い」があります。</p>
                         <p>その想いを、手紙を届けるようにていねいに受け取り、<br>見る人の心に届くかたちへ。</p>
                         <p>デザインから公開まで、ひとりで寄り添いながらお手伝いします。</p>
-                    </div> 
+                    </div>
                 </div>
 
             </div>

@@ -153,3 +153,40 @@ if (header && menuBtn) {
         });
     });
 }
+
+// ===== 最初の手紙の演出（トップページ） =====
+const intro = document.querySelector('.intro');
+const root = document.documentElement;
+// ↑ root は <html> のこと。目印（is-intro）はここについている
+
+// 演出の板があって、目印もついているときだけ動かす
+if (intro && root.classList.contains('is-intro')) {
+
+    // 「もう見たよ」のメモを残す（このタブで次に開いたときは出さない）
+    try {
+        sessionStorage.setItem('introSeen', '1');
+    } catch (e) {
+        // ↑ ブラウザの設定でメモが使えないときは、何もしない
+    }
+
+    // 演出を終わらせる
+    const endIntro = () => {
+        root.classList.remove('is-intro');
+        // ↑ 目印をはずす → CSS の .intro が display: none にもどって、板が消える
+    };
+
+    // 最後の動き（intro-hide）が終わったら、演出を終わらせる
+    intro.addEventListener('animationend', (event) => {
+        if (event.animationName === 'intro-hide') {
+            endIntro();
+        }
+        // ↑ シールやふたの動きが終わったときにも知らせが来るので、
+        //   名前が intro-hide のときだけ終わらせる
+    });
+
+    // スキップボタンを押したら、すぐ終わらせる
+    const skipBtn = intro.querySelector('.intro__skip');
+    if (skipBtn) {
+        skipBtn.addEventListener('click', endIntro);
+    }
+}

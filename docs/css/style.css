@@ -2109,3 +2109,182 @@ button:focus-visible {
         /* 広がりすぎないように上限をつける */
     }
 }
+
+/* ==================================================
+   18. 最初の手紙の演出（トップページ）
+   ================================================== */
+
+/* ----- 全体の板：ふだんはかくしておく ----- */
+.intro {
+    display: none;
+    /* ↑ JS が「出していいよ」の目印（is-intro）をつけないかぎり、出さない */
+}
+
+/* 目印があるときだけ、画面いっぱいにかぶせる */
+.is-intro .intro {
+    position: fixed;
+    inset: 0;
+    /* ↑ top・right・bottom・left を全部 0 にする書き方 → 画面いっぱい */
+    z-index: 1000;
+    /* ↑ ヘッダー（100）よりもっと手前に出す */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ↑ 封筒を画面のまん中に置く */
+    background-color: var(--color-bg);
+    animation: intro-hide 0.5s ease 2.5s forwards;
+    /* ↑ 2.5秒待ってから、0.5秒でふわっと消える */
+}
+
+/* 演出のあいだは、うしろのページをスクロールさせない */
+.is-intro body {
+    overflow: hidden;
+}
+
+/* ----- 封筒とスキップボタンを包む箱 ----- */
+.intro__inner {
+    display: flex;
+    flex-direction: column;
+    /* ↑ 封筒とボタンを縦にならべる */
+    width: min(320px, 80vw);
+    /* ↑ 封筒と同じはば */
+}
+
+/* ----- 封筒の入れもの ----- */
+.intro__envelope {
+    position: relative;
+    /* ↑ 中の部品（ふた・本体・手紙・シール）の位置の基準にする */
+    width: 100%;
+    /* ↑ min(320px, 80vw) → 100%。はばは外の箱（intro__inner）にまかせる */
+    aspect-ratio: 3 / 2;
+    /* ↑ 横3：縦2 の封筒の形 */
+    perspective: 800px;
+    /* ↑ ふたがパタンと開くとき、立体的（奥行きがあるよう）に見せる */
+}
+
+/* 封筒の本体（手前の部分） */
+.intro__body {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-color: var(--color-bg-sub);
+    border: 1px solid var(--color-line);
+}
+
+/* 封筒のふた（下向きの三角） */
+.intro__flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 55%;
+    background-color: #E6D9C9;
+    /* ↑ 本体より少しだけこい色にして、ふただとわかるようにする */
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    /* ↑ 四角を「左上・右上・下のまん中」の3点で切りぬく → 三角になる */
+    transform-origin: top;
+    /* ↑ 回るときの軸を「上のふち」にする（ここを折り目にして開く） */
+}
+
+/* 中から出てくる手紙 */
+.intro__letter {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    bottom: 8%;
+    left: 8%;
+    z-index: 1;
+    /* ↑ 本体（2）より奥にいるので、最初は見えない */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+}
+
+.intro__letter-text {
+    font-family: var(--font-en);
+    font-size: 20px;
+    letter-spacing: 0.04em;
+}
+
+/* ふたをとめているシール */
+.intro__seal {
+    position: absolute;
+    top: 55%;
+    /* ↑ 三角のふたの、先っぽの高さ */
+    left: 50%;
+    z-index: 4;
+    width: 56px;
+    transform: translate(-50%, -50%);
+    /* ↑ 自分の大きさの半分だけ左上にもどして、ぴったりまん中に置く */
+}
+
+/* ----- 動き（目印があるときだけ動く） ----- */
+
+/* ① シールがふっと消える（0.2秒後から0.2秒） */
+.is-intro .intro__seal {
+    animation: intro-seal 0.3s ease 0.4s forwards;
+    /* ↑ 0.4秒待ってから、0.3秒でシールが消える */
+}
+
+/* ② ふたがパタンと開く（0.3秒後から0.5秒） */
+.is-intro .intro__flap {
+    animation: intro-flap 0.8s ease-in-out 0.6s forwards;
+    /* ↑ 0.6秒待ってから、0.8秒かけてふたが開く */
+}
+
+/* ③ 手紙がすっと上に出る（0.8秒後から0.6秒） */
+.is-intro .intro__letter {
+    animation: intro-letter 0.7s ease-out 1.4s forwards;
+    /* ↑ 1.4秒待ってから、0.7秒かけて手紙が出る */
+}
+
+@keyframes intro-seal {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes intro-flap {
+    to {
+        transform: rotateX(180deg);
+        /* ↑ 上のふちを軸に、180度ひっくり返す → 上向きに開く */
+        z-index: 0;
+        /* ↑ 開いたら、手紙より奥にまわる */
+    }
+}
+
+@keyframes intro-letter {
+    to {
+        transform: translateY(-55%);
+        /* ↑ 自分の高さの55%ぶん、上に動く → 封筒から半分くらい顔を出す */
+    }
+}
+
+@keyframes intro-hide {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        /* ↑ 見えなくするだけでなく、さわれない・Tab でも選べない状態にする */
+    }
+}
+
+/* ----- スキップボタン ----- */
+.intro__skip {
+    align-self: flex-end;
+    /* ↑ 縦ならびの箱の中で、自分だけ右はしに寄せる */
+    margin-top: 16px;
+    /* ↑ 封筒との間を少しあける */
+    min-height: 44px;
+    padding-inline: 12px;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--color-text-sub);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
