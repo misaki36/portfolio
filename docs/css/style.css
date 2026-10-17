@@ -54,15 +54,17 @@ h2,
 h3,
 p,
 ul,
+ol,
 figure {
     margin: 0;
     /* ↑ ブラウザが最初からつけている外側の余白を0にする */
 }
 
-ul {
+ul,
+ol {
     padding: 0;
     list-style: none;
-    /* ↑ リストの「・」と左の余白を消す（メニューなどで使うため） */
+    /* ↑ リストの「・」や数字と、左の余白を消す（メニューや FLOW で使うため） */
 }
 
 img {
@@ -740,6 +742,16 @@ button:focus-visible {
     /* ↑ 「英/名前」：FVのカードの名前と同じ */
 }
 
+/* 「もっと見る」ボタンをまん中に */
+.about__btn {
+    display: flex;
+    /* ↑ inline-flex（文字と同じように横に並ぶ）→ flex（1行まるごと使う箱）にする */
+    width: fit-content;
+    /* ↑ 箱の幅は、中身（ボタン）の大きさぶんだけにする */
+    margin-inline: auto;
+    /* ↑ 左右の余白を自動で同じにする → まん中に置かれる */
+}
+
 .about__role {
     display: flex;
     align-items: center;
@@ -772,6 +784,12 @@ button:focus-visible {
 
 .about__desc {
     margin-top: 32px;
+}
+
+/* 2つ目からの段落だけ、上に少し間をあける */
+.about__desc p+p {
+    margin-top: 1em;
+    /* ↑ 1em = 文字1つぶんの高さ */
 }
 
 .about__btn {
@@ -1542,7 +1560,7 @@ button:focus-visible {
         /* ↑ PC は 40px */
     }
 
-        /* ----- ヘッダー ----- */
+    /* ----- ヘッダー ----- */
     .header__inner {
         height: 64px;
         /* ↑ PC は 96px。スマホは少し低く */
@@ -1624,4 +1642,231 @@ button:focus-visible {
         transform: translateY(-7px) rotate(-45deg);
         /* ↑ 3本目：7px 上げて、反対にかたむける */
     }
+
+    /* ----- FV ----- */
+    .fv {
+        padding-block: 32px 48px;
+    }
+
+    /* 横2列 → 1列。鳥を置く基準にもする */
+    .fv__inner {
+        grid-template-columns: 1fr;
+        position: relative;
+        /* ↑ 鳥（absolute）の場所の基準にする */
+    }
+
+    /* 写真：小さくして左に寄せる */
+    .fv__photo {
+        width: 72%;
+        /* ↑ PC は 100%。数字を小さくするほど写真が小さくなる */
+    }
+
+    /* 名刺カード：写真の右下に重ねて、右に寄せる */
+    .fv__card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 86%;
+        margin: -40px 0 0 auto;
+        /* ↑ 上 -56px で写真に重ねる／左 auto で右に寄せる */
+        padding: 40px 24px 28px;
+    }
+
+    .fv__card-name {
+        font-size: 26px;
+        /* ↑ PC は 32px */
+    }
+
+    /* 鳥：写真の右上のあいた所に置く */
+    .fv__bird {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        z-index: 1;
+        /* ↑ 写真より手前に出す */
+        width: 140px;
+        margin: 0;
+        translate: none;
+        scale: 1;
+    }
+
+    /* キャッチ：鳥がいなくなったぶん、上をつめる */
+    .fv__catch {
+        margin-top: 40px;
+        margin-left: 0;
+        font-size: 26px;
+    }
+
+    .fv__catch-line--indent {
+        padding-left: 2em;
+        /* ↑ 2行目のずらしも少し小さく */
+    }
+
+    /* 文章 */
+    .fv__lead {
+        margin-top: 24px;
+        padding-left: 0;
+        /* ↑ PC の 150px のずらしをやめる */
+        font-size: 14px;
+    }
+
+    .fv__scroll {
+        margin-top: 48px;
+    }
+
+    /* ----- WORKS（トップ） ----- */
+    /* カードを小さくする */
+    .works__list>li {
+        width: 260px;
+        /* ↑ PC は 384px */
+    }
+
+    .works__btn-wrap {
+        margin-top: 40px;
+    }
+
+    /* ----- CONCEPT ----- */
+    /* 横並び → 縦並び（シーリングが上、文章が下） */
+    .concept__body {
+        flex-direction: column;
+        /* ↑ flex の並ぶ向きを「縦」にする */
+        gap: 32px;
+        margin-top: 32px;
+    }
+
+    .concept__seal {
+        width: 180px;
+        /* ↑ PC は 300px */
+        translate: none;
+        /* ↑ PC で左に動かしたのを元に戻す */
+    }
+
+    .concept__heading {
+        font-size: 20px;
+    }
+
+    .concept__desc {
+        font-size: 14px;
+    }
+
+    /* ----- ABOUT ME（トップ） ----- */
+    /* 横並び → 縦並び（写真が上、文章が下） */
+    .about__body {
+        flex-direction: column-reverse;
+        /* ↑ 縦に並べて、さらに順番を逆にする（HTML では文章が先・写真が後なので、写真が上に来る） */
+        align-items: stretch;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .about__photo {
+        width: 240px;
+        /* ↑ PC は 400px */
+        margin-inline: auto;
+        /* ↑ 写真をまん中に置く */
+    }
+
+    .about__name {
+        font-size: 26px;
+    }
+
+    /* ----- FLOW ----- */
+    /* 横5列 → 1列（縦）に */
+    .flow__list {
+        grid-template-columns: 1fr;
+        row-gap: 32px;
+        margin-top: 40px;
+    }
+
+    /* 丸をつなぐ線：横線 → 縦線に */
+    .flow__list::before {
+        top: 32px;
+        bottom: 32px;
+        /* ↑ 1つ目の丸のまん中から、5つ目の丸のまん中まで */
+        left: 32px;
+        /* ↑ 丸（64px）のまん中 */
+        right: auto;
+        width: 1px;
+        height: auto;
+        /* ↑ PC の「横に長い線」の指定を、「縦に長い線」に上書きする */
+    }
+
+    /* 1つの流れ：左に丸、右に見出しと文章 */
+    .flow__item {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        /* ↑ 左は丸の 64px、右は残り全部 */
+        column-gap: 20px;
+        align-items: center;
+        text-align: left;
+    }
+
+    .flow__num {
+        grid-row: 1 / 3;
+        /* ↑ 丸を、見出しと文章の2行ぶんの高さにまたがらせる */
+        width: 64px;
+        height: 64px;
+        font-size: 20px;
+    }
+
+    .flow__title {
+        align-self: end;
+        /* ↑ 見出しを、上の行の下側にそろえる（文章とくっつける） */
+        margin-top: 0;
+        font-size: 16px;
+    }
+
+    .flow__text {
+        align-self: start;
+        margin-top: 4px;
+    }
+
+    .flow__text br {
+        display: none;
+        /* ↑ PC 用の改行は、スマホでは消して自然に折り返す */
+    }
+
+    /* ボタン2つを縦に並べる */
+    .flow__btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-top: 48px;
+    }
+
+    /* ----- フッター ----- */
+    .footer {
+        padding-block: 48px 24px;
+    }
+
+    /* ロゴと名前／メニューを縦に並べる */
+    .footer__top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .footer__name {
+        font-size: 24px;
+    }
+
+    /* フッターのメニュー（header と同じ class なので、.footer を前に付けて区別する） */
+    .footer .header__nav {
+        flex-direction: column;
+        align-self: stretch;
+        /* ↑ メニューの箱を、横いっぱいに広げる */
+        align-items: center;
+        /* ↑ flex-start → center：中のメニューとボタンを、まん中にそろえる */
+        gap: 24px;
+    }
+}
+
+/* 2つ目からの段落だけ、上に少し間をあける */
+.concept__desc p+p {
+    margin-top: 1em;
+}
+
+.concept__desc br {
+    display: none;
+    /* ↑ PC 用の改行を消して、画面の幅で自然に折り返す */
 }
