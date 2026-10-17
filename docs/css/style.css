@@ -1897,6 +1897,84 @@ button:focus-visible {
         /* ↑ PC は 18px */
     }
 
+    /* ===== 私について（about） ===== */
+
+    /* ① ABOUT ME：横ならび → 縦ならび（写真が上、プロフィールが下） */
+    .profile__body {
+        flex-direction: column;
+        align-items: stretch;
+        /* ↑ プロフィールの箱を横いっぱいに広げる */
+        gap: 32px;
+        /* ↑ PC は 160px。スマホでは写真と文の間をせまく */
+        margin-top: 40px;
+    }
+
+    .profile__photo {
+        width: 240px;
+        /* ↑ PC は 400px */
+        margin-inline: auto;
+        /* ↑ 写真をまん中に置く */
+    }
+
+    .profile__text {
+        margin-left: 0;
+        /* ↑ PC で文を右に寄せていたのを、もとにもどす */
+    }
+
+    /* プロフィールの表：項目名の列を少しせまく */
+    .profile__info-row {
+        grid-template-columns: 88px 1fr;
+        /* ↑ PC は 120px */
+    }
+
+    /* ② SKILL */
+    .skill__main {
+        margin-top: 32px;
+        padding: 24px;
+        /* ↑ PC は 40px。箱の中の余白をせまく */
+    }
+
+    .skill__heading {
+        font-size: 18px;
+        /* ↑ PC は 22px */
+    }
+
+    /* 小さい箱：3列 → 1列 */
+    .skill__list {
+        grid-template-columns: 1fr;
+        margin-top: 16px;
+    }
+
+    .skill__card {
+        padding: 24px;
+    }
+
+    /* ③ WORK STYLE：2列 → 1列 */
+    .work-style__list {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+    }
+
+    .work-style__card {
+        padding: 24px;
+        /* ↑ PC は 32px 40px */
+    }
+
+    /* ④ 最後のボタン：横ならび → 縦ならび */
+    .about-cta {
+        margin-top: 64px;
+    }
+
+    .about-cta__text {
+        font-size: 16px;
+    }
+
+    .about-cta__btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
     /* ===== 作品詳細（work-detail） ===== */
 
     /* 上の部分：2列 → 1列（タイトル → 表 → 画像 の順になる） */
