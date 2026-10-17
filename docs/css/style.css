@@ -1975,6 +1975,56 @@ button:focus-visible {
         gap: 16px;
     }
 
+    /* ===== 料金・お問い合わせ（contact） ===== */
+
+    .price-working__grid {
+        grid-template-columns: minmax(0, 1fr);
+        /* ↑ 1fr → minmax(0, 1fr)。中身が広くても、列が画面より広がらないようにする（FV と同じ考え方） */
+        row-gap: 64px;
+    }
+
+    .price__table {
+        margin-top: 32px;
+        table-layout: fixed;
+        /* ↑ 表の幅を「箱の幅（100%）ぴったり」に固定する。中身が長くても表が広がらない */
+    }
+
+    /* マス全部：中の余白をせまく */
+    .price__table th,
+    .price__table td {
+        padding: 16px 12px;
+        /* ↑ PC は 24px。上下 16px・左右 12px */
+    }
+
+    .price__name {
+        width: 30%;
+        /* ↑ auto → 30%。左の列は表の幅の 30% */
+        font-size: 13px;
+    }
+
+    .price__table .price__cost {
+        width: 88px;
+        /* ↑ 料金の列は 88px。残り（まん中の説明）が自動で決まる */
+        font-size: 14px;
+    }
+
+    /* 右：料金 */
+    .price__table .price__cost {
+        font-size: 14px;
+    }
+
+    /* WORKING の表 */
+    .working .profile__info {
+        margin-top: 32px;
+    }
+
+    /* お問い合わせ：フォームの上の一言 */
+    .contact__lead {
+        margin-top: 32px;
+        text-align: left;
+        /* ↑ スマホでは左ぞろえのほうが、2行になっても読みやすい */
+    }
+
     /* ===== 作品詳細（work-detail） ===== */
 
     /* 上の部分：2列 → 1列（タイトル → 表 → 画像 の順になる） */

@@ -49,7 +49,12 @@
                  width と height を書いておくと、画像を読み込む前から場所が確保されて、ページがガタッとずれない -->
             </a>
 
-            <nav class="header__nav" aria-label="メインメニュー">
+            <button class="header__menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav">
+                <!-- ↑ スマホのときだけ出る ≡ ボタン。aria-controls で「global-nav を開け閉めするボタン」と読み上げソフトに伝える -->
+                <span class="header__menu-line"></span><span class="header__menu-line"></span><span class="header__menu-line"></span>
+            </button>
+
+            <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
                 <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 
                 <ul class="header__list">
@@ -75,7 +80,7 @@
                     </li>
                 </ul>
 
-                <a class="header__contact" href="contact.php">
+                <a class="header__contact" href="contact.php#contact">
                     <!-- ↑ お問い合わせボタン -->
                     <span class="header__contact-en">contact</span>
                     <span class="header__contact-ja">お問い合わせ</span>
@@ -145,7 +150,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a class="header__contact" href="contact.php">
+                    <a class="header__contact" href="contact.php#contact">
                         <span class="header__contact-en">contact</span>
                         <span class="header__contact-ja">お問い合わせ</span>
                     </a>
