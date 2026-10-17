@@ -1749,6 +1749,11 @@ button:focus-visible {
         font-size: 14px;
     }
 
+    .concept__desc br {
+        display: none;
+        /* ↑ PC 用の改行を消して、画面の幅で自然に折り返す */
+    }
+
     /* ----- ABOUT ME（トップ） ----- */
     /* 横並び → 縦並び（写真が上、文章が下） */
     .about__body {
@@ -1859,14 +1864,81 @@ button:focus-visible {
         /* ↑ flex-start → center：中のメニューとボタンを、まん中にそろえる */
         gap: 24px;
     }
+
+    /* ===== 制作実績一覧（works） ===== */
+
+    /* タブ全体：見出しとの間を少しつめる */
+    .works-tabs {
+        gap: 4px;
+        margin-top: 32px;
+    }
+
+    /* タブ1つ：5つを同じ幅にして、1行におさめる */
+    .works-tabs__btn {
+        flex: 1;
+        /* ↑ あいている幅を5つで同じだけ分け合う */
+        padding: 10px 4px;
+        /* ↑ PC は 12px 28px。左右をせまくして文字が入るようにする */
+        white-space: nowrap;
+        /* ↑ 「Webサイト」が途中で折り返さないようにする */
+    }
+
+    /* 作品カード：3列 → 2列 */
+    .works-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 16px;
+        /* ↑ 縦の間 32px・横の間 16px */
+        margin-top: 32px;
+    }
+
+    /* 作品タイトルを少し小さく（トップの WORKS のカードにも効く） */
+    .work-card__title {
+        font-size: 16px;
+        /* ↑ PC は 18px */
+    }
+
+    /* ===== 作品詳細（work-detail） ===== */
+
+    /* 上の部分：2列 → 1列（タイトル → 表 → 画像 の順になる） */
+    .detail__overview {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    /* メイン画像を、タイトルより上に出す */
+    .detail__mv {
+        order: -1;
+        /* ↑ 並ぶ順番の番号。ふつうはみんな 0 なので、-1 にすると一番前に来る */
+    }
+
+    /* 目次と本文：2列 → 1列（目次が上、本文が下） */
+    .detail__body {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* 目次：スマホでは画面に貼りつかせない */
+    .detail-toc {
+        position: static;
+        /* sticky を取り消す（本文にかぶらないように） */
+    }
+
+    .detail__nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-top: 64px;
+        /* ↑ PC は 100px。スマホは少しつめる */
+    }
+
+    .detail__nav .btn {
+        width: 100%;
+        max-width: 280px;
+        /* 広がりすぎないように上限をつける */
+    }
 }
 
 /* 2つ目からの段落だけ、上に少し間をあける */
 .concept__desc p+p {
     margin-top: 1em;
-}
-
-.concept__desc br {
-    display: none;
-    /* ↑ PC 用の改行を消して、画面の幅で自然に折り返す */
 }
