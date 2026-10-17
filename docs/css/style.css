@@ -635,25 +635,40 @@ button:focus-visible {
     }
 
     .works__slider {
-        overflow-x: auto;
-        /* ↑ 代わりに、自分で横にスクロールして見られるようにする */
+        margin-top: 48px;
+        overflow: hidden;
+        /* ↑ 窓からはみ出したカードを隠す */
+        padding-block: 16px;
+        /* ↑ 上下に16pxのすき間。大きくなったカードと影が切れないように */
     }
 }
 
 .work-card {
     display: block;
+    transition: transform 0.3s;
+    /* ↑ 大きさの変化を 0.3 秒かけてふわっとさせる */
 }
 
 .work-card__thumb {
     aspect-ratio: 3 / 2;
     /* ↑ 横3：縦2の比率の箱にする */
     background-color: var(--color-bg-sub);
-    transition: opacity 0.3s;
+    transition: box-shadow 0.3s;
+    /* ↑ 影の変化も 0.3 秒かけて */
 }
 
-.work-card:hover .work-card__thumb {
-    opacity: 0.8;
-    /* ↑ カードにマウスを乗せたら、画像を少しうすくする */
+/* マウスが使える画面（パソコン）のときだけ */
+@media (hover: hover) {
+
+    .work-card:hover {
+        transform: scale(1.05);
+        /* ↑ カードを 1.05 倍に大きくする（見た目だけ。まわりのカードは動かない） */
+    }
+
+    .work-card:hover .work-card__thumb {
+        box-shadow: 0 8px 20px rgba(59, 42, 34, 0.12);
+        /* ↑ 画像の下にうすい影をつける */
+    }
 }
 
 .work-card__tag {
@@ -719,7 +734,10 @@ button:focus-visible {
     /* ↑ 文字の大きさや行間は、body に書いた「本文/ふつう」がそのまま効くので書かなくてOK */
 }
 
-
+/* 2つ目からの段落だけ、上に少し間をあける */
+.concept__desc p+p {
+    margin-top: 1em;
+}
 
 /* ==================================================
    10. トップページ：ABOUT ME
@@ -1726,10 +1744,30 @@ button:focus-visible {
     }
 
     /* ----- WORKS（トップ） ----- */
+    /* スマホ：自動で流すのをやめて、指で左右に動かせるようにする */
+    .works__slider {
+        overflow-x: auto;
+        /* ↑ hidden（かくす）→ auto（はみ出たら横にスクロールできる） */
+        scroll-snap-type: x mandatory;
+        /* ↑ 指をはなしたとき、カードの位置でぴたっと止まる */
+    }
+
+    .works__list {
+        animation: none;
+        /* ↑ 自動で流れる動きを止める */
+    }
+
     /* カードを小さくする */
     .works__list>li {
         width: 260px;
         /* ↑ PC は 384px */
+        scroll-snap-align: start;
+        /* ↑ カードの左はしで止まる */
+    }
+
+    /* JavaScript でコピーした後ろの6枚はかくす（スワイプだと同じ作品が2回出てしまうので） */
+    .works__list>li:nth-child(n + 7) {
+        display: none;
     }
 
     .works__btn-wrap {
@@ -2019,11 +2057,6 @@ button:focus-visible {
         font-size: 14px;
     }
 
-    /* 右：料金 */
-    .price__table .price__cost {
-        font-size: 14px;
-    }
-
     /* WORKING の表 */
     .working .profile__info {
         margin-top: 32px;
@@ -2075,9 +2108,4 @@ button:focus-visible {
         max-width: 280px;
         /* 広がりすぎないように上限をつける */
     }
-}
-
-/* 2つ目からの段落だけ、上に少し間をあける */
-.concept__desc p+p {
-    margin-top: 1em;
 }
