@@ -1044,7 +1044,8 @@ button:focus-visible {
 .detail__info-note {
     display: block;
     /* span は横に並ぶので、block にして下の行に出す */
-    font-size: 12px;
+    font-size: 13px;
+    /* ↑ 12px → 13px。内訳は「読ませる文」なので少し大きく */
     color: var(--color-text-sub);
 }
 
@@ -1419,7 +1420,8 @@ button:focus-visible {
 
 /* まん中：説明 */
 .price__desc {
-    font-size: 12px;
+    font-size: 13px;
+    /* ↑ 12px → 13px。料金の説明文 */
     color: var(--color-text-sub);
 }
 
@@ -1436,7 +1438,8 @@ button:focus-visible {
 /* 注意書き */
 .price__note {
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 13px;
+    /* ↑ 12px → 13px。注意書きも読んでほしい文なので */
     color: var(--color-text-sub);
 }
 
@@ -1561,7 +1564,8 @@ button:focus-visible {
 
 .thanks__note {
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 13px;
+    /* ↑ 12px → 13px。迷惑メールの案内は大事なお知らせなので */
     color: var(--color-text-sub);
 }
 
