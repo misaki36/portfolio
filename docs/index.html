@@ -102,40 +102,38 @@
             </button>
 
             <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
+                <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 
-                <nav class="header__nav" aria-label="メインメニュー">
-                    <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
+                <ul class="header__list">
+                    <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
+                    <li>
+                        <a class="header__link" href="works.html">
+                            <span class="header__link-en">works</span>
+                            <span class="header__link-ja">制作実績</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="about.html">
+                            <span class="header__link-en">about me</span>
+                            <span class="header__link-ja">私について</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="contact.php#flow">
+                            <!-- ↑ #flow は「contact.php の中の flow という場所まで飛ぶ」という意味 -->
+                            <span class="header__link-en">flow</span>
+                            <span class="header__link-ja">ご依頼の流れ</span>
+                        </a>
+                    </li>
+                </ul>
 
-                    <ul class="header__list">
-                        <!-- ↑ メニューの並び（ul = 順番のないリスト） -->
-                        <li>
-                            <a class="header__link" href="works.html">
-                                <span class="header__link-en">works</span>
-                                <span class="header__link-ja">制作実績</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="header__link" href="about.html">
-                                <span class="header__link-en">about me</span>
-                                <span class="header__link-ja">私について</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="header__link" href="contact.php#flow">
-                                <!-- ↑ #flow は「contact.php の中の flow という場所まで飛ぶ」という意味 -->
-                                <span class="header__link-en">flow</span>
-                                <span class="header__link-ja">ご依頼の流れ</span>
-                            </a>
-                        </li>
-                    </ul>
+                <a class="header__contact" href="contact.php#contact">
+                    <!-- ↑ お問い合わせボタン -->
+                    <span class="header__contact-en">contact</span>
+                    <span class="header__contact-ja">お問い合わせ</span>
+                </a>
 
-                    <a class="header__contact" href="contact.php#contact">
-                        <!-- ↑ お問い合わせボタン -->
-                        <span class="header__contact-en">contact</span>
-                        <span class="header__contact-ja">お問い合わせ</span>
-                    </a>
-
-                </nav>
+            </nav>
         </div>
     </header>
 
@@ -175,8 +173,7 @@
                 <div class="fv__content">
 
                     <img class="fv__bird" src="images/illust-bird.svg" alt="" width="447" height="259">
-                    <!-- ↑ 鳩の絵。飾りなので alt は空っぽ。あとで線が描かれる動きをつける -->
-
+                    <!-- ↑ 鳩の絵。飾りなので alt は空っぽ -->
                     <h1 class="fv__catch">
                         <!-- ↑ h1 は「ページでいちばん大事な見出し」。1ページに1つだけ使う -->
                         <span class="fv__catch-line">想いが伝わる</span>
@@ -263,8 +260,6 @@
                 <a class="btn btn--sub" href="works.html">一覧を見る</a>
             </div>
 
-            </ul>
-
         </section>
 
         <!-- ========== CONCEPT ========== -->
@@ -291,8 +286,6 @@
                         <p>デザインから公開まで、ひとりで寄り添いながらお手伝いします。</p>
                     </div>
                 </div>
-
-            </div>
 
             </div>
 
