@@ -588,6 +588,8 @@ button:focus-visible {
     margin-top: 48px;
     overflow: hidden;
     /* ↑ 窓からはみ出したカードを隠す */
+    padding-block: 16px;
+    /* ↑ 上下に16pxのすき間。大きくなったカードと影が切れないように */
 }
 
 .works__list {
@@ -637,11 +639,8 @@ button:focus-visible {
     }
 
     .works__slider {
-        margin-top: 48px;
-        overflow: hidden;
-        /* ↑ 窓からはみ出したカードを隠す */
-        padding-block: 16px;
-        /* ↑ 上下に16pxのすき間。大きくなったカードと影が切れないように */
+        overflow-x: auto;
+        /* ↑ 代わりに、自分で横にスクロールして見られるようにする */
     }
 }
 
@@ -987,7 +986,7 @@ button:focus-visible {
     letter-spacing: 0.04em;
 }
 
-/* 作品の種類（#Webサイト） */
+/* 作品の種類（#ホームページ） */
 .detail__tag {
     margin-top: 8px;
     font-size: 12px;
@@ -1929,14 +1928,14 @@ button:focus-visible {
         margin-top: 32px;
     }
 
-    /* タブ1つ：5つを同じ幅にして、1行におさめる */
+    /* タブ1つ：文字の長さに合わせた幅にして、1行におさめる */
     .works-tabs__btn {
         flex: 1 1 auto;
-        /* ↑ あいている幅を5つで同じだけ分け合う */
+        /* ↑ 文字の長さに合わせた幅にしてから、あまった幅を分け合う */
         padding: 10px 4px;
         /* ↑ PC は 12px 28px。左右をせまくして文字が入るようにする */
         white-space: nowrap;
-        /* ↑ 「Webサイト」が途中で折り返さないようにする */
+        /* ↑ 「ホームページ」が途中で折り返さないようにする */
     }
 
     /* 作品カード：3列 → 2列 */
@@ -2078,16 +2077,36 @@ button:focus-visible {
 
     /* ===== 作品詳細（work-detail） ===== */
 
-    /* 上の部分：2列 → 1列（タイトル → 表 → 画像 の順になる） */
+    /* 上の部分：2列 → 1列 */
     .detail__overview {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 0;
+        /* ↑ 32px → 0。間のあけ方は、下でひとつずつ決める */
     }
 
-    /* メイン画像を、タイトルより上に出す */
+    /* 文の箱を消して、中身（タイトル・タグ・表）を外に出す */
+    .detail__summary {
+        display: contents;
+    }
+
+    /* 並ぶ順番：タイトル → タグ → 画像 → 表 */
+    .detail__title {
+        order: 1;
+    }
+
+    .detail__tag {
+        order: 2;
+    }
+
     .detail__mv {
-        order: -1;
-        /* ↑ 並ぶ順番の番号。ふつうはみんな 0 なので、-1 にすると一番前に来る */
+        order: 3;
+        margin-top: 24px;
+        /* ↑ タグと画像の間 */
+    }
+
+    .detail__info {
+        order: 4;
+        /* ↑ 画像との間は、PC で決めた margin-top: 32px がそのまま効く */
     }
 
     /* 目次と本文：2列 → 1列（目次が上、本文が下） */

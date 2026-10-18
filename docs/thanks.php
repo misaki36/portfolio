@@ -106,7 +106,7 @@
                     <!-- ↓ div.thanks__body の1段内側 -->
                     <p class="thanks__text">
                         <span class="thanks__phrase">お問い合わせいただき、</span><span class="thanks__phrase">ありがとうございます。</span><br>
-                        <span class="thanks__phrase">内容を確認のうえ、</span><span class="thanks__phrase">土日祝を除き24時間以内に</span><span class="thanks__phrase">にご連絡いたします。</span>
+                        <span class="thanks__phrase">内容を確認のうえ、</span><span class="thanks__phrase">土日祝を除き24時間以内</span><span class="thanks__phrase">にご連絡いたします。</span>
                     </p>
                     <p class="thanks__note">
                         <span class="thanks__phrase">※ しばらくたっても返信がない場合は、</span><span class="thanks__phrase">迷惑メールフォルダもご確認ください。</span>
