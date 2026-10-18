@@ -226,11 +226,11 @@ unset($_SESSION['errors'], $_SESSION['old']);
                         <dl class="profile__info">
                             <div class="profile__info-row">
                                 <dt class="profile__info-term">稼働時間</dt>
-                                <dd class="profile__info-desc">平日 10:00〜14:00、22:00〜2:00</dd>
+                                <dd class="profile__info-desc">平日 10:00〜14:00</dd>
                             </div>
                             <div class="profile__info-row">
                                 <dt class="profile__info-term">ご返信</dt>
-                                <dd class="profile__info-desc">24時間以内（土日祝は翌営業日）</dd>
+                                <dd class="profile__info-desc">土日祝を除き24時間以内</dd>
                             </div>
                             <div class="profile__info-row">
                                 <dt class="profile__info-term">ご連絡方法</dt>

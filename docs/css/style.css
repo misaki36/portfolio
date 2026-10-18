@@ -1931,7 +1931,7 @@ button:focus-visible {
 
     /* タブ1つ：5つを同じ幅にして、1行におさめる */
     .works-tabs__btn {
-        flex: 1;
+        flex: 1 1 auto;
         /* ↑ あいている幅を5つで同じだけ分け合う */
         padding: 10px 4px;
         /* ↑ PC は 12px 28px。左右をせまくして文字が入るようにする */
