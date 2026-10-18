@@ -75,7 +75,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                 <span class="header__menu-line"></span><span class="header__menu-line"></span><span class="header__menu-line"></span>
             </button>
 
-            <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
+                        <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
                 <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 
                 <ul class="header__list">
@@ -99,13 +99,15 @@ unset($_SESSION['errors'], $_SESSION['old']);
                             <span class="header__link-ja">ご依頼の流れ</span>
                         </a>
                     </li>
-
-                    <a class="header__contact" href="contact.php#contact" aria-current="page">
-                        <!-- ↑ お問い合わせボタン -->
-                        <span class="header__contact-en">contact</span>
-                        <span class="header__contact-ja">お問い合わせ</span>
-                    </a>
                 </ul>
+                <!-- ↑ ここで ul を閉じる。お問い合わせボタンは ul の外（nav の中） -->
+
+                <a class="header__contact" href="contact.php#contact" aria-current="page">
+                    <!-- ↑ お問い合わせボタン。このページなので aria-current="page" をつける -->
+                    <span class="header__contact-en">contact</span>
+                    <span class="header__contact-ja">お問い合わせ</span>
+                </a>
+
             </nav>
         </div>
     </header>
