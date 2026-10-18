@@ -99,7 +99,6 @@
 
                 <h1 class="section-title">
                     <span class="section-title__en">THANK YOU</span>
-                    </span>
                     <span class="section-title__ja">送信完了</span>
                 </h1>
 
