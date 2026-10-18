@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 // 道具箱（public の外）を読み込む
@@ -75,7 +76,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                 <span class="header__menu-line"></span><span class="header__menu-line"></span><span class="header__menu-line"></span>
             </button>
 
-                        <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
+            <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
                 <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 
                 <ul class="header__list">
@@ -259,13 +260,13 @@ unset($_SESSION['errors'], $_SESSION['old']);
                 <p class="contact__lead">制作のご依頼・ご相談など、お気軽にお問い合わせください。</p>
 
                 <!-- action="send.php"：送り先。method="post"：中身を見えない形で送る -->
-                 <form class="contact-form" action="send.php" method="post">
+                <form class="contact-form" action="send.php" method="post">
                     <!-- ↓ form の1段内側 -->
 
                     <!-- エラーがあるときだけ、上にまとめのメッセージを出す
                     role="alert" で、読み上げソフトにもすぐ伝わる -->
                     <?php if ($errors): ?>
-                    <p class="contact-form__alert" role="alert">入力内容をご確認ください。</p>
+                        <p class="contact-form__alert" role="alert">入力内容をご確認ください。</p>
                     <?php endif; ?>
 
                     <!-- 合言葉（画面には出ない）。送信するときに一緒に送られる -->
@@ -326,7 +327,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                         <button class="btn btn--main" type="submit">送信する</button>
                     </div>
                 </form>
-                
+
             </div>
         </section>
     </main>

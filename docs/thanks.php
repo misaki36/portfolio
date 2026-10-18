@@ -92,7 +92,7 @@
 
     <!-- ==================== メイン（ページの中身） ==================== -->
     <main>
-            <section class="thanks section">
+        <section class="thanks section">
             <!-- ↓ section の1段内側 -->
             <div class="inner">
                 <!-- ↓ div.inner の1段内側 -->
