@@ -335,7 +335,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
 
         <div class="footer__inner inner">
 
-            <!-- ----- 上の段：ロゴと名前／メニュー ----- -->
+            <!-- ===== 上の段：ロゴと名前／メニュー ===== -->
             <div class="footer__top">
 
                 <a class="footer__brand" href="index.html">
@@ -376,7 +376,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
 
             </div>
 
-            <!-- ----- SNSのリンク ----- -->
+            <!-- ===== SNSのリンク ===== -->
             <ul class="footer__sns">
                 <li>
                     <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
@@ -395,7 +395,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                 </li>
             </ul>
 
-            <!-- ----- コピーライト ----- -->
+            <!-- ===== コピーライト ===== -->
             <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
             <!-- ↑ small は「注意書き・著作権表示」に使うタグ。&copy; は © マークを表す書き方 -->
 
