@@ -18,12 +18,14 @@
     /* base/白 */
     --color-text: #3B2A22;
     /* text/メイン */
-    --color-text-sub: #8A7A6E;
-    /* text/サブ */
-    --color-accent: #9C6B4E;
-    /* accent/スタンプ */
+    --color-text-sub: #706157;
+    /* text/サブ（読みやすさの基準 4.5:1 を満たすよう、#8A7A6E から少しこくした） */
+    --color-accent: #895B40;
+    /* accent/スタンプ（読みやすさの基準 4.5:1 を満たすよう、#9C6B4E から少しこくした） */
     --color-line: #E4DAD0;
     /* line/線 */
+    --color-line-strong: #9E8D7F;
+    /* 入力欄のわく線（さわる部品は、背景との差 3:1 以上が目安） */
     --color-error: #B5483A;
     /* エラー（入力まちがい）の色 */
 
@@ -1479,7 +1481,8 @@ button:focus-visible {
     width: 100%;
     margin-top: 8px;
     padding: 12px 16px;
-    border: 1px solid var(--color-line);
+    border: 1px solid var(--color-line-strong);
+    /* ↑ 入力欄の場所がわかるように、ほかの線より少しこい色にする */
     background-color: var(--color-white);
     font-family: inherit;
     font-size: 16px;
