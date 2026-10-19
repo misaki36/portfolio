@@ -1587,6 +1587,29 @@ button:focus-visible {
    ================================================== */
 @media (max-width: 1100px) {
 
+    /* ----- 共通：セクションの上下の余白 ----- */
+    .section {
+        padding-block: 72px;
+        /* ↑ PC は 100px、スマホは 56px。タブレットはそのあいだ */
+    }
+
+    /* ----- FV の上下 ----- */
+    .fv {
+        padding-block: 64px 0;
+        /* ↑ PC は 80px 64px。下は WORKS の上の余白にまかせて 0 に */
+    }
+
+    .fv__scroll {
+        margin-top: 64px;
+        /* ↑ PC は 120px */
+    }
+
+    /* ----- FLOW：見出しと丸の間 ----- */
+    .flow__list {
+        margin-top: 48px;
+        /* ↑ PC は 64px */
+    }
+
     /* ----- ヘッダー：メニューの間を少しつめる ----- */
     .header__nav {
         gap: 24px;
@@ -1632,6 +1655,8 @@ button:focus-visible {
         /* ↑ 上 -80px で写真に重ねる／左 auto で右に寄せる */
         padding: 56px 48px 44px;
         /* ↑ PC は 48px 40px 36px。中の余白も少し広く */
+        max-width: 440px;
+        /* ↑ 55% で広がっても、440px より長くはしない */
     }
 
     /* 鳩：写真の右上のあいた所に置く */
@@ -1701,6 +1726,26 @@ button:focus-visible {
            → 1 行の見出しも 2 行ぶんの場所をとるので、下の説明文の位置がそろう */
         font-size: 16px;
         /* ↑ PC は 18px */
+    }
+}
+
+/* ----- 広めのタブレット（901px〜1100px） ----- */
+@media (min-width: 901px) and (max-width: 1100px) {
+
+    /* キャッチ：名刺の横に引っぱり上げて、左にそろえる */
+    .fv__catch {
+        margin-top: -96px;
+        margin-inline: 0;
+    }
+
+    /* 文章：キャッチの下で、左にそろえる */
+    .fv__lead {
+        text-align: left;
+    }
+
+    /* FLOW：この広さなら見出しが全部 1 行に入るので、2 行ぶんの高さはいらない */
+    .flow__title {
+        min-height: 0;
     }
 }
 
