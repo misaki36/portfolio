@@ -108,6 +108,8 @@ body {
     font-size: 16px;
     line-height: 1.8;
     /* ↑ Figmaの「本文/ふつう」と同じ：Zen Kaku Gothic New・16px・行間180% */
+    text-wrap: pretty;
+    /* ↑ 文章の最後の行が 1〜2 文字だけにならないように、ブラウザが折り返しを調整してくれる */
 }
 
 
@@ -1727,6 +1729,32 @@ button:focus-visible {
         font-size: 16px;
         /* ↑ PC は 18px */
     }
+
+    /* ===== 私について（about） ===== */
+
+    /* ① ABOUT ME：写真を小さく、間をせまく */
+    .profile__body {
+        gap: 48px;
+        /* ↑ PC は 160px */
+    }
+
+    .profile__photo {
+        width: 280px;
+        /* ↑ PC は 400px */
+    }
+
+    .profile__text {
+        flex: 1;
+        /* ↑ のこりの場所を全部、文章の箱に使う */
+        margin-left: 0;
+        /* ↑ PC で右に寄せていたのをやめる */
+    }
+
+    /* プロフィールの表：項目名の列を少しせまく */
+    .profile__info-row {
+        grid-template-columns: 96px 1fr;
+        /* ↑ PC は 120px */
+    }
 }
 
 /* ----- 広めのタブレット（901px〜1100px） ----- */
@@ -1747,6 +1775,67 @@ button:focus-visible {
     .flow__title {
         min-height: 0;
     }
+}
+
+/* ----- タブレットだけ（768px〜1100px）：スマホには効かない ----- */
+@media (min-width: 768px) and (max-width: 1100px) {
+
+    /* ===== 私について：「初めまして」の文を下に横長で出す ===== */
+
+    /* 写真と文の並べ方を grid（表のような並べ方）に変える */
+    .profile__body {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        grid-template-rows: auto auto auto 1fr;
+        /* ↑ 名前・肩書き・表の 3 行は中身の高さぴったり（auto）
+           4 行目（1fr）は「あまった高さを受け止める行」 */
+        column-gap: 8%;
+        /* ↑ 48px → 8%。画面が広いほど写真との間も広がる
+           （768px で約 58px、1024px で約 79px） */
+        align-items: start;
+        row-gap: 0;
+        /* ↑ たての間をなくす（間はそれぞれの margin にまかせる） */
+    }
+
+    /* 文の箱を消して、中身（名前・表・初めまして）を外に出す */
+    .profile__text {
+        display: contents;
+        /* ↑ 作品詳細のスマホでも使った書き方。箱だけ消えて、中身は残る */
+    }
+
+    /* 写真：左の列で、上から 4 行ぶんにまたがる */
+    .profile__photo {
+        grid-row: 1 / span 4;
+        /* ↑ 3 → 4。あまった高さは 4 行目（1fr）だけに入る
+           → 名前・肩書き・表の間は広がらない */
+    }
+}
+
+/* 文の箱の中身は、ふつうは右の列に置く */
+.profile__text>* {
+    grid-column: 2;
+}
+
+/* 「初めまして」だけは、左はしから右はしまで使う */
+.profile__text>.profile__lead {
+    grid-column: 1 / -1;
+    /* ↑ 1 本目の線から、いちばん最後の線まで → 横いっぱい */
+    margin-top: 40px;
+    /* ↑ 48px → 40px。線の上の余白を少しせまく */
+    text-align: center;
+    /* ↑ 文をまん中そろえ */
+}
+
+/* ===== フッター：全部まん中にそろえる ===== */
+.footer__top {
+    align-items: center;
+    /* ↑ 名前とメニューをまん中に */
+}
+
+.footer__sns {
+    justify-content: center;
+    /* ↑ SNS のマークもまん中に */
+}
 }
 
 /* ==================================================
