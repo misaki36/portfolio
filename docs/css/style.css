@@ -549,6 +549,7 @@ button:focus-visible {
     /* ↑ Figmaの「日/キャッチ」：Medium・40px・行間160%・文字の間4% */
 }
 
+
 .fv__catch-line {
     display: block;
     /* ↑ 1行ずつ、まるごと使う箱にする */
@@ -735,9 +736,9 @@ button:focus-visible {
     /* ↑ 文字の大きさや行間は、body に書いた「本文/ふつう」がそのまま効くので書かなくてOK */
 }
 
-/* 2つ目からの段落だけ、上に少し間をあける */
-.concept__desc p+p {
-    margin-top: 1em;
+/* 言葉のまとまり：この箱の途中では折り返さない */
+.concept__phrase {
+    display: inline-block;
 }
 
 /* ==================================================
@@ -908,6 +909,10 @@ button:focus-visible {
     margin-top: 64px;
 }
 
+/* 言葉のまとまり：この箱の途中では折り返さない */
+.flow__phrase {
+    display: inline-block;
+}
 
 
 /* ==================================================
@@ -1578,15 +1583,137 @@ button:focus-visible {
 }
 
 /* ==================================================
-   17. スマホ対応（画面の幅が 767px 以下のとき）
+   17. タブレット対応（画面の幅が 1100px 以下のとき）
+   ================================================== */
+@media (max-width: 1100px) {
+
+    /* ----- ヘッダー：メニューの間を少しつめる ----- */
+    .header__nav {
+        gap: 24px;
+        /* ↑ PC は 56px */
+    }
+
+    .header__link {
+        width: 88px;
+        /* ↑ PC は 100px */
+    }
+
+    /* ----- フッター：名前の下にメニューを置く ----- */
+    .footer__top {
+        flex-direction: column;
+        /* ↑ 横並び → 縦並び */
+        align-items: flex-start;
+        /* ↑ 左にそろえる */
+        gap: 32px;
+        /* ↑ 名前とメニューの間 */
+    }
+
+    /* ----- FV：2列 → 1列 ----- */
+    .fv__inner {
+        grid-template-columns: 1fr;
+        position: relative;
+        /* ↑ 鳩（absolute）の場所の基準にする */
+    }
+
+    .fv__photo {
+        width: 52%;
+        /* ↑ 60% → 52%。写真を小さくして、名刺を主役にする */
+    }
+
+    /* 名刺カード：写真の右下に重ねる */
+    .fv__card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        /* ↑ PC の「はみ出す位置」の指定を消す */
+        width: 55%;
+        /* ↑ 420px → 55%。画面のはばに合わせて名刺も大きくなる */
+        margin: -80px 0 0 auto;
+        /* ↑ 上 -80px で写真に重ねる／左 auto で右に寄せる */
+        padding: 56px 48px 44px;
+        /* ↑ PC は 48px 40px 36px。中の余白も少し広く */
+    }
+
+    /* 鳩：写真の右上のあいた所に置く */
+    .fv__bird {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 30%;
+        /* ↑ 260px → 30%。画面が広いと鳩も大きく、せまいと小さく */
+        translate: none;
+        scale: 1.4;
+        /* ↑ 1 → 見た目だけ 1.4 倍に大きくする */
+        transform-origin: right center;
+        /* ↑ 大きくするときの基準を「右のまん中」にする
+         → 左に向かって広がるので、画面の右からはみ出さない */
+    }
+
+    .fv__catch {
+        width: fit-content;
+        /* ↑ 箱のはばを「いちばん長い行」のはばにする */
+        margin-top: 64px;
+        /* ↑ PC は -100px（鳩に重ねていた）。1列になったので下にあける */
+        margin-inline: auto;
+        /* ↑ 左右の外側の余白を自動に → ずらした形のまま、かたまりごとまん中に */
+        font-size: 34px;
+        /* ↑ PC は 40px */
+    }
+
+
+    .fv__lead {
+        margin-top: 32px;
+        padding-left: 0;
+        /* ↑ PC の 150px のずらしをやめる */
+        text-align: center;
+        /* ↑ 文章をまん中そろえ */
+    }
+
+    /* ----- CONCEPT：封ろうを小さく、間をつめる ----- */
+    .concept__body {
+        gap: 56px;
+        /* ↑ PC は 120px */
+    }
+
+    .concept__seal {
+        width: 220px;
+        /* ↑ PC は 300px */
+        translate: none;
+        /* ↑ 左へのずらしをやめる → はみ出しが直る */
+    }
+
+    /* ----- ABOUT ME：写真を小さく、間をつめる ----- */
+    .about__body {
+        gap: 48px;
+        /* ↑ PC は 80px */
+    }
+
+    .about__photo {
+        width: 300px;
+        /* ↑ PC は 400px */
+    }
+
+    .flow__title {
+        min-height: 3em;
+        /* ↑ 見出しの箱を、最低でも 2 行ぶんの高さにする
+           （文字 1 行の高さ 1.5 × 2 行 = 3em）
+           → 1 行の見出しも 2 行ぶんの場所をとるので、下の説明文の位置がそろう */
+        font-size: 16px;
+        /* ↑ PC は 18px */
+    }
+}
+
+/* ==================================================
+   18. スマホ対応（画面の幅が 767px 以下のとき）
    ================================================== */
 @media (max-width: 767px) {
     /* ↓ @media の1段内側に、上書きしたい CSS を書いていく */
 
     /* ----- 共通：セクションの上下の余白をせまく ----- */
     .section {
-        padding-block: 64px;
-        /* ↑ PC は 100px。スマホは画面が小さいので少しせまく */
+        padding-block: 56px;
+        /* ↑ PC は 100px。64px → 56px にして、スクロールを少なく */
     }
 
     /* ----- 共通：英語の大見出しを少し小さく ----- */
@@ -1680,7 +1807,11 @@ button:focus-visible {
 
     /* ----- FV ----- */
     .fv {
-        padding-block: 32px 48px;
+        padding-block: 24px 0;
+        /* ↑ 上 24px／下 0（下の WORKS の上の余白 56px だけで十分なので） */
+        overflow-x: clip;
+        /* ↑ FV の左右からはみ出した部分を切る
+           → 鳩の透明な余白が画面の外に出ても、横スクロールにならない */
     }
 
     /* 横2列 → 1列。鳥を置く基準にもする */
@@ -1690,21 +1821,22 @@ button:focus-visible {
         /* ↑ 鳥（absolute）の場所の基準にする */
     }
 
-    /* 写真：小さくして左に寄せる */
+    /* 写真：スマホではかくす（名刺を主役にする） */
     .fv__photo {
-        width: 72%;
-        /* ↑ PC は 100%。数字を小さくするほど写真が小さくなる */
+        display: none;
     }
 
-    /* 名刺カード：写真の右下に重ねて、右に寄せる */
+    /* 名刺カード：まん中に置く */
     .fv__card {
         position: relative;
         right: auto;
         bottom: auto;
+        /* ↑ 56px → auto。見た目だけ動かすのをやめる（空白が残らないように） */
         width: 86%;
-        margin: -40px 0 0 auto;
-        /* ↑ 上 -56px で写真に重ねる／左 auto で右に寄せる */
+        margin: 16px auto 0;
+        /* ↑ 72px → 16px。上の余白そのものをへらして、名刺を本当に上に上げる */
         padding: 40px 24px 28px;
+        text-align: center;
     }
 
     .fv__card-name {
@@ -1712,23 +1844,29 @@ button:focus-visible {
         /* ↑ PC は 32px */
     }
 
-    /* 鳥：写真の右上のあいた所に置く */
+    /* 「桑本 美咲 | Web Designer」の行もまん中に */
+    .fv__card-role {
+        justify-content: center;
+        /* ↑ この行は flex で横に並べているので、text-align ではなくこっちでまん中にする */
+    }
+
+    /* 鳥：右上から飛んできて、名刺の角に少し重なる */
     .fv__bird {
         position: absolute;
-        top: 0px;
-        right: 0;
+        top: -37px;
+        right: -42px;
         z-index: 1;
-        /* ↑ 写真より手前に出す */
-        width: 140px;
+        /* ↑ 名刺より手前に出す */
+        width: 223px;
         margin: 0;
         translate: none;
-        scale: 1;
+        scale: 1.2;
+        transform-origin: right center;
     }
 
     /* キャッチ：鳥がいなくなったぶん、上をつめる */
     .fv__catch {
         margin-top: 40px;
-        margin-left: 0;
         font-size: 26px;
     }
 
@@ -1746,7 +1884,8 @@ button:focus-visible {
     }
 
     .fv__scroll {
-        margin-top: 48px;
+        margin-top: 40px;
+        /* ↑ 48px → 40px */
     }
 
     /* ----- WORKS（トップ） ----- */
@@ -1813,7 +1952,7 @@ button:focus-visible {
     /* 横並び → 縦並び（写真が上、文章が下） */
     .about__body {
         flex-direction: column-reverse;
-        /* ↑ 縦に並べて、さらに順番を逆にする（HTML では文章が先・写真が後なので、写真が上に来る） */
+        /* ↑ 縦に並べて、さらに順番を逆にする（写真が上に来る） */
         align-items: stretch;
         gap: 32px;
         margin-top: 40px;
@@ -1873,6 +2012,8 @@ button:focus-visible {
         align-self: end;
         /* ↑ 見出しを、上の行の下側にそろえる（文章とくっつける） */
         margin-top: 0;
+        min-height: 0;
+        /* ↑ タブレットの「2 行ぶんの高さ」をやめる */
         font-size: 16px;
     }
 
@@ -2137,7 +2278,7 @@ button:focus-visible {
 }
 
 /* ==================================================
-   18. 最初の手紙の演出（トップページ）
+   19. 最初の手紙の演出（トップページ）
    ================================================== */
 
 /* ----- 全体の板：ふだんはかくしておく ----- */
