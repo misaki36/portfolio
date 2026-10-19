@@ -1397,6 +1397,12 @@ button:focus-visible {
     grid-template-columns: 96px 1fr;
 }
 
+/* WORKING を右の列の右はしに寄せる（右はしをヘッダーのボタンとそろえる） */
+.working {
+    justify-self: end;
+    /* ↑ grid の中で、自分だけ右はしに寄せる。箱のはばは中身の大きさになる */
+}
+
 /* 表全体 */
 .price__table {
     width: 100%;
@@ -1755,6 +1761,26 @@ button:focus-visible {
         grid-template-columns: 96px 1fr;
         /* ↑ PC は 120px */
     }
+
+    /* ===== 料金・お問い合わせ（contact） ===== */
+
+    .price-working__grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 144px;
+        /* ↑ 64px → 144px。タブレットのセクションの間（72px × 2）とそろえる */
+    }
+
+    /* 縦並びのときは、横いっぱいにもどす */
+    .working {
+        justify-self: stretch;
+        /* ↑ end（右寄せ）をやめて、横いっぱいに広げる */
+    }
+
+    /* サービス名の列を少しせまく */
+    .price__name {
+        width: 200px;
+        /* ↑ PC は 240px */
+    }
 }
 
 /* ----- 広めのタブレット（901px〜1100px） ----- */
@@ -1809,33 +1835,32 @@ button:focus-visible {
         /* ↑ 3 → 4。あまった高さは 4 行目（1fr）だけに入る
            → 名前・肩書き・表の間は広がらない */
     }
-}
 
-/* 文の箱の中身は、ふつうは右の列に置く */
-.profile__text>* {
-    grid-column: 2;
-}
+    /* 文の箱の中身は、ふつうは右の列に置く */
+    .profile__text>* {
+        grid-column: 2;
+    }
 
-/* 「初めまして」だけは、左はしから右はしまで使う */
-.profile__text>.profile__lead {
-    grid-column: 1 / -1;
-    /* ↑ 1 本目の線から、いちばん最後の線まで → 横いっぱい */
-    margin-top: 40px;
-    /* ↑ 48px → 40px。線の上の余白を少しせまく */
-    text-align: center;
-    /* ↑ 文をまん中そろえ */
-}
+    /* 「初めまして」だけは、左はしから右はしまで使う */
+    .profile__text>.profile__lead {
+        grid-column: 1 / -1;
+        /* ↑ 1 本目の線から、いちばん最後の線まで → 横いっぱい */
+        margin-top: 40px;
+        /* ↑ 48px → 40px。線の上の余白を少しせまく */
+        text-align: center;
+        /* ↑ 文をまん中そろえ */
+    }
 
-/* ===== フッター：全部まん中にそろえる ===== */
-.footer__top {
-    align-items: center;
-    /* ↑ 名前とメニューをまん中に */
-}
+    /* ===== フッター：全部まん中にそろえる ===== */
+    .footer__top {
+        align-items: center;
+        /* ↑ 名前とメニューをまん中に */
+    }
 
-.footer__sns {
-    justify-content: center;
-    /* ↑ SNS のマークもまん中に */
-}
+    .footer__sns {
+        justify-content: center;
+        /* ↑ SNS のマークもまん中に */
+    }
 }
 
 /* ==================================================
@@ -2309,8 +2334,8 @@ button:focus-visible {
 
     .price-working__grid {
         grid-template-columns: minmax(0, 1fr);
-        /* ↑ 1fr → minmax(0, 1fr)。中身が広くても、列が画面より広がらないようにする（FV と同じ考え方） */
-        row-gap: 64px;
+        row-gap: 112px;
+        /* ↑ 64px → 112px。ほかのセクションの間（56px × 2）とそろえる */
     }
 
     .price__table {
