@@ -1781,6 +1781,16 @@ button:focus-visible {
         width: 200px;
         /* ↑ PC は 240px */
     }
+
+    /* ===== 作品詳細（work-detail） ===== */
+
+    /* 目次と本文の間をせまく → 本文を広く */
+    .detail__body {
+        grid-template-columns: 200px minmax(0, 1fr);
+        /* ↑ PC は 240px */
+        column-gap: 48px;
+        /* ↑ PC は 100px */
+    }
 }
 
 /* ----- 広めのタブレット（901px〜1100px） ----- */
