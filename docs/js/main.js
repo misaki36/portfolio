@@ -190,3 +190,48 @@ if (intro && root.classList.contains('is-intro')) {
         skipBtn.addEventListener('click', endIntro);
     }
 }
+
+// ==================================================
+// スクロールでふわっと表示（見出し・FLOW）
+// ==================================================
+
+// 「視差効果を減らす」がオンかどうか
+const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// オンの人には何もしない（最初から全部見えている）
+if (!prefersReduce && 'IntersectionObserver' in window) {
+
+    // ふわっと出したいもの：見出しと、FLOW の 1 つ 1 つ
+    const fadeTargets = document.querySelectorAll('.section-title, .flow__item');
+
+    // 見張り役を作る
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            // 画面に入ったら
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // ↑ 目印をつける → CSS でふわっと出る
+                observer.unobserve(entry.target);
+                // ↑ 一度出たら、もう見張らない（何度も動かないように）
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -10% 0px'
+        // ↑ 画面の下から 10% 入ったところで動き始める（出るのが早すぎないように）
+    });
+
+    fadeTargets.forEach((target) => {
+        target.classList.add('fade-in');
+        // ↑ JS が動いたときだけ「出る前の状態」にする
+
+        // FLOW は、同じ列の中で何番目かを数えて、少しずつ遅らせる
+        if (target.classList.contains('flow__item')) {
+            const index = Array.from(target.parentElement.children).indexOf(target);
+            target.style.transitionDelay = `${index * 0.15}s`;
+            // ↑ 1 つ目 0 秒、2 つ目 0.15 秒、3 つ目 0.3 秒…と順番に出る
+        }
+
+        fadeObserver.observe(target);
+        // ↑ 見張りスタート
+    });
+}
