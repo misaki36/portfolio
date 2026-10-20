@@ -192,7 +192,8 @@ if (intro && root.classList.contains('is-intro')) {
 }
 
 // ==================================================
-// スクロールでふわっと表示（見出し・FLOW）
+// スクロールでふわっと表示（全セクション共通のルール）
+// 見出しが出る → 少しおくれて、中身がひとかたまりで出る
 // ==================================================
 
 // 「視差効果を減らす」がオンかどうか
@@ -201,8 +202,9 @@ const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // オンの人には何もしない（最初から全部見えている）
 if (!prefersReduce && 'IntersectionObserver' in window) {
 
-    // ふわっと出したいもの：見出しと、FLOW の 1 つ 1 つ
-    const fadeTargets = document.querySelectorAll('.section-title, .flow__item');
+    // 各セクションの中身（.section の中の .inner のすぐ下にあるもの）を全部集める
+    // :not(.works__slider) … WORKS のカードの列はもともと流れているので、仲間に入れない
+    const fadeTargets = document.querySelectorAll('.section > .inner > :not(.works__slider)');
 
     // 見張り役を作る
     const fadeObserver = new IntersectionObserver((entries, observer) => {
@@ -212,23 +214,22 @@ if (!prefersReduce && 'IntersectionObserver' in window) {
                 entry.target.classList.add('is-visible');
                 // ↑ 目印をつける → CSS でふわっと出る
                 observer.unobserve(entry.target);
-                // ↑ 一度出たら、もう見張らない（何度も動かないように）
+                // ↑ 一度出たら、もう見張らない
             }
         });
     }, {
         rootMargin: '0px 0px -10% 0px'
-        // ↑ 画面の下から 10% 入ったところで動き始める（出るのが早すぎないように）
+        // ↑ 画面の下から 10% 入ったところで動き始める
     });
 
     fadeTargets.forEach((target) => {
         target.classList.add('fade-in');
         // ↑ JS が動いたときだけ「出る前の状態」にする
 
-        // FLOW は、同じ列の中で何番目かを数えて、少しずつ遅らせる
-        if (target.classList.contains('flow__item')) {
-            const index = Array.from(target.parentElement.children).indexOf(target);
-            target.style.transitionDelay = `${index * 0.15}s`;
-            // ↑ 1 つ目 0 秒、2 つ目 0.15 秒、3 つ目 0.3 秒…と順番に出る
+        // 見出しでなければ（＝中身なら）、少しおくらせる
+        if (!target.classList.contains('section-title')) {
+            target.style.transitionDelay = '0.2s';
+            // ↑ 見出しが出てから 0.2 秒あとに、中身が出る
         }
 
         fadeObserver.observe(target);
