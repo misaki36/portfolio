@@ -2468,8 +2468,11 @@ button:focus-visible {
     justify-content: center;
     /* ↑ 封筒を画面のまん中に置く */
     background-color: var(--color-bg);
-    animation: intro-hide 0.5s ease 2.5s forwards;
-    /* ↑ 2.5秒待ってから、0.5秒でふわっと消える */
+}
+
+/* 手紙を名刺に飛ばせなかったときだけ（予備）、今までどおりふわっと消す */
+.is-intro .intro.is-hiding {
+    animation: intro-hide 0.5s ease forwards;
 }
 
 /* 演出のあいだは、うしろのページをスクロールさせない */

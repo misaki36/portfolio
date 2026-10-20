@@ -154,37 +154,141 @@ if (header && menuBtn) {
     });
 }
 
-// ===== 最初の手紙の演出（トップページ） =====
+// ==================================================
+// 最初の手紙の演出：手紙が名刺カードの位置まで飛んでいく
+// ==================================================
 const intro = document.querySelector('.intro');
 const root = document.documentElement;
-// ↑ root は <html> のこと。目印（is-intro）はここについている
 
-// 演出の板があって、目印もついているときだけ動かす
 if (intro && root.classList.contains('is-intro')) {
 
-    // 「もう見たよ」のメモを残す（このタブで次に開いたときは出さない）
+    // 「このタブではもう見た」と記録する（来るたびに 1 回だけ出す）
     try {
         sessionStorage.setItem('introSeen', '1');
-    } catch (e) {
-        // ↑ ブラウザの設定でメモが使えないときは、何もしない
-    }
+    } catch (e) { }
 
-    // 演出を終わらせる
+    const letter = intro.querySelector('.intro__letter');
+    // ↑ 封筒から出てくる手紙
+    const card = document.querySelector('.fv__card');
+    // ↑ FV の名刺カード（ここに向かって飛ぶ）
+
+    let ended = false;
+    // ↑ 演出が終わったかどうかの目印（2 回終わらないように）
+
+    // 演出を終わらせる（板を消して、サイトを見せる）
     const endIntro = () => {
+        if (ended) return;
+        ended = true;
         root.classList.remove('is-intro');
-        // ↑ 目印をはずす → CSS の .intro が display: none にもどって、板が消える
     };
 
-    // 最後の動き（intro-hide）が終わったら、演出を終わらせる
+    // 予備：今までどおり、全体をふわっと消す
+    const fadeOutIntro = () => {
+        intro.classList.add('is-hiding');
+    };
+
+    // 手紙を名刺カードの位置まで飛ばす
+    const flyLetterToCard = () => {
+        // 手紙・名刺がない、または animate() が使えないブラウザなら、予備の動きにする
+        if (!letter || !card || !letter.animate) {
+            fadeOutIntro();
+            return;
+        }
+
+        // ① 今の手紙と名刺カードの、画面の中での位置と大きさを測る
+        const from = letter.getBoundingClientRect();
+        const to = card.getBoundingClientRect();
+        // 名刺カードが画面からはみ出しているときは、飛ばさずに予備の動きにする
+        // （画面の外に飛んでいって、見えなくなるのをふせぐ）
+        if (to.bottom > window.innerHeight || to.top < 0) {
+            fadeOutIntro();
+            return;
+        }
+
+        // ② どれだけ動かして、どれだけ大きくするかを計算する
+        const moveX = (to.left + to.width / 2) - (from.left + from.width / 2);
+        // ↑ 横に動く距離（まん中どうしの差）
+        const moveY = (to.top + to.height / 2) - (from.top + from.height / 2);
+        // ↑ たてに動く距離（まん中どうしの差）
+        const scaleX = to.width / from.width;
+        // ↑ 横に何倍にするか
+        const scaleY = to.height / from.height;
+        // ↑ たてに何倍にするか
+
+        // 今の手紙の位置（封筒から少し上に出た状態）を受けつぐ
+        const nowTransform = getComputedStyle(letter).transform;
+        const start = nowTransform === 'none' ? '' : nowTransform;
+
+        const duration = 900;
+        // ↑ 飛ぶ時間（0.9 秒）
+        const easing = 'cubic-bezier(0.65, 0, 0.35, 1)';
+        // ↑ ゆっくり動き出して、ゆっくり止まる動き方
+
+        // 手紙をいちばん手前に出す（封筒の本体にかくれないように）
+        letter.style.zIndex = '5';
+
+        // ③-1 うしろの板の色を、すき通らせる → サイトが見えてくる
+        intro.animate(
+            [
+                { backgroundColor: getComputedStyle(intro).backgroundColor },
+                { backgroundColor: 'transparent' }
+            ],
+            { duration, easing, fill: 'forwards' }
+        );
+
+        // ③-2 封筒の本体・ふた・スキップボタンを消す
+        intro.querySelectorAll('.intro__body, .intro__flap, .intro__skip').forEach((el) => {
+            el.animate(
+                [{ opacity: 1 }, { opacity: 0 }],
+                { duration: duration / 2, fill: 'forwards' }
+            );
+        });
+
+        // ③-3 手紙の中の文字も消す（名刺の文字と入れかわるので）
+        const letterText = letter.querySelector('.intro__letter-text');
+        if (letterText) {
+            letterText.animate(
+                [{ opacity: 1 }, { opacity: 0 }],
+                { duration: duration / 2, fill: 'forwards' }
+            );
+        }
+
+        // ③-4 手紙を名刺カードの位置・大きさまで動かす
+        const fly = letter.animate(
+            [
+                { transform: start },
+                { transform: `translate(${moveX}px, ${moveY}px) ${start} scale(${scaleX}, ${scaleY})` }
+            ],
+            { duration, easing, fill: 'forwards' }
+        );
+
+        // ④ 動き終わったら、演出を消して、名刺カードの中身をふわっと出す
+        fly.onfinish = () => {
+            if (ended) return;
+            // ↑ スキップされていたら、何もしない
+            endIntro();
+            card.querySelectorAll(':scope > *').forEach((el) => {
+                el.animate(
+                    [{ opacity: 0 }, { opacity: 1 }],
+                    { duration: 500, easing: 'ease' }
+                );
+            });
+        };
+    };
+
+    // CSS の動きが終わったときに呼ばれる
     intro.addEventListener('animationend', (event) => {
+        if (event.animationName === 'intro-letter') {
+            flyLetterToCard();
+            // ↑ 手紙が封筒から出きったら、飛ばす
+        }
         if (event.animationName === 'intro-hide') {
             endIntro();
+            // ↑ 予備の「ふわっと消える」が終わったら、演出を終わらせる
         }
-        // ↑ シールやふたの動きが終わったときにも知らせが来るので、
-        //   名前が intro-hide のときだけ終わらせる
     });
 
-    // スキップボタンを押したら、すぐ終わらせる
+    // スキップボタン：すぐに演出を終わらせる
     const skipBtn = intro.querySelector('.intro__skip');
     if (skipBtn) {
         skipBtn.addEventListener('click', endIntro);
