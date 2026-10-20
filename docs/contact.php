@@ -38,9 +38,24 @@ unset($_SESSION['errors'], $_SESSION['old']);
     <title>料金・お問い合わせ | Kuwamoto Misaki</title>
 
     <meta name="description" content="Webデザイナー桑本美咲へのご依頼の流れ・料金の目安・お問い合わせフォームです。制作のご相談だけでもお気軽にどうぞ。">
-
     <!-- ↑ 検索結果のタイトルの下に出る説明文 -->
 
+    <!-- ===== タブのアイコン（favicon） ===== -->
+    <link rel="icon" href="images/logo-seal.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- ===== SNS や LINE で URL を送ったときの見え方（OGP） ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="料金・お問い合わせ | Kuwamoto Misaki">
+    <!-- ↑ <title> と同じ文 -->
+    <meta property="og:description" content="Webデザイナー桑本美咲へのご依頼の流れ・料金の目安・お問い合わせフォームです。制作のご相談だけでもお気軽にどうぞ。">
+    <!-- ↑ すぐ上の meta description と同じ文 -->
+    <meta property="og:url" content="https://misaki36.github.io/portfolio/contact.php">
+    <!-- ↑ このページの URL -->
+    <meta property="og:image" content="https://misaki36.github.io/portfolio/images/ogp.png">
+    <meta property="og:site_name" content="Kuwamoto Misaki">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->

@@ -19,6 +19,23 @@
     <meta name="description" content="Webデザイナー桑本美咲の制作実績の詳細です。制作の背景やデザインのポイントを紹介しています。">
     <!-- ↑ 検索結果のタイトルの下に出る説明文 -->
 
+    <!-- ===== タブのアイコン（favicon） ===== -->
+    <link rel="icon" href="images/logo-seal.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!--     <!-- ===== SNS や LINE で URL を送ったときの見え方（OGP） ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="作品タイトル | Kuwamoto Misaki">
+    <!-- ↑ <title> と同じ文 -->
+    <meta property="og:description" content="Webデザイナー桑本美咲の制作実績の詳細です。制作の背景やデザインのポイントを紹介しています。">
+    <!-- ↑ すぐ上の meta description と同じ文 -->
+    <meta property="og:url" content="https://misaki36.github.io/portfolio/work-detail.html">
+    <!-- ↑ このページの URL -->
+    <meta property="og:image" content="https://misaki36.github.io/portfolio/images/ogp.png">
+    <meta property="og:site_name" content="Kuwamoto Misaki">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->
@@ -49,11 +66,13 @@
                  width と height を書いておくと、画像を読み込む前から場所が確保されて、ページがガタッとずれない -->
             </a>
 
-            <button class="header__menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav">
+            <button class="header__menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+                aria-controls="global-nav">
                 <!-- ↑ スマホのときだけ出る ≡ ボタン。aria-controls で「global-nav を開け閉めするボタン」と読み上げソフトに伝える -->
-                <span class="header__menu-line"></span><span class="header__menu-line"></span><span class="header__menu-line"></span>
+                <span class="header__menu-line"></span><span class="header__menu-line"></span><span
+                    class="header__menu-line"></span>
             </button>
-            
+
             <nav class="header__nav" id="global-nav" aria-label="メインメニュー">
                 <!-- ↑ nav は「メニュー」という意味のタグ。aria-label で読み上げソフトに名前を伝える -->
 

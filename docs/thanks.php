@@ -19,6 +19,10 @@
     <!-- 完了ページは Google の検索結果に出さない（いきなりこのページに来ても意味がないので） -->
     <meta name="robots" content="noindex">
 
+    <!-- ===== タブのアイコン（favicon） ===== -->
+    <link rel="icon" href="images/logo-seal.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- ↑ 「このあとGoogleのフォントを使うから、先に接続の準備をしておいて」という合図。表示が少し速くなる -->
