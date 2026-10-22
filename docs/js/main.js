@@ -155,7 +155,7 @@ if (header && menuBtn) {
 }
 
 // ==================================================
-// 最初の手紙の演出：手紙が名刺カードの位置まで飛んでいく
+// 最初の手紙の演出：手紙が名刺カードになって飛んでいく
 // ==================================================
 const intro = document.querySelector('.intro');
 const root = document.documentElement;
@@ -170,16 +170,23 @@ if (intro && root.classList.contains('is-intro')) {
     const letter = intro.querySelector('.intro__letter');
     // ↑ 封筒から出てくる手紙
     const card = document.querySelector('.fv__card');
-    // ↑ FV の名刺カード（ここに向かって飛ぶ）
+    // ↑ FV の本物の名刺カード（ここに向かって飛ぶ）
 
     let ended = false;
     // ↑ 演出が終わったかどうかの目印（2 回終わらないように）
+    let flyingCard = null;
+    // ↑ 飛んでいく名刺のコピー（あとで作る）
 
-    // 演出を終わらせる（板を消して、サイトを見せる）
+    // 演出を終わらせる（板とコピーを消して、本物の名刺を見せる）
     const endIntro = () => {
         if (ended) return;
         ended = true;
         root.classList.remove('is-intro');
+        // ↑ これで本物の名刺が見えるようになる
+        if (flyingCard) {
+            flyingCard.remove();
+            // ↑ コピーはもういらないので消す
+        }
     };
 
     // 予備：今までどおり、全体をふわっと消す
@@ -187,7 +194,7 @@ if (intro && root.classList.contains('is-intro')) {
         intro.classList.add('is-hiding');
     };
 
-    // 手紙を名刺カードの位置まで飛ばす
+    // 手紙を名刺のコピーに入れかえて、名刺の位置まで飛ばす
     const flyLetterToCard = () => {
         // 手紙・名刺がない、または animate() が使えないブラウザなら、予備の動きにする
         if (!letter || !card || !letter.animate) {
@@ -195,39 +202,44 @@ if (intro && root.classList.contains('is-intro')) {
             return;
         }
 
-        // ① 今の手紙と名刺カードの、画面の中での位置と大きさを測る
+        // ① 手紙と本物の名刺の、画面の中での位置と大きさを測る
         const from = letter.getBoundingClientRect();
         const to = card.getBoundingClientRect();
-        // 名刺カードが画面からはみ出しているときは、飛ばさずに予備の動きにする
-        // （画面の外に飛んでいって、見えなくなるのをふせぐ）
+
+        // 名刺が画面からはみ出しているときは、飛ばさずに予備の動きにする
         if (to.bottom > window.innerHeight || to.top < 0) {
             fadeOutIntro();
             return;
         }
 
-        // ② どれだけ動かして、どれだけ大きくするかを計算する
-        const moveX = (to.left + to.width / 2) - (from.left + from.width / 2);
-        // ↑ 横に動く距離（まん中どうしの差）
-        const moveY = (to.top + to.height / 2) - (from.top + from.height / 2);
-        // ↑ たてに動く距離（まん中どうしの差）
-        const scaleX = to.width / from.width;
-        // ↑ 横に何倍にするか
-        const scaleY = to.height / from.height;
-        // ↑ たてに何倍にするか
+        // ② 「名刺の大きさ」から見て、手紙は何倍か（たても横も同じ倍率にする → ゆがまない）
+        const scale = from.width / to.width;
+        // ③ 名刺のまん中から見て、手紙のまん中はどれだけずれているか
+        const moveX = (from.left + from.width / 2) - (to.left + to.width / 2);
+        const moveY = (from.top + from.height / 2) - (to.top + to.height / 2);
 
-        // 今の手紙の位置（封筒から少し上に出た状態）を受けつぐ
-        const nowTransform = getComputedStyle(letter).transform;
-        const start = nowTransform === 'none' ? '' : nowTransform;
+        // ④ 本物の名刺をコピーして、本物とまったく同じ場所・大きさに置く
+        flyingCard = card.cloneNode(true);
+        // ↑ cloneNode(true) は「中身ごとまるっとコピー」という意味
+        flyingCard.classList.add('is-flying');
+        flyingCard.setAttribute('aria-hidden', 'true');
+        // ↑ 読み上げソフトには、コピーを読ませない
+        flyingCard.style.left = `${to.left}px`;
+        flyingCard.style.top = `${to.top}px`;
+        flyingCard.style.width = `${to.width}px`;
+        flyingCard.style.height = `${to.height}px`;
+        document.body.appendChild(flyingCard);
+        // ↑ ページに入れる
+
+        // ⑤ 手紙はかくして、コピーと入れかえる
+        letter.style.visibility = 'hidden';
 
         const duration = 1600;
-        // ↑ 飛ぶ時間（1.6 秒）。数字を大きくするとゆっくり、小さくすると速くなる
+        // ↑ 飛ぶ時間（1.6 秒）。好きな数字に変えてOK
         const easing = 'cubic-bezier(0.65, 0, 0.35, 1)';
         // ↑ ゆっくり動き出して、ゆっくり止まる動き方
 
-        // 手紙をいちばん手前に出す（封筒の本体にかくれないように）
-        letter.style.zIndex = '5';
-
-        // ③-1 うしろの板の色を、すき通らせる → サイトが見えてくる
+        // ⑥ うしろの板の色をすき通らせる → サイトが見えてくる
         intro.animate(
             [
                 { backgroundColor: getComputedStyle(intro).backgroundColor },
@@ -236,7 +248,7 @@ if (intro && root.classList.contains('is-intro')) {
             { duration, easing, fill: 'forwards' }
         );
 
-        // ③-2 封筒の本体・ふた・スキップボタンを消す
+        // ⑦ 封筒の本体・ふた・スキップボタンを消す
         intro.querySelectorAll('.intro__body, .intro__flap, .intro__skip').forEach((el) => {
             el.animate(
                 [{ opacity: 1 }, { opacity: 0 }],
@@ -244,36 +256,20 @@ if (intro && root.classList.contains('is-intro')) {
             );
         });
 
-        // ③-3 手紙の中の文字も消す（名刺の文字と入れかわるので）
-        const letterText = letter.querySelector('.intro__letter-text');
-        if (letterText) {
-            letterText.animate(
-                [{ opacity: 1 }, { opacity: 0 }],
-                { duration: duration / 2, fill: 'forwards' }
-            );
-        }
-
-        // ③-4 手紙を名刺カードの位置・大きさまで動かす
-        const fly = letter.animate(
+        // ⑧ コピーを「手紙の場所・大きさ」から「本物の名刺の場所・大きさ」まで動かす
+        const fly = flyingCard.animate(
             [
-                { transform: start },
-                { transform: `translate(${moveX}px, ${moveY}px) ${start} scale(${scaleX}, ${scaleY})` }
+                { transform: `translate(${moveX}px, ${moveY}px) scale(${scale})` },
+                // ↑ はじめ：手紙の場所に、手紙の大きさで
+                { transform: 'none' }
+                // ↑ おわり：本物の名刺の場所に、本物の大きさで
             ],
             { duration, easing, fill: 'forwards' }
         );
 
-        // ④ 動き終わったら、演出を消して、名刺カードの中身をふわっと出す
+        // ⑨ 着いたら、本物の名刺と入れかえる
         fly.onfinish = () => {
-            if (ended) return;
-            // ↑ スキップされていたら、何もしない
             endIntro();
-            card.querySelectorAll(':scope > *').forEach((el) => {
-                el.animate(
-                    [{ opacity: 0 }, { opacity: 1 }],
-                    { duration: 800, easing: 'ease' }
-                    // ↑ 名刺の中身（封ろう・from・名前）がふわっと出る時間（0.8 秒）
-                );
-            });
         };
     };
 

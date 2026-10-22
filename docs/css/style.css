@@ -2487,6 +2487,20 @@ button:focus-visible {
     /* ↑ 見えないけど、場所はそのまま残る → JS で位置を測れる */
 }
 
+/* 飛んでいく名刺のコピー（JS が作る） */
+.is-intro .fv__card.is-flying {
+    position: fixed;
+    /* ↑ 画面に対して場所を決める（場所は JS で入れる） */
+    right: auto;
+    bottom: auto;
+    margin: 0;
+    /* ↑ 本物の名刺についている位置や余白の指定を消す */
+    z-index: 1001;
+    /* ↑ 演出の板（1000）より手前に出す */
+    visibility: visible;
+    /* ↑ 本物はかくしているけど、コピーは見せる */
+}
+
 /* ----- 封筒とスキップボタンを包む箱 ----- */
 .intro__inner {
     display: flex;
@@ -2533,7 +2547,7 @@ button:focus-visible {
     /* ↑ 回るときの軸を「上のふち」にする（ここを折り目にして開く） */
 }
 
-/* 中から出てくる手紙 */
+/* 中から出てくる手紙（名刺カードを小さくしたような見た目） */
 .intro__letter {
     position: absolute;
     top: 8%;
@@ -2543,16 +2557,43 @@ button:focus-visible {
     z-index: 1;
     /* ↑ 本体（2）より奥にいるので、最初は見えない */
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    /* ↑ 中の文字を、たてのまん中に置く */
+    padding-inline: 12%;
+    /* ↑ 名刺と同じように、左に少しあきを作る */
     background-color: var(--color-white);
     border: 1px solid var(--color-line);
 }
 
-.intro__letter-text {
+/* 手紙の文字（名刺カードの文字を小さくしたもの） */
+.intro__letter-from {
     font-family: var(--font-en);
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--color-text-sub);
+}
+
+.intro__letter-name {
+    margin-top: 8px;
+    font-family: var(--font-en);
+    font-size: 22px;
+    line-height: 1.2;
     letter-spacing: 0.04em;
+}
+
+.intro__letter-role {
+    margin-top: 6px;
+    font-size: 10px;
+    color: var(--color-text-sub);
+}
+
+/* スマホは名刺カードがまん中そろえなので、手紙もまん中にそろえる */
+@media (max-width: 767px) {
+    .intro__letter {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 /* ふたをとめているシール */
