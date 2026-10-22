@@ -219,8 +219,8 @@ if (intro && root.classList.contains('is-intro')) {
         const nowTransform = getComputedStyle(letter).transform;
         const start = nowTransform === 'none' ? '' : nowTransform;
 
-        const duration = 900;
-        // ↑ 飛ぶ時間（0.9 秒）
+        const duration = 1600;
+        // ↑ 飛ぶ時間（1.6 秒）。数字を大きくするとゆっくり、小さくすると速くなる
         const easing = 'cubic-bezier(0.65, 0, 0.35, 1)';
         // ↑ ゆっくり動き出して、ゆっくり止まる動き方
 
@@ -270,7 +270,8 @@ if (intro && root.classList.contains('is-intro')) {
             card.querySelectorAll(':scope > *').forEach((el) => {
                 el.animate(
                     [{ opacity: 0 }, { opacity: 1 }],
-                    { duration: 500, easing: 'ease' }
+                    { duration: 800, easing: 'ease' }
+                    // ↑ 名刺の中身（封ろう・from・名前）がふわっと出る時間（0.8 秒）
                 );
             });
         };

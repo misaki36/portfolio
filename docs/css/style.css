@@ -2480,6 +2480,13 @@ button:focus-visible {
     overflow: hidden;
 }
 
+/* 演出のあいだは、FV の名刺カードをかくしておく
+   （手紙が名刺の位置に着いた瞬間に、本物の名刺と入れかわる） */
+.is-intro .fv__card {
+    visibility: hidden;
+    /* ↑ 見えないけど、場所はそのまま残る → JS で位置を測れる */
+}
+
 /* ----- 封筒とスキップボタンを包む箱 ----- */
 .intro__inner {
     display: flex;
