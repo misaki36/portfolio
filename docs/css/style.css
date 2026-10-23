@@ -82,6 +82,12 @@ a {
     /* ↑ リンクの青色と下線を消して、まわりの文字と同じ色にする */
 }
 
+/* hidden がついたものは、必ずかくす */
+[hidden] {
+    display: none !important;
+    /* ↑ HTML の hidden は、CSS で display を書くと負けてしまうので、ここで必ず勝つようにする */
+}
+
 
 /* ==================================================
    3. ページ全体の基本（本文/ふつう のスタイル）
@@ -698,6 +704,31 @@ button:focus-visible {
     /* ↑ ボタンを真ん中に置く */
 }
 
+/* ----- 準備中のカード ----- */
+
+/* 画像の場所に「Coming soon」をまん中に出す */
+.work-card--soon .work-card__thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ↑ 中の文字を、たて・横ともにまん中に置く */
+}
+
+.work-card__soon {
+    font-family: var(--font-en);
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    color: var(--color-text-sub);
+}
+
+/* 押せないカードなので、マウスを乗せても大きくしない・影も出さない */
+.work-card--soon:hover {
+    transform: none;
+}
+
+.work-card--soon:hover .work-card__thumb {
+    box-shadow: none;
+}
 
 
 /* ==================================================
@@ -978,6 +1009,14 @@ button:focus-visible {
     gap: 48px 24px;
     /* ↑ 縦の間かく48px・横の間かく24px */
     margin-top: 48px;
+}
+
+/* 作品がないときの「準備中」の文 */
+.works-empty {
+    margin-top: 64px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text-sub);
 }
 
 /* ==============================

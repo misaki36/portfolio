@@ -125,16 +125,18 @@
                     <!-- ↑ role="group" と aria-label で、「これは絞り込みのボタンのまとまりだよ」と読み上げソフトに伝える -->
                     <button class="works-tabs__btn is-active" type="button" data-filter="all"
                         aria-pressed="true">すべて</button>
-                    <button class="works-tabs__btn" type="button" data-filter="web" aria-pressed="false">ホームページ</button>
                     <button class="works-tabs__btn" type="button" data-filter="lp" aria-pressed="false">LP</button>
-                    <button class="works-tabs__btn" type="button" data-filter="banner" aria-pressed="false">バナー</button>
                     <button class="works-tabs__btn" type="button" data-filter="flyer" aria-pressed="false">チラシ</button>
+                    <button class="works-tabs__btn" type="button" data-filter="app" aria-pressed="false">Webアプリ</button>
+                    <button class="works-tabs__btn" type="button" data-filter="web" aria-pressed="false">ホームページ</button>
+                    <button class="works-tabs__btn" type="button" data-filter="other" aria-pressed="false">その他</button>
                     <!-- ↑ data-filter は自分でつけた目印。JavaScriptで「どの種類のボタンか」を見分けるのに使う
                    aria-pressed は「今押されているか」を読み上げソフトに伝える（true = 押されている） -->
                 </div>
 
                 <!-- ===== 作品カードの並び ===== -->
-                <ul class="works-grid">
+                <ul class="works-grid" hidden>
+                    <!-- ↑ 作品がそろうまで、hidden で並び全体をかくしておく（公開するときは hidden を消す） -->
 
                     <li data-category="web">
                         <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
@@ -219,6 +221,8 @@
                     </li>
 
                 </ul>
+                <p class="works-empty">作品は現在準備中です。<br>公開まで少々お待ちください。</p>
+                <!-- ↑ 作品を公開したら、この行は消す -->
 
             </div>
 
