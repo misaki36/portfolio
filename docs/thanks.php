@@ -179,7 +179,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <a class="footer__sns-link" href="https://github.com/misaki36" target="_blank" rel="noopener noreferrer">
                         <img src="images/icon-github.svg" alt="" width="24" height="24">
                         <span>github</span>
                     </a>

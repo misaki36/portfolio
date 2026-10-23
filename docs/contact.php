@@ -199,25 +199,41 @@ unset($_SESSION['errors'], $_SESSION['old']);
 
                         <table class="price__table">
                             <tbody>
+                                <!-- 1行 = 1つのメニュー。th が項目名、td が説明と料金 -->
+                                <tr>
+                                    <th class="price__name" scope="row">チラシ・POP制作</th>
+                                    <td class="price__desc">A4片面・印刷データまで</td>
+                                    <td class="price__cost">4,000円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">名刺制作</th>
+                                    <td class="price__desc">片面・印刷データまで</td>
+                                    <td class="price__cost">2,000円〜</td>
+                                </tr>
+                                <tr>
+                                    <th class="price__name" scope="row">メニュー表制作</th>
+                                    <td class="price__desc">カフェ・ネイル・美容院など</td>
+                                    <td class="price__cost">3,000円〜</td>
+                                </tr>
                                 <tr>
                                     <th class="price__name" scope="row">LP制作</th>
                                     <td class="price__desc">1ページ・デザインから公開まで</td>
-                                    <td class="price__cost">〇〇円〜</td>
+                                    <td class="price__cost">20,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">ホームページ制作</th>
                                     <td class="price__desc">5ページ程度・デザインから公開まで</td>
-                                    <td class="price__cost">〇〇円〜</td>
+                                    <td class="price__cost">50,000円〜</td>
                                 </tr>
                                 <tr>
-                                    <th class="price__name" scope="row">バナー制作</th>
-                                    <td class="price__desc">SNS・Web広告用</td>
-                                    <td class="price__cost">〇〇円〜</td>
+                                    <th class="price__name" scope="row">Webアプリ制作</th>
+                                    <td class="price__desc">予約システムなどの小さなツール</td>
+                                    <td class="price__cost">20,000円〜</td>
                                 </tr>
                                 <tr>
-                                    <th class="price__name" scope="row">チラシ・POP制作</th>
-                                    <td class="price__desc">A4片面・印刷データまで</td>
-                                    <td class="price__cost">〇〇円〜</td>
+                                    <th class="price__name" scope="row">Discordボット制作</th>
+                                    <td class="price__desc">サーバー用の便利な機能</td>
+                                    <td class="price__cost">要相談</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">更新・修正</th>
@@ -227,7 +243,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                             </tbody>
                         </table>
 
-                        <p class="price__note">※ 料金は目安です。内容をうかがったうえで、お見積もりをお出しします。</p>
+                        <p class="price__note">※ 料金は目安です（税込）。内容をうかがったうえで、お見積もりをお出しします。<br>上記以外もお気軽にご相談ください。</p>
                     </div>
 
                     <!-- 右：WORKING -->
@@ -251,10 +267,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                                 <dt class="profile__info-term">ご連絡方法</dt>
                                 <dd class="profile__info-desc">メール・Discord</dd>
                             </div>
-                            <div class="profile__info-row">
-                                <dt class="profile__info-term">納期の目安</dt>
-                                <dd class="profile__info-desc">LP：約〇週間〜</dd>
-                            </div>
+                        
                         </dl>
                     </div>
                 </div>
@@ -406,7 +419,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                     </a>
                 </li>
                 <li>
-                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <a class="footer__sns-link" href="https://github.com/misaki36" target="_blank" rel="noopener noreferrer">
                         <img src="images/icon-github.svg" alt="" width="24" height="24">
                         <span>github</span>
                     </a>
