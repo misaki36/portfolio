@@ -278,29 +278,21 @@
 
             </div>
 
-            <!-- ===== SNSのリンク ===== -->
-            <ul class="footer__sns">
-                <li>
-                    <a class="footer__sns-link" href="#" target="_blank" rel="noopener noreferrer">
-                        <!-- ↑ href="#" は仮。あとで自分の Discord のURLに変える
-                   target="_blank" … 新しいタブで開く
-                   rel="noopener noreferrer" … 🔒セキュリティ対策（下で説明） -->
-                        <img src="images/icon-discord.svg" alt="" width="24" height="24">
-                        <span>discord</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="footer__sns-link" href="https://github.com/misaki36" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="images/icon-github.svg" alt="" width="24" height="24">
-                        <span>github</span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- ===== コピーライト ===== -->
-            <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
-            <!-- ↑ small は「注意書き・著作権表示」に使うタグ。&copy; は © マークを表す書き方 -->
+            <!-- ===== 下の段：左にコピーライト、右に GitHub ===== -->
+            <div class="footer__bottom">
+                <!-- ↓ div.footer__bottom の1段内側 -->
+                <small class="footer__copy">&copy; 2026 Kuwamoto Misaki</small>
+                <!-- ↑ small は「著作権表示」に使うタグ。&copy; は © マーク -->
+                <ul class="footer__sns">
+                    <li>
+                        <a class="footer__sns-link" href="https://github.com/misaki36" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/icon-github.svg" alt="" width="24" height="24">
+                            <span>github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
         </div>
     </footer>
