@@ -1629,6 +1629,71 @@ button:focus-visible {
     display: inline-block;
 }
 
+/* ==================== プライバシーポリシーページ ==================== */
+
+/* 本文の箱：横に広がりすぎると読みにくいので、はばをしぼって真ん中に置く */
+.privacy__body {
+    max-width: 760px;
+    margin: 64px auto 0;
+}
+
+/* さいしょのあいさつ文 */
+.privacy__lead {
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* 1つの項目（見出し＋文）。項目どうしのすき間 */
+.privacy__block {
+    margin-top: 48px;
+}
+
+/* 項目の見出し。下にうすい線を引いて区切る */
+.privacy__heading {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgb(0 0 0 / 0.1);
+    /* ↑ 黒を 10% だけ見せた、うすい線 */
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* 項目の文 */
+.privacy__text {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* 「・」つきのリスト */
+.privacy__list {
+    margin-top: 12px;
+    padding-left: 1.5em;
+    /* ↑ 「・」が入るぶん、左を空ける */
+    list-style: disc;
+    /* ↑ disc = 黒い丸の「・」。リセットCSSで消えているので、ここでつけ直す */
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* 文の中のリンク。リンクだとわかるように下線をつける */
+.privacy__link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    /* ↑ 下線を文字から少しはなす */
+}
+
+.privacy__link:hover {
+    opacity: 0.7;
+}
+
+/* 制定日：右によせて、小さくうすい文字に */
+.privacy__date {
+    margin-top: 64px;
+    text-align: right;
+    font-size: 14px;
+    color: var(--color-text-sub);
+}
+
 /* ==================================================
    17. タブレット対応（画面の幅が 1100px 以下のとき）
    ================================================== */
@@ -2482,6 +2547,19 @@ button:focus-visible {
         width: 100%;
         max-width: 280px;
         /* 広がりすぎないように上限をつける */
+    }
+
+    /* プライバシーポリシー：スマホではすき間をせまく */
+    .privacy__body {
+        margin-top: 40px;
+    }
+
+    .privacy__block {
+        margin-top: 40px;
+    }
+
+    .privacy__heading {
+        font-size: 16px;
     }
 }
 
