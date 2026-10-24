@@ -49,6 +49,8 @@ const filterButtons = document.querySelectorAll('.works-tabs__btn');
 
 const workItems = document.querySelectorAll('.works-grid > li');
 // ↑ 作品カード（li）を全部探して、workItems という名前で覚えておく
+const emptyMessage = document.querySelector('.works-empty');
+// ↑ 「この種類の作品は、現在準備中です。」の文を探して、emptyMessage という名前で覚えておく
 
 if (filterButtons.length > 0) {
     // ↑ 「タブが1つ以上あるページだけ、この中を動かす」
@@ -76,6 +78,10 @@ if (filterButtons.length > 0) {
             // ↑ 押されたタブにだけ「選ばれている」目印をつける
 
             // ----- 作品を表示・かくす -----
+            let shownCount = 0;
+            // ↑ 表示したカードの数を数える入れもの。はじめは 0 枚
+            //   let は「あとで中身を変えられる」入れもの（const は変えられない）
+
             workItems.forEach((item) => {
                 const category = item.dataset.category;
                 // ↑ カードの data-category の中身（web など）を取り出す
@@ -83,11 +89,17 @@ if (filterButtons.length > 0) {
                 if (filter === 'all' || filter === category) {
                     item.hidden = false;
                     // ↑ 「すべて」が押されたとき、または種類が合っているときは表示する
+                    shownCount++;
+                    // ↑ 表示したので、1枚ふやす（++ は「1 足す」という意味）
                 } else {
                     item.hidden = true;
                     // ↑ それ以外はかくす
                 }
             });
+            if (emptyMessage) {
+                emptyMessage.hidden = shownCount > 0;
+                // ↑ カードが1枚以上あれば かくす（true）、0枚なら 出す（false）
+            }
         });
     });
 }

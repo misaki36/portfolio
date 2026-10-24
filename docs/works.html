@@ -16,7 +16,7 @@
 
     <title>制作実績 | Kuwamoto Misaki</title>
 
-    <meta name="description" content="Webデザイナー桑本美咲の制作実績一覧です。ホームページ・LP・チラシ・Webアプリなどの作品を掲載しています。ï">
+    <meta name="description" content="Webデザイナー桑本美咲の制作実績一覧です。ホームページ・LP・チラシ・Webアプリなどの作品を掲載しています。">
     <!-- ↑ 検索結果のタイトルの下に出る説明文 -->
 
     <!-- ===== タブのアイコン（favicon） ===== -->
@@ -135,95 +135,23 @@
                 </div>
 
                 <!-- ===== 作品カードの並び ===== -->
-                <ul class="works-grid" hidden>
-                    <!-- ↑ 作品がそろうまで、hidden で並び全体をかくしておく（公開するときは hidden を消す） -->
-
-                    <li data-category="web">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#ホームページ</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
+                <ul class="works-grid">
+                    <!-- ↓ ul の1段内側：カード1枚 = li 1つ -->
                     <li data-category="lp">
                         <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
+                        <a class="work-card" href="work-moon-bloom.html">
+                            <div class="work-card__thumb">
+                                <img src="images/works/moon-bloom/thumb.webp" alt="" width="800" height="553"
+                                    loading="lazy">
+                                <!-- ↑ すぐ下にタイトルがあるので、alt は空っぽ -->
+                            </div>
                             <p class="work-card__tag">#LP</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
+                            <h2 class="work-card__title">Moon Bloom（架空スキンケアのLP）</h2>
                         </a>
                     </li>
-                    <li data-category="banner">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#バナー</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="flyer">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#チラシ</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="web">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#ホームページ</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="lp">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#LP</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="banner">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#バナー</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="flyer">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#チラシ</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-                    <li data-category="web">
-                        <!-- ↑ data-category は作品の種類の目印。タブの data-filter と同じ言葉にそろえる -->
-                        <a class="work-card" href="work-detail.html">
-                            <div class="work-card__thumb"></div>
-                            <p class="work-card__tag">#ホームページ</p>
-                            <h2 class="work-card__title">作品タイトル</h2>
-                            <!-- ↑ h1（WORKS）の中の見出しなので h2 -->
-                        </a>
-                    </li>
-
                 </ul>
-                <p class="works-empty">作品は現在準備中です。<br>公開まで少々お待ちください。</p>
-                <!-- ↑ 作品を公開したら、この行は消す -->
-
+                <!-- 作品がないタブを押したときだけ出す文（ふだんは hidden でかくす） -->
+                <p class="works-empty" hidden>この種類の作品は、現在準備中です。</p>
             </div>
 
         </section>

@@ -238,7 +238,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                                 <tr>
                                     <th class="price__name" scope="row">更新・修正</th>
                                     <td class="price__desc">公開後の文章・画像の差し替えなど</td>
-                                    <td class="price__cost">〇〇円〜</td>
+                                    <td class="price__cost">2,000円〜</td>
                                 </tr>
                             </tbody>
                         </table>

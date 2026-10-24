@@ -674,6 +674,19 @@ button:focus-visible {
     /* ↑ 影の変化も 0.3 秒かけて */
 }
 
+/* サムネイル画像：箱（横3：縦2）いっぱいに、ゆがまないように出す */
+.work-card__thumb {
+    overflow: hidden;
+    /* ↑ 箱からはみ出た部分をかくす */
+}
+
+.work-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ↑ 比率がちがっても、ゆがまずに箱いっぱいに切り取って出す */
+}
+
 /* マウスが使える画面（パソコン）のときだけ */
 @media (hover: hover) {
 
@@ -1064,6 +1077,16 @@ button:focus-visible {
     background-color: var(--color-bg-sub);
 }
 
+/* メイン画像が img のときは、画像の形のまま出す */
+img.detail__mv {
+    aspect-ratio: auto;
+    /* ↑ 16:9 の決まりをやめて、画像そのものの形にする */
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-line);
+    /* ↑ 画像のふちに細い線。白いヘッダー部分と背景のさかいめがわかるように */
+}
+
 /* ③ 基本情報のリスト全体 */
 .detail__info {
     margin: 32px 0 0;
@@ -1199,12 +1222,77 @@ button:focus-visible {
     background-color: var(--color-bg-sub);
 }
 
+/* 本文の画像が img のときは、画像の形のまま出す */
+img.detail__img {
+    aspect-ratio: auto;
+    /* ↑ 2:1 の決まりをやめて、画像そのものの形にする */
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-line);
+}
+
+/* 左にリスト、右にスマホの画像をならべる */
+.detail__split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    /* ↑ 左は残り全部、右は 240px */
+    column-gap: 40px;
+    align-items: start;
+    /* ↑ リストと画像の上をそろえる */
+    margin-top: 16px;
+}
+
+/* 箱の中では、上の余白をなくす（箱に margin-top があるので） */
+.detail__split .detail__list,
+.detail__split .detail__text,
+.detail__split .detail__img {
+    margin-top: 0;
+}
+
+/* スマホの画像のはば。img. をつけて、上の img.detail__img より強くする */
+img.detail__img--sp {
+    width: 100%;
+    /* ↑ 右の列（240px）いっぱい */
+}
+
+/* 横長の画像のときは、文字と画像を半分ずつにする */
+.detail__split--wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* ↑ 左右おなじはば */
+}
+
+/* 箱の中で文が2つ続くときは、2つ目の上だけ少しあける */
+.detail__split-text .detail__text+.detail__text {
+    margin-top: 16px;
+}
+
 /* ⑤ 下のボタン3つ */
 .detail__nav {
     display: flex;
     justify-content: center;
     gap: 24px;
     margin-top: 100px;
+}
+
+/* 架空のブランドです、の注意書き */
+.detail__note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--color-text-sub);
+}
+
+/* 本文の「・」つきリスト */
+.detail__list {
+    margin-top: 16px;
+    padding-left: 1.5em;
+    list-style: disc;
+    /* ↑ リセットCSSで消えている「・」をつけ直す */
+    font-size: 14px;
+}
+
+.detail__list li+li {
+    margin-top: 4px;
+    /* ↑ 2つ目からの項目だけ、上に少し間をあける */
 }
 
 /* ==================================================
@@ -2519,6 +2607,12 @@ button:focus-visible {
         order: 2;
     }
 
+    /* 架空のブランドです：タグのすぐ下に出す */
+    .detail__note {
+        order: 2;
+        /* ↑ タグと同じ番号。同じ番号どうしは HTML の順番になるので、タグの次に出る */
+    }
+
     .detail__mv {
         order: 3;
         margin-top: 24px;
@@ -2568,6 +2662,20 @@ button:focus-visible {
     .privacy__heading {
         font-size: 16px;
     }
+
+
+    /* 作品詳細：リストの下にスマホ画像を、真ん中に */
+    .detail__split {
+        grid-template-columns: minmax(0, 1fr);
+        /* ↑ 2列 → 1列 */
+        row-gap: 24px;
+    }
+
+    img.detail__img--sp {
+        width: 200px;
+        margin-inline: auto;
+    }
+
 }
 
 /* ==================================================
