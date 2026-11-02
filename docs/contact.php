@@ -202,32 +202,32 @@ unset($_SESSION['errors'], $_SESSION['old']);
                                 <!-- 1行 = 1つのメニュー。th が項目名、td が説明と料金 -->
                                 <tr>
                                     <th class="price__name" scope="row">チラシ・POP制作</th>
-                                    <td class="price__desc">A4片面・印刷データまで</td>
+                                    <td class="price__desc">A4片面・印刷データまで<a class="price__sheet" href="files/hearing-flyer.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">4,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">名刺制作</th>
-                                    <td class="price__desc">片面・印刷データまで</td>
+                                    <td class="price__desc">片面・印刷データまで<a class="price__sheet" href="files/hearing-card.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">2,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">メニュー表制作</th>
-                                    <td class="price__desc">カフェ・ネイル・美容院など</td>
+                                    <td class="price__desc">カフェ・ネイル・美容院など<a class="price__sheet" href="files/hearing-menu.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">3,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">LP制作</th>
-                                    <td class="price__desc">1ページ・デザインから公開まで</td>
+                                    <td class="price__desc">1ページ・デザインから公開まで<a class="price__sheet" href="files/hearing-lp.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">20,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">ホームページ制作</th>
-                                    <td class="price__desc">5ページ程度・デザインから公開まで</td>
+                                    <td class="price__desc">5ページ程度・デザインから公開まで<a class="price__sheet" href="files/hearing-hp.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">50,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">Webアプリ制作</th>
-                                    <td class="price__desc">予約システムなどの小さなツール</td>
+                                    <td class="price__desc">予約システムなどの小さなツール<a class="price__sheet" href="files/hearing-app.pdf" download>ヒアリングシート（PDF）</a></td>
                                     <td class="price__cost">20,000円〜</td>
                                 </tr>
                                 <tr>
@@ -243,7 +243,7 @@ unset($_SESSION['errors'], $_SESSION['old']);
                             </tbody>
                         </table>
 
-                        <p class="price__note">※ 料金は目安です（税込）。内容をうかがったうえで、お見積もりをお出しします。<br>上記以外もお気軽にご相談ください。</p>
+                        <p class="price__note">※ 料金は目安です（税込）。内容をうかがったうえで、お見積もりをお出しします。<br>上記以外もお気軽にご相談ください。<br>※ ヒアリングシートは、ご依頼前にご記入いただくと打ち合わせがスムーズです（記入は任意です）。</p>
                     </div>
 
                     <!-- 右：WORKING -->

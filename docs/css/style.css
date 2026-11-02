@@ -1571,6 +1571,25 @@ img.detail__img--sp {
     color: var(--color-text-sub);
 }
 
+/* ヒアリングシート（PDF）のリンク：説明の下の行に、小さめの茶色の文字で出す */
+.price__sheet {
+    display: block;
+    /* ↑ a は文字と同じように横にならぶので、block にして下の行に出す */
+    width: fit-content;
+    /* ↑ 押せる場所を、文字の長さぶんだけにする（行全体が押せちゃわないように） */
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    /* ↑ リンクだとわかるように下線をつけて、文字から少しはなす */
+    transition: opacity 0.3s;
+}
+
+.price__sheet:hover {
+    opacity: 0.7;
+}
+
 /* 右：料金 */
 .price__table .price__cost {
     text-align: right;
@@ -2674,6 +2693,14 @@ img.detail__img--sp {
     img.detail__img--sp {
         width: 200px;
         margin-inline: auto;
+    }
+
+    /* 料金表：ヒアリングシートのリンクを1行におさめる */
+    .price__sheet {
+        font-size: 12px;
+        /* ↑ PC は 13px。スマホは列がせまいので少し小さく */
+        white-space: nowrap;
+        /* ↑ 途中で折り返さない */
     }
 
 }
