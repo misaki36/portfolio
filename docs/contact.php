@@ -202,8 +202,8 @@ unset($_SESSION['errors'], $_SESSION['old']);
                                 <!-- 1行 = 1つのメニュー。th が項目名、td が説明と料金 -->
                                 <tr>
                                     <th class="price__name" scope="row">チラシ・POP制作</th>
-                                    <td class="price__desc">A4片面・印刷データまで<a class="price__sheet" href="files/hearing-flyer.pdf" download>ヒアリングシート（PDF）</a></td>
-                                    <td class="price__cost">4,000円〜</td>
+                                    <td class="price__desc">A4片面・写真5点・修正2回まで・印刷データまで<a class="price__sheet" href="files/hearing-flyer.pdf" download>ヒアリングシート（PDF）</a></td>
+                                    <td class="price__cost">10,000円〜</td>
                                 </tr>
                                 <tr>
                                     <th class="price__name" scope="row">名刺制作</th>
@@ -244,6 +244,8 @@ unset($_SESSION['errors'], $_SESSION['old']);
                         </table>
 
                         <p class="price__note">※ 料金は目安です（税込）。内容をうかがったうえで、お見積もりをお出しします。<br>上記以外もお気軽にご相談ください。<br>※ ヒアリングシートは、ご依頼前にご記入いただくと打ち合わせがスムーズです（記入は任意です）。</p>
+                        <!-- チラシのオプションとモニター価格。上の注意書きと同じ見た目にするため、同じ class を使う -->
+                        <p class="price__note">※ チラシのオプション：写真・画像の追加（6点目から）1点500円／両面 +5,000円〜／地図・SNS用画像 各1,500円／3回目からの修正 1回1,000円<br>※ 最初の3件は、モニター価格（チラシ 7,000円）でお受けします。</p>
                     </div>
 
                     <!-- 右：WORKING -->
