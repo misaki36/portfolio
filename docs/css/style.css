@@ -2967,3 +2967,31 @@ img.detail__img--sp {
     text-underline-offset: 4px;
     cursor: pointer;
 }
+
+/* ===== 私について：WORK STYLE の「時間を記録して、ちょうどいい料金に」の箱 ===== */
+.work-style__time {
+    margin-top: 24px;
+    /* 上の2つの箱とのあいだをあける */
+}
+
+/* 箱の中の文章（手紙のように、行のあいだを広めにして読みやすくする） */
+.work-style__text {
+    margin-top: 12px;
+    line-height: 2;
+}
+
+/* アプリへのリンク */
+.work-style__link {
+    display: inline-block;
+    margin-top: 16px;
+    color: inherit;
+    /* まわりの文字と同じ色にする */
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    /* 下線を文字から少しはなす */
+}
+
+.work-style__link:hover {
+    opacity: 0.7;
+    /* マウスをのせたら少しうすくする */
+}
