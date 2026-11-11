@@ -246,19 +246,21 @@
                                 <li>原因：画像が合計 31MB と重かった</li>
                                 <li>改善：画像を WebP にする・画面の大きさに合った画像を出す（srcset）・フォントの読み込み方を見直す</li>
                                 <li>結果：画像 31MB → 0.9MB、LCP 10.2秒 → 7.9秒</li>
+                                <li>追加の改善：PageSpeed Insights の「LCP の内訳」で原因を調べ、スマホで読みこむ商品画像を小さくした（141KB → 69KB）。LCP 7.3秒
+                                    → 6.9秒</li>
                             </ul>
                         </section>
 
                         <section class="detail__block" id="review">
                             <h2 class="detail__heading">振り返り・今後の改善</h2>
-                            <p class="detail__text">画像を一時保存しておく期間（キャッシュ）は、GitHub Pages
-                                では自分で設定できないため直せませんでした。レンタルサーバーに移したときに設定して、さらに速くしたいです。</p>
-                            <p class="detail__text">サイトの画像は、ChatGPT の画像生成で作ったオリジナルのものです。</p>
+                            <p class="detail__text">スマホのLCPは、まだ約7秒（PageSpeed
+                                Insightsの予想値）です。調べると、画像はすでに軽く、最初に読みこむ画像と日本語フォントが回線を取り合っていることが原因でした。</p>
+                            <p class="detail__text">今後は、日本語フォントの読みこみ方と、最初の画面の背景画像の出し方を見直します。</p>
                         </section>
                     </div>
                 </div>
 
-                <!-- 下のボタン：作品が1つなので「一覧へ戻る」だけ -->
+                <!-- 下のボタン：一覧へ戻る -->
                 <div class="detail__nav">
                     <a class="btn btn--sub" href="works.html">一覧へ戻る</a>
                 </div>
