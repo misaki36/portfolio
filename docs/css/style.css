@@ -2310,8 +2310,8 @@ img.detail__img--sp {
         /* ↑ カードの左はしで止まる */
     }
 
-    /* JavaScript でコピーした後ろの6枚はかくす（スワイプだと同じ作品が2回出てしまうので） */
-    .works__list>li:nth-child(n + 7) {
+    /* JavaScript でコピーした後ろの4枚はかくす（スワイプだと同じ作品が2回出てしまうので） */
+    .works__list>li:nth-child(n + 5) {
         display: none;
     }
 
